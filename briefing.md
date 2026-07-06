@@ -20,7 +20,7 @@ Implementeer doorlinken naar:
 
 ## Succescriterium
 Een werkend concept dat iemand via git kan pullen en dan werkt op localhost, zonder aanvullende configuratie. 
-Bonus (buiten scope, puur als iemand zelf verder wil): op basis van handoff.md + readiness.md een refactor doen en zelf hosten op Vercel of GitHub Pages.
+Bonus (buiten scope, puur als iemand zelf verder wil): op basis van handoff.md + readiness.md een refactor doen en zelf hosten op GitHub Pages.
 
 ## Risks / Rabbit holes
 -
