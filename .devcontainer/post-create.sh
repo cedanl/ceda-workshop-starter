@@ -12,7 +12,6 @@ curl -fsSL https://entire.io/install.sh | bash || echo "⚠ Entire CLI installat
 export PATH="$HOME/.local/bin:$PATH"
 
 echo "── Entire inschakelen voor dit project ──"
-timeout 10 entire enable 2>/dev/null || echo "⚠ entire enable overgeslagen (timeout of fout)"
 
 echo "── Live-preview server installeren ──"
 npm install -g serve || echo "⚠ serve installatie mislukt"
