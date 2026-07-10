@@ -147,6 +147,68 @@
         "label": "Skill: stack-advisor",
         "default_collapsed": true
       }
+    },
+    {
+      "id": "claude-skill-toolu_01YLjXEJHU4dRFoMVfo3gUtm",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "handoff-writer"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 149,
+        "end": 150,
+        "entry_ids": [
+          "e9b2c553-ce4f-4ebc-b96f-4c184ff550c5"
+        ],
+        "tool_use_id": "toolu_01YLjXEJHU4dRFoMVfo3gUtm"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01YLjXEJHU4dRFoMVfo3gUtm"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: handoff-writer",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01WApgMAuZa6otteSxTdnfig",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "readiness-writer"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 170,
+        "end": 171,
+        "entry_ids": [
+          "76c2005e-59d1-4821-8d6d-374e22698821"
+        ],
+        "tool_use_id": "toolu_01WApgMAuZa6otteSxTdnfig"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01WApgMAuZa6otteSxTdnfig"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: readiness-writer",
+        "default_collapsed": true
+      }
     }
   ],
   "initial_attribution": {
