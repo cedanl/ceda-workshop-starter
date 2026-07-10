@@ -99,6 +99,19 @@ main() {
 
     echo ""
     _done "Credentials opgeslagen en geexporteerd."
+
+    # Als het script als subshell draait (niet gesourced), werken de exports
+    # niet in de aanroepende shell. Geef dan een hint.
+    if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+      echo ""
+      _info "Dit script draaide als subshell — voer dit uit om de credentials"
+      _info "in je huidige terminal te laden:"
+      echo ""
+      echo -e "  ${BOLD}source ~/.claude/secrets.sh${RESET}"
+      echo ""
+      _info "Of open gewoon een nieuwe terminal."
+    fi
+
     echo ""
   fi
 

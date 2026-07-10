@@ -4,7 +4,7 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "── Claude Code CLI installeren ──"
-npm install -g @anthropic-ai/claude-code
+npm install -g @anthropic-ai/claude-code --allow-scripts=@anthropic-ai/claude-code
 
 echo "── Entire CLI installeren ──"
 curl -fsSL https://entire.io/install.sh | bash
