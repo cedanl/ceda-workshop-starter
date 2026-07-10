@@ -1,0 +1,227 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "6f0b6f90eba4",
+  "session_id": "40e01863-2dbe-4d2a-9838-787045e6fbe0",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-10T10:06:18.96522832Z",
+  "branch": "workshop/claude-solo",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "readiness.md",
+    "voortgang.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-4-6",
+  "turn_id": "f6ca6ed96e51",
+  "checkpoint_transcript_start": 168,
+  "transcript_lines_at_start": 168,
+  "compact_transcript_start": 48,
+  "token_usage": {
+    "input_tokens": 5,
+    "cache_creation_tokens": 2575,
+    "cache_read_tokens": 490172,
+    "output_tokens": 1948,
+    "api_call_count": 4
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_017kFYEfHkkZtGv3Z55Rjnhz",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "onboarding"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 12,
+        "end": 13,
+        "entry_ids": [
+          "d227f846-e126-4e2c-ae61-c7f3325ff703"
+        ],
+        "tool_use_id": "toolu_017kFYEfHkkZtGv3Z55Rjnhz"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_017kFYEfHkkZtGv3Z55Rjnhz"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: onboarding",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01NtQwwnANUc8sUAF4tMGWFx",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "ui-concept-builder"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 34,
+        "end": 35,
+        "entry_ids": [
+          "4e8c38c6-8ef1-4c54-b6e1-c00625925b0c"
+        ],
+        "tool_use_id": "toolu_01NtQwwnANUc8sUAF4tMGWFx"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01NtQwwnANUc8sUAF4tMGWFx"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: ui-concept-builder",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01PRoMyVRxtLHTm1qcshMQk6",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "content-drafter"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 82,
+        "end": 83,
+        "entry_ids": [
+          "53705e10-0097-46a4-9e74-640301bfef57"
+        ],
+        "tool_use_id": "toolu_01PRoMyVRxtLHTm1qcshMQk6"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01PRoMyVRxtLHTm1qcshMQk6"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: content-drafter",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01GSKDdz8QdN1EMXgoMyqjEA",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "stack-advisor"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 125,
+        "end": 126,
+        "entry_ids": [
+          "bdadbf9f-2854-4da9-adac-e351991a088d"
+        ],
+        "tool_use_id": "toolu_01GSKDdz8QdN1EMXgoMyqjEA"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01GSKDdz8QdN1EMXgoMyqjEA"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: stack-advisor",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01YLjXEJHU4dRFoMVfo3gUtm",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "handoff-writer"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 149,
+        "end": 150,
+        "entry_ids": [
+          "e9b2c553-ce4f-4ebc-b96f-4c184ff550c5"
+        ],
+        "tool_use_id": "toolu_01YLjXEJHU4dRFoMVfo3gUtm"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01YLjXEJHU4dRFoMVfo3gUtm"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: handoff-writer",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01WApgMAuZa6otteSxTdnfig",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "readiness-writer"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 170,
+        "end": 171,
+        "entry_ids": [
+          "76c2005e-59d1-4821-8d6d-374e22698821"
+        ],
+        "tool_use_id": "toolu_01WApgMAuZa6otteSxTdnfig"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01WApgMAuZa6otteSxTdnfig"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: readiness-writer",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "initial_attribution": {
+    "calculated_at": "2026-07-10T10:06:18.575376365Z",
+    "agent_lines": 80,
+    "agent_removed": 1,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 80,
+    "total_lines_changed": 81,
+    "agent_percentage": 100,
+    "metric_version": 2
+  }
+}
