@@ -3,16 +3,11 @@
 # onboard.sh — Onboarding wizard (CEDA Workshop)
 # =============================================================================
 # Stelt Anthropic Foundry credentials in voor Claude Code en installeert
-# de superpowers plugin.
+# de superpowers plugin. Herstart daarna de shell zodat alles direct werkt.
 #
 # Starten via:  onboard
 # =============================================================================
-
-# Bewaar huidige shell-opties en herstel ze bij exit (voorkomt dat set -u
-# de interactieve shell breekt wanneer dit script gesourced wordt).
-_onboard_oldopts="$(set +o)"
 set -uo pipefail
-trap 'eval "$_onboard_oldopts"; unset _onboard_oldopts' RETURN 2>/dev/null || true
 
 BOLD='\033[1m'
 DIM='\033[2m'
@@ -51,6 +46,8 @@ main() {
   echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════╝${RESET}"
   echo ""
 
+  local needs_reload=false
+
   # ── Stap 1: Foundry credentials ──
 
   local run_creds=true
@@ -76,7 +73,7 @@ main() {
     if [[ -z "$api_key" ]]; then
       _skip "Geen key ingevoerd. Typ ${BOLD}onboard${RESET} om opnieuw te proberen."
       echo ""
-      return 0
+      exit 0
     fi
 
     read -rp "$(echo -e "  ${YELLOW}?${RESET}  Foundry resource naam: ")" resource
@@ -85,11 +82,8 @@ main() {
     if [[ -z "$resource" ]]; then
       _skip "Geen resource naam ingevoerd. Typ ${BOLD}onboard${RESET} om opnieuw te proberen."
       echo ""
-      return 0
+      exit 0
     fi
-
-    export ANTHROPIC_FOUNDRY_API_KEY="$api_key"
-    export ANTHROPIC_FOUNDRY_RESOURCE="$resource"
 
     local secrets="$HOME/.claude/secrets.sh"
     mkdir -p "$(dirname "$secrets")"
@@ -97,21 +91,12 @@ main() {
     printf 'export ANTHROPIC_FOUNDRY_RESOURCE="%s"\n' "$resource" >> "$secrets"
     chmod 600 "$secrets"
 
+    # Credentials laden voor superpowers-installatie hierna
+    source "$secrets"
+
     echo ""
-    _done "Credentials opgeslagen en geexporteerd."
-
-    # Als het script als subshell draait (niet gesourced), werken de exports
-    # niet in de aanroepende shell. Geef dan een hint.
-    if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-      echo ""
-      _info "Dit script draaide als subshell — voer dit uit om de credentials"
-      _info "in je huidige terminal te laden:"
-      echo ""
-      echo -e "  ${BOLD}source ~/.claude/secrets.sh${RESET}"
-      echo ""
-      _info "Of open gewoon een nieuwe terminal."
-    fi
-
+    _done "Credentials opgeslagen."
+    needs_reload=true
     echo ""
   fi
 
@@ -132,7 +117,6 @@ main() {
   echo ""
   _done "Alles klaar!"
   echo ""
-  echo -e "${BOLD}  Beschikbare commando's:${RESET}"
   _info "Typ ${BOLD}claude${RESET}             om te beginnen met bouwen."
   _info "Typ ${BOLD}preview${RESET}            om je site lokaal te bekijken."
   _info "Typ ${BOLD}entire status${RESET}       om je sessie-opnames te zien."
@@ -144,6 +128,11 @@ main() {
   _info "Bekijk opnames: ${BOLD}entire status${RESET} of ${BOLD}entire replay${RESET}"
   _info "Dashboard:      ${DIM}https://app.entire.io${RESET}"
   echo ""
+
+  # Shell herstarten zodat credentials direct beschikbaar zijn
+  if [[ "$needs_reload" == true ]]; then
+    exec bash --login
+  fi
 }
 
 main "$@"

@@ -16,25 +16,31 @@ entire enable 2>/dev/null || true
 echo "── Live-preview server installeren ──"
 npm install -g serve
 
-# ── Shell setup ──
-# Onboard-pad wordt apart geschreven (heeft build-time expansie nodig),
-# de rest gebruikt een quoted heredoc om escaping-fouten te voorkomen.
-echo "" >> ~/.bashrc
-echo "# Onboard shortcut" >> ~/.bashrc
-echo "onboard() { source \"${REPO_ROOT}/.devcontainer/onboard.sh\"; }" >> ~/.bashrc
+# ── onboard + preview als echte executables in PATH ──
+# Geen bashrc-functie nodig — werkt in elke terminal ongeacht shell-config.
 
+cat > "$HOME/.local/bin/onboard" << SCRIPT
+#!/usr/bin/env bash
+source "${REPO_ROOT}/.devcontainer/onboard.sh"
+SCRIPT
+chmod +x "$HOME/.local/bin/onboard"
+
+cat > "$HOME/.local/bin/preview" << 'SCRIPT'
+#!/usr/bin/env bash
+exec serve "${1:-.}" -l 3000
+SCRIPT
+chmod +x "$HOME/.local/bin/preview"
+
+# ── Shell setup ──
 cat >> ~/.bashrc << 'BASHRC'
 
-# Entire CLI
+# Entire CLI + onboard/preview
 export PATH="$HOME/.local/bin:$PATH"
 
 # Foundry credentials laden als die er zijn
 if [[ -f "$HOME/.claude/secrets.sh" ]]; then
   source "$HOME/.claude/secrets.sh"
 fi
-
-# Preview shortcut — start een lokale server voor de statische site
-preview() { serve "${1:-.}" -l 3000; }
 
 # Tip bij eerste terminal als credentials nog niet ingesteld zijn
 if [[ -z "${ANTHROPIC_FOUNDRY_API_KEY:-}" ]] && [[ -z "${_ONBOARD_PROMPTED:-}" ]]; then
