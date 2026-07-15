@@ -1,0 +1,161 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import LogoCloud from '@/components/sections/LogoCloud.astro';
+import Features from '@/components/sections/Features.astro';
+import AIFeature from '@/components/sections/AIFeature.astro';
+import Stats from '@/components/sections/Stats.astro';
+import FAQ from '@/components/sections/FAQ.astro';
+
+const features = [
+  {
+    title: 'For Real Websites',
+    description:
+      'Company sites, blogs, portfolios, landing pages — with working example pages for each. Deliberately not built for dashboards or app-heavy products.',
+    icon: 'globe',
+  },
+  {
+    title: 'AI Guardrails Built In',
+    description:
+      'A convention guard hook blocks off-system edits — hardcoded colors, deprecated patterns — before they ever reach your code.',
+    icon: 'shield',
+  },
+  {
+    title: 'One Design System',
+    description:
+      'OKLCH color tokens, spacing, and typography defined once. Dark mode included — and your AI assistant cannot break it.',
+    icon: 'chart',
+  },
+  {
+    title: 'Docs for Humans & AI',
+    description:
+      'Every task is documented two ways: tell your coding assistant what you want, or follow the manual steps yourself.',
+    icon: 'users',
+  },
+  {
+    title: 'Quality Checks in One Command',
+    description:
+      'npm run check:kpis verifies colors, alt texts, meta descriptions, and deprecated imports. Lighthouse scores of 99-100 out of the box.',
+    icon: 'lock',
+  },
+  {
+    title: 'Astro Performance',
+    description:
+      'Static HTML with islands architecture: fast loads, clean SEO, sitemap and RSS included — what content sites actually need.',
+    icon: 'zap',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Is AstroDeck free?',
+    answer:
+      'Yes. AstroDeck is MIT-licensed and completely free — for personal and commercial projects, forever.',
+  },
+  {
+    question: 'What kind of websites is it for?',
+    answer:
+      'Company and marketing sites, blogs and editorial sites, portfolios, and landing pages. It is deliberately not built for dashboards or app-heavy products.',
+  },
+  {
+    question: 'Which AI tools does it work with?',
+    answer:
+      'Any tool that supports the AGENTS.md standard: Claude Code, Cursor, GitHub Copilot, OpenAI Codex, Gemini CLI, Windsurf, Zed, Aider, and more. Claude Code gets the deepest integration — a dedicated agent, domain skills, slash commands, and the convention guard hook.',
+  },
+  {
+    question: 'Can I use it without AI?',
+    answer:
+      'Absolutely. AstroDeck is a normal, well-documented Astro starter kit. Every task in the docs is shown two ways: with AI and manually.',
+  },
+  {
+    question: 'Do I need to know Astro?',
+    answer:
+      'It helps, but it is not required. If you work with an AI assistant, it knows the conventions from AGENTS.md and does the heavy lifting. If you prefer to code yourself, the docs walk you through every task.',
+  },
+  {
+    question: 'How opinionated is it?',
+    answer:
+      'There is one design-token system (OKLCH colors, spacing, typography) and a set of conventions — that is what keeps AI output consistent. Everything is overridable: your own rules go in PROJECT.md, your own brand goes in globals.css or a DESIGN.md.',
+  },
+];
+---
+
+<BaseLayout
+  title="Astro Starter Kit for AI-Assisted Websites"
+  description="Open-source Astro starter kit for AI-assisted websites. Build company sites, blogs, and portfolios with Claude Code, Cursor & Co. on guarded design rails."
+>
+  <Hero
+    badge="true"
+    title="The starter kit for AI-assisted websites."
+    subtitle="Start from a complete foundation — pages, sections, and a design system — and let <mark>Claude Code, Cursor, or any coding agent</mark> build your <mark>company site, blog, or portfolio</mark>. Conventions via <mark>AGENTS.md</mark>, enforced by <mark>built-in guardrails</mark>, so AI edits never go off-system."
+    prompt="Clone https://github.com/holger1411/astrodeck as the foundation for my new website. Install the dependencies, read AGENTS.md, start the dev server, and give me a short tour of the project."
+    primaryCta={{
+      href: 'https://github.com/holger1411/astrodeck/releases/latest',
+      label: 'Download',
+    }}
+    secondaryCta={{ href: 'https://github.com/holger1411/astrodeck', label: 'GitHub' }}
+  />
+
+  <LogoCloud />
+
+  <AIFeature />
+
+  <div class="section-inverted py-8">
+    <Stats
+      stats={[
+        { value: '16', label: 'Sections', description: 'Hero, pricing, FAQ, team & more' },
+        { value: '11', label: 'UI Components', description: 'shadcn/ui + Radix' },
+        { value: '11', label: 'Example Pages', description: 'SaaS, portfolio, blog & more' },
+        { value: '100', label: 'Lighthouse', description: 'Accessibility, Best Practices & SEO' },
+      ]}
+    />
+  </div>
+
+  <Features
+    title="More than a theme, calmer than an AI builder"
+    subtitle="A complete website foundation — plus the operating layer your AI assistant needs to stay on track."
+    features={features}
+  />
+
+  <div class="bg-muted/30">
+    <FAQ
+      title="Frequently asked questions"
+      subtitle="The short version of everything you might want to know."
+      faqs={faqs}
+    />
+  </div>
+
+  <div class="section-inverted">
+    <section class="py-20 md:py-32 px-6">
+      <div class="container max-w-3xl mx-auto text-center" data-animate="scale">
+        <h2 class="text-3xl font-bold leading-tight md:text-5xl">Start from a clean foundation.</h2>
+        <p class="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          Download AstroDeck, open it in your coding assistant, and say what you want to build. Free
+          and open source — forever.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
+          <a
+            href="https://github.com/holger1411/astrodeck/releases/latest"
+            class="group relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 h-12 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 overflow-hidden"
+          >
+            <span
+              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+              aria-hidden="true"></span>
+            <span
+              class="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-0.5"
+              >Download</span
+            >
+          </a>
+          <a
+            href="https://github.com/holger1411/astrodeck"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-12 px-8"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

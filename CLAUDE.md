@@ -1,13 +1,19 @@
 # CLAUDE.md
 
-Starter-repo voor de CEDA GenAI-workshop: eerste conceptversie van de CEDA-website.
-Twee rollen: Builder (bouwt het concept) en Engineer (stack-advies en readiness, parallel aan de Builder).
-Appetite: 30-40 minuten, vast, geen verlenging.
+This project follows the [AGENTS.md standard](https://agents.md).
 
-Scope is Fase 1 (Idee ↔ Concept). Fase 2 (Concept ↔ Productie) valt buiten scope van de workshop — alleen relevant als bonus, zelf te doen ná de sessie (zie productie-rewrite).
+1. Read **`AGENTS.md`** — all project conventions, patterns, and code standards.
+2. Check **`PROJECT.md`** — project-specific customizations that **override** AGENTS.md defaults.
 
-Succescriterium: werkend concept moet te droppen zijn op vercel.com/drop (static bestanden, geen build-stap) — zie briefing.md.
+## AI layer quick reference
 
-Instructie: roep bij de EERSTE boodschap van een sessie altijd de onboarding-skill aan — die regelt naam, rol en vervolgstappen.
-
-Geen technische aannames voor de Builder-rol: geen git-commando's, geen jargon dat engineering-kennis veronderstelt.
+| What | Where |
+|------|-------|
+| Main agent (quality guardian) | `.claude/agents/astrodeck.md` |
+| Multi-agent review | `/plenum` (`.claude/commands/plenum.md` + 6 review agents) |
+| Commands | `/audit`, `/launch-check`, `/new-page`, `/new-section`, `/theme`, `/plenum` |
+| Domain skills (KPIs + learnings) | `.claude/skills/` |
+| Static convention checks | `npm run check:kpis` (single source of truth) |
+| Convention guard hook | `.claude/hooks/guard-conventions.mjs` (auto-blocks deprecated patterns) |
+| Canonical design decisions | `system/globals/` |
+| Portable audit prompts (any AI tool) | `system/prompts/` |
