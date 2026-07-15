@@ -1,6 +1,14 @@
 # Workshop: CEDA-site bouwen
 
 ## Start-logica
+
+**Stap 0 — Dev server opstarten (altijd, vóór alles)**
+1. Controleer of `node_modules/` bestaat. Zo niet: voer `npm install` uit en wacht tot het klaar is.
+2. Start `npm run dev` op de achtergrond (background process — niet wachten tot het stopt).
+3. Meld aan de gebruiker (vriendelijk, zonder jargon):
+   > "De site draait nu lokaal op **http://localhost:4321** — open dat adres in je browser en houd het tabblad open. Elke wijziging die we straks maken is meteen zichtbaar, je hoeft de pagina niet te verversen."
+
+**Stap 1–3 — PLANNING.md check**
 1. Lees `PLANNING.md`.
 2. **Leeg / niet bestaand** → doorloop Onboarding (blok 1-3) hieronder, maak daarna `PLANNING.md` aan met stap 1 als actief.
 3. **Gevuld** → skip onboarding volledig, ga direct naar de daarin genoteerde actieve stap in Stappen (blok 4).
