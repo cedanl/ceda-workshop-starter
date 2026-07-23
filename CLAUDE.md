@@ -7,6 +7,8 @@
 2. Start `npm run dev` op de achtergrond (background process — niet wachten tot het stopt).
 3. Meld aan de gebruiker (vriendelijk, zonder jargon):
    > "De site draait nu lokaal op **http://localhost:4321** — open dat adres in je browser en houd het tabblad open. Elke wijziging die we straks maken is meteen zichtbaar, je hoeft de pagina niet te verversen."
+4. Controleer de huidige branch via `git branch --show-current`.
+   - Als de branch **niet** begint met `workshop/`: meld vriendelijk dat ze nog geen persoonlijke branch hebben en stel voor om `bash scripts/setup.sh` te draaien. Dit is **optioneel** — ze mogen doorgaan op `main`, maar aan het einde wordt dan alsnog een branch + PR aangemaakt.
 
 **Stap 1–3 — PLANNING.md check**
 1. Lees `PLANNING.md`.
@@ -58,6 +60,16 @@ Zodra stap 1–5 klaar zijn (of alleen stap 6 nog open staat):
 
 ## Afsluiting (blok 5 — eindpunt, geen resume meer)
 Skill: sessie-reflectie — wat is gebouwd, welke stappen/skills gebruikt, wat geleerd over process tailoring.
+
+**PR aanmaken (altijd, als laatste stap van afsluiting)**
+1. Controleer huidige branch via `git branch --show-current`.
+2. Als de branch **niet** begint met `workshop/`: draai `bash scripts/setup.sh` — dit maakt alsnog een persoonlijke branch aan en pusht die.
+3. Zorg dat alle wijzigingen gecommit en gepusht zijn.
+4. Maak een PR aan via:
+   ```
+   gh pr create --base main --title "Workshop: <GitHub username>" --body "Resultaat van de CEDA workshop."
+   ```
+5. Deel de PR-link met de gebruiker zodat ze die kunnen inleveren.
 
 ---
 
