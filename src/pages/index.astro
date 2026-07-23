@@ -1,161 +1,295 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Hero from '@/components/sections/Hero.astro';
-import LogoCloud from '@/components/sections/LogoCloud.astro';
-import Features from '@/components/sections/Features.astro';
-import AIFeature from '@/components/sections/AIFeature.astro';
-import Stats from '@/components/sections/Stats.astro';
-import FAQ from '@/components/sections/FAQ.astro';
 
-const features = [
+// CEDA: Center for Educational Data Analytics
+// Concept homepage in an original corporate-comic-strip style (black & white,
+// thick panel borders, deadpan office humor). Uses semantic color tokens only,
+// so it works in light and dark mode.
+
+const links = [
   {
-    title: 'For Real Websites',
-    description:
-      'Company sites, blogs, portfolios, landing pages — with working example pages for each. Deliberately not built for dashboards or app-heavy products.',
-    icon: 'globe',
+    href: 'https://github.com/cedanl',
+    label: 'GitHub',
+    caption: 'Alle code. Open. Ja, ook de lelijke stukken.',
   },
   {
-    title: 'AI Guardrails Built In',
-    description:
-      'A convention guard hook blocks off-system edits — hardcoded colors, deprecated patterns — before they ever reach your code.',
-    icon: 'shield',
+    href: 'https://npuls.nl/',
+    label: 'Npuls',
+    caption: 'Het grotere plan. Wij zijn een tandwiel. Een leuk tandwiel.',
   },
   {
-    title: 'One Design System',
-    description:
-      'OKLCH color tokens, spacing, and typography defined once. Dark mode included — and your AI assistant cannot break it.',
-    icon: 'chart',
-  },
-  {
-    title: 'Docs for Humans & AI',
-    description:
-      'Every task is documented two ways: tell your coding assistant what you want, or follow the manual steps yourself.',
-    icon: 'users',
-  },
-  {
-    title: 'Quality Checks in One Command',
-    description:
-      'npm run check:kpis verifies colors, alt texts, meta descriptions, and deprecated imports. Lighthouse scores of 99-100 out of the box.',
-    icon: 'lock',
-  },
-  {
-    title: 'Astro Performance',
-    description:
-      'Static HTML with islands architecture: fast loads, clean SEO, sitemap and RSS included — what content sites actually need.',
-    icon: 'zap',
+    href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+    label: 'Community',
+    caption: 'Waar de data-mensen samenkomen. Koffie niet inbegrepen.',
   },
 ];
 
-const faqs = [
+const menukaart = [
   {
-    question: 'Is AstroDeck free?',
-    answer:
-      'Yes. AstroDeck is MIT-licensed and completely free — for personal and commercial projects, forever.',
+    title: 'Data-analyse',
+    body: 'Wij halen inzicht uit onderwijsdata. Ook uit die ene spreadsheet die niemand meer durft te openen.',
   },
   {
-    question: 'What kind of websites is it for?',
-    answer:
-      'Company and marketing sites, blogs and editorial sites, portfolios, and landing pages. It is deliberately not built for dashboards or app-heavy products.',
+    title: 'Open source tooling',
+    body: 'Herbruikbare tools voor instellingen. Gratis. Want opnieuw hetzelfde bouwen is geen sport.',
   },
   {
-    question: 'Which AI tools does it work with?',
-    answer:
-      'Any tool that supports the AGENTS.md standard: Claude Code, Cursor, GitHub Copilot, OpenAI Codex, Gemini CLI, Windsurf, Zed, Aider, and more. Claude Code gets the deepest integration — a dedicated agent, domain skills, slash commands, and the convention guard hook.',
+    title: 'Kennisdeling',
+    body: 'Wat de één ontdekt, hoeft de ander niet nog eens de nacht in te draaien.',
   },
   {
-    question: 'Can I use it without AI?',
-    answer:
-      'Absolutely. AstroDeck is a normal, well-documented Astro starter kit. Every task in the docs is shown two ways: with AI and manually.',
-  },
-  {
-    question: 'Do I need to know Astro?',
-    answer:
-      'It helps, but it is not required. If you work with an AI assistant, it knows the conventions from AGENTS.md and does the heavy lifting. If you prefer to code yourself, the docs walk you through every task.',
-  },
-  {
-    question: 'How opinionated is it?',
-    answer:
-      'There is one design-token system (OKLCH colors, spacing, typography) and a set of conventions — that is what keeps AI output consistent. Everything is overridable: your own rules go in PROJECT.md, your own brand goes in globals.css or a DESIGN.md.',
+    title: 'Benchmarks',
+    body: 'Vergelijken zonder afrekenen. Cijfers die context krijgen in plaats van een oordeel.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Astro Starter Kit for AI-Assisted Websites"
-  description="Open-source Astro starter kit for AI-assisted websites. Build company sites, blogs, and portfolios with Claude Code, Cursor & Co. on guarded design rails."
+  title="CEDA: Center for Educational Data Analytics"
+  description="CEDA maakt onderwijsdata bruikbaar: open source tooling, analyse, benchmarks en kennisdeling voor het onderwijs. Een project binnen Npuls."
 >
-  <Hero
-    badge="true"
-    title="The starter kit for AI-assisted websites."
-    subtitle="Start from a complete foundation — pages, sections, and a design system — and let <mark>Claude Code, Cursor, or any coding agent</mark> build your <mark>company site, blog, or portfolio</mark>. Conventions via <mark>AGENTS.md</mark>, enforced by <mark>built-in guardrails</mark>, so AI edits never go off-system."
-    prompt="Clone https://github.com/holger1411/astrodeck as the foundation for my new website. Install the dependencies, read AGENTS.md, start the dev server, and give me a short tour of the project."
-    primaryCta={{
-      href: 'https://github.com/holger1411/astrodeck/releases/latest',
-      label: 'Download',
-    }}
-    secondaryCta={{ href: 'https://github.com/holger1411/astrodeck', label: 'GitHub' }}
-  />
-
-  <LogoCloud />
-
-  <AIFeature />
-
-  <div class="section-inverted py-8">
-    <Stats
-      stats={[
-        { value: '16', label: 'Sections', description: 'Hero, pricing, FAQ, team & more' },
-        { value: '11', label: 'UI Components', description: 'shadcn/ui + Radix' },
-        { value: '11', label: 'Example Pages', description: 'SaaS, portfolio, blog & more' },
-        { value: '100', label: 'Lighthouse', description: 'Accessibility, Best Practices & SEO' },
-      ]}
-    />
-  </div>
-
-  <Features
-    title="More than a theme, calmer than an AI builder"
-    subtitle="A complete website foundation — plus the operating layer your AI assistant needs to stay on track."
-    features={features}
-  />
-
-  <div class="bg-muted/30">
-    <FAQ
-      title="Frequently asked questions"
-      subtitle="The short version of everything you might want to know."
-      faqs={faqs}
-    />
-  </div>
-
-  <div class="section-inverted">
-    <section class="py-20 md:py-32 px-6">
-      <div class="container max-w-3xl mx-auto text-center" data-animate="scale">
-        <h2 class="text-3xl font-bold leading-tight md:text-5xl">Start from a clean foundation.</h2>
-        <p class="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Download AstroDeck, open it in your coding assistant, and say what you want to build. Free
-          and open source — forever.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
-          <a
-            href="https://github.com/holger1411/astrodeck/releases/latest"
-            class="group relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 h-12 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 overflow-hidden"
+  {/* ============================= HERO ============================= */}
+  <section class="border-b-4 border-foreground">
+    <div class="container mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div data-animate="fade">
+          <span
+            class="inline-block border-2 border-foreground bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background"
           >
-            <span
-              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
-              aria-hidden="true"></span>
-            <span
-              class="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-0.5"
-              >Download</span
+            Center for Educational Data Analytics
+          </span>
+          <h1 class="mt-6 text-6xl font-black uppercase leading-none tracking-tight md:text-8xl">
+            CEDA
+          </h1>
+          <p class="mt-4 max-w-md text-xl font-bold md:text-2xl">
+            Onderwijsdata die eindelijk iets dóét.
+          </p>
+          <p class="mt-4 max-w-md font-mono text-sm leading-relaxed text-muted-foreground">
+            Geen dashboard om het dashboard. Wel open tooling, analyse en benchmarks,
+            gebouwd door en voor het onderwijs.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#menukaart"
+              class="inline-flex items-center justify-center border-4 border-foreground bg-foreground px-6 py-3 font-bold uppercase tracking-wide text-background transition-transform hover:-translate-y-0.5"
             >
-          </a>
-          <a
-            href="https://github.com/holger1411/astrodeck"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-12 px-8"
+              Wat wij doen
+            </a>
+            <a
+              href="https://github.com/cedanl"
+              class="inline-flex items-center justify-center border-4 border-foreground bg-background px-6 py-3 font-bold uppercase tracking-wide text-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Naar GitHub
+            </a>
+          </div>
+        </div>
+
+        {/* Comic panel with an original office-analyst character + speech bubble */}
+        <div
+          class="relative border-4 border-foreground bg-background p-6 shadow-[8px_8px_0_0_var(--color-foreground)]"
+          data-animate="scale"
+        >
+          <div
+            class="mb-4 inline-block border-2 border-foreground px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest"
           >
-            GitHub
-          </a>
+            Kantoor, 09:14 uur
+          </div>
+          {/* Speech bubble */}
+          <div class="relative mb-6 border-4 border-foreground bg-background p-4">
+            <p class="font-mono text-sm font-bold leading-snug">
+              "Kunnen we dit meten?" Ja. De data staat alleen in 14 systemen. In 6 formaten.
+              Veel plezier.
+            </p>
+            <div
+              class="absolute -bottom-3 left-8 h-5 w-5 rotate-45 border-b-4 border-r-4 border-foreground bg-background"
+              aria-hidden="true"
+            >
+            </div>
+          </div>
+          {/* Original line-art analyst at a desk (currentColor = theme-safe) */}
+          <svg
+            viewBox="0 0 240 150"
+            class="mx-auto w-full max-w-xs text-foreground"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            {/* head */}
+            <circle cx="90" cy="42" r="22" />
+            {/* eyes */}
+            <circle cx="83" cy="40" r="2.5" fill="currentColor" stroke="none" />
+            <circle cx="97" cy="40" r="2.5" fill="currentColor" stroke="none" />
+            {/* deadpan mouth */}
+            <path d="M82 52 h16" />
+            {/* body */}
+            <path d="M90 64 v34" />
+            {/* arms to keyboard */}
+            <path d="M90 74 l-22 16 M90 74 l22 16" />
+            {/* lanyard badge */}
+            <path d="M84 64 l6 14 l6 -14" />
+            <rect x="84" y="78" width="12" height="9" rx="1" />
+            {/* desk */}
+            <path d="M30 112 h180" stroke-width="4" />
+            {/* monitor */}
+            <rect x="150" y="66" width="52" height="38" rx="2" />
+            <path d="M176 104 v8 M164 112 h24" />
+            {/* tiny bar chart on screen */}
+            <path d="M160 96 v-10 M170 96 v-18 M180 96 v-8 M190 96 v-22" stroke-width="2.5" />
+          </svg>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  {/* ============================= MENUKAART ============================= */}
+  <section id="menukaart" class="border-b-4 border-foreground">
+    <div class="container mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <div class="mb-10 flex items-end justify-between gap-4">
+        <h2 class="text-4xl font-black uppercase tracking-tight md:text-5xl">De menukaart</h2>
+        <p class="hidden max-w-xs text-right font-mono text-sm text-muted-foreground sm:block">
+          Vier gangen. Geen bijgerechten die je niet besteld hebt.
+        </p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {
+          menukaart.map((item, i) => (
+            <div
+              class="group border-4 border-foreground bg-background p-6 transition-transform hover:-translate-y-1 hover:shadow-[8px_8px_0_0_var(--color-foreground)]"
+              data-animate="fade"
+            >
+              <div class="mb-4 flex items-center gap-4">
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center border-4 border-foreground bg-foreground font-mono text-xl font-black text-background">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 class="text-2xl font-black uppercase leading-none">{item.title}</h3>
+              </div>
+              <p class="font-mono text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ============================= COMIC STRIP ============================= */}
+  <section class="border-b-4 border-foreground">
+    <div class="container mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <h2 class="mb-2 text-4xl font-black uppercase tracking-tight md:text-5xl">
+        Een dag bij de data
+      </h2>
+      <p class="mb-10 font-mono text-sm text-muted-foreground">Drie panelen. Eén waarheid.</p>
+
+      <div class="grid gap-0 border-4 border-foreground sm:grid-cols-3">
+        {/* Panel 1 */}
+        <div class="border-foreground p-6 sm:border-r-4">
+          <div class="mb-3 font-mono text-[10px] font-bold uppercase tracking-widest">Paneel 1</div>
+          <svg
+            viewBox="0 0 160 120"
+            class="mb-4 w-full text-foreground"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="55" cy="40" r="18" />
+            <circle cx="49" cy="38" r="2" fill="currentColor" stroke="none" />
+            <circle cx="61" cy="38" r="2" fill="currentColor" stroke="none" />
+            <path d="M49 48 q6 5 12 0" />
+            <path d="M55 58 v30 M55 66 l-16 12 M55 66 l16 12" />
+            <path d="M92 30 h56 v30 h-46 l-10 10 z" />
+            <text x="100" y="50" font-family="monospace" font-size="11" fill="currentColor" stroke="none">Meten?</text>
+          </svg>
+          <p class="font-mono text-sm font-bold leading-snug">
+            Manager: "Kunnen we de studievoortgang meten?"
+          </p>
+        </div>
+        {/* Panel 2 */}
+        <div class="border-t-4 border-foreground p-6 sm:border-l-0 sm:border-r-4 sm:border-t-0">
+          <div class="mb-3 font-mono text-[10px] font-bold uppercase tracking-widest">Paneel 2</div>
+          <svg
+            viewBox="0 0 160 120"
+            class="mb-4 w-full text-foreground"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="60" cy="40" r="18" />
+            <circle cx="54" cy="38" r="2" fill="currentColor" stroke="none" />
+            <circle cx="66" cy="38" r="2" fill="currentColor" stroke="none" />
+            <path d="M54 49 h12" />
+            <path d="M60 58 v30 M60 66 l-16 12 M60 66 l16 12" />
+            <rect x="86" y="26" width="10" height="10" />
+            <rect x="102" y="26" width="10" height="10" />
+            <rect x="118" y="26" width="10" height="10" />
+            <rect x="94" y="42" width="10" height="10" />
+            <rect x="110" y="42" width="10" height="10" />
+            <path d="M86 66 h44" stroke-width="2" opacity="0.5" />
+          </svg>
+          <p class="font-mono text-sm font-bold leading-snug">
+            Analist: "Ja. Verspreid over 14 systemen. In 6 formaten."
+          </p>
+        </div>
+        {/* Panel 3 */}
+        <div class="border-t-4 border-foreground p-6 sm:border-t-0">
+          <div class="mb-3 font-mono text-[10px] font-bold uppercase tracking-widest">Paneel 3</div>
+          <svg
+            viewBox="0 0 160 120"
+            class="mb-4 w-full text-foreground"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="55" cy="40" r="18" />
+            <circle cx="49" cy="38" r="2" fill="currentColor" stroke="none" />
+            <circle cx="61" cy="38" r="2" fill="currentColor" stroke="none" />
+            <path d="M50 47 h10" />
+            <path d="M55 58 v30 M55 66 l-16 12 M55 66 l16 12" />
+            <path d="M90 24 h50 v34 h-40 l-10 10 z" />
+            <text x="98" y="38" font-family="monospace" font-size="10" fill="currentColor" stroke="none">Dus...</text>
+            <text x="98" y="52" font-family="monospace" font-size="13" font-weight="bold" fill="currentColor" stroke="none">CEDA.</text>
+          </svg>
+          <p class="font-mono text-sm font-bold leading-snug">
+            En zo werd er weer één wiel niet opnieuw uitgevonden.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ============================= LINKS ============================= */}
+  <section class="section-inverted">
+    <div class="container mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <h2 class="mb-2 text-4xl font-black uppercase tracking-tight md:text-5xl">Waar te vinden</h2>
+      <p class="mb-10 font-mono text-sm opacity-70">Drie deuren. Allemaal open.</p>
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex flex-col border-4 border-background bg-transparent p-6 transition-transform hover:-translate-y-1"
+            >
+              <span class="text-3xl font-black uppercase tracking-tight">{link.label}</span>
+              <span class="mt-3 font-mono text-sm leading-relaxed opacity-70">{link.caption}</span>
+              <span class="mt-6 font-mono text-sm font-bold uppercase tracking-widest">
+                Openen →
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </BaseLayout>

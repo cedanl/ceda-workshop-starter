@@ -3,8 +3,11 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+// Deployed to GitHub Pages as a project site:
+// https://meadowgarderner.github.io/ceda-workshop-starter
 export default defineConfig({
-  site: 'https://astrodeck.dev',
+  site: 'https://meadowgarderner.github.io',
+  base: '/ceda-workshop-starter',
   integrations: [
     react(),
     sitemap({

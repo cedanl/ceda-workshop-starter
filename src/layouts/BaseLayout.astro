@@ -50,14 +50,15 @@ interface Props {
 
 const {
   title,
-  description = 'AstroDeck - Modern Astro.js Component Library',
+  description = 'CEDA - Center for Educational Data Analytics',
   image,
   type = 'website',
   publishedTime,
   author,
 } = Astro.props;
 
-const fullTitle = `${title} | AstroDeck`;
+const base = import.meta.env.BASE_URL;
+const fullTitle = `${title} | CEDA`;
 
 // Vercel Analytics only works on Vercel deployments; rendering it elsewhere
 // (local preview, other hosts) produces a 404 on /_vercel/insights/script.js
@@ -70,7 +71,7 @@ const enableAnalytics = !!process.env.VERCEL;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <FontPreload />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{fullTitle}</title>
     <SEO
       title={fullTitle}
@@ -83,7 +84,14 @@ const enableAnalytics = !!process.env.VERCEL;
     <ClientRouter />
     <ThemeScript />
   </head>
-  <body class="min-h-screen flex flex-col antialiased">
+  <body class="min-h-screen flex flex-col antialiased bg-transparent">
+    {/* Full-page profile-picture background, grayscale to match the comic theme */}
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 -z-20 bg-[url('/ceda-workshop-starter/profile.png')] bg-cover bg-center bg-no-repeat grayscale"
+    >
+    </div>
+    <div aria-hidden="true" class="fixed inset-0 -z-10 bg-background/55"></div>
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium"
