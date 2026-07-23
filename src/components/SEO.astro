@@ -32,7 +32,7 @@ interface Props {
 const {
   title,
   description,
-  image = '/cover.png',
+  image,
   type = 'website',
   publishedTime,
   author = 'AstroDeck',
@@ -42,7 +42,8 @@ const {
 // Fallback for dev server when Astro.site might be undefined
 const siteUrl = Astro.site ?? new URL('http://localhost:4321');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
-const socialImageURL = new URL(image, siteUrl);
+const resolvedImage = image ?? `${import.meta.env.BASE_URL}cover.png`;
+const socialImageURL = new URL(resolvedImage, siteUrl);
 
 const siteName = 'AstroDeck';
 ---
@@ -102,5 +103,5 @@ const siteName = 'AstroDeck';
 <meta name="twitter:image:alt" content={title} />
 
 <!-- Sitemap & RSS -->
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" title="AstroDeck Blog RSS Feed" href="/rss.xml" />
+<link rel="sitemap" href={`${import.meta.env.BASE_URL}sitemap-index.xml`} />
+<link rel="alternate" type="application/rss+xml" title="AstroDeck Blog RSS Feed" href={`${import.meta.env.BASE_URL}rss.xml`} />

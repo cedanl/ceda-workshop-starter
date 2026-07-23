@@ -1,161 +1,246 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Hero from '@/components/sections/Hero.astro';
-import LogoCloud from '@/components/sections/LogoCloud.astro';
+import HeroGradient from '@/components/sections/HeroGradient.astro';
 import Features from '@/components/sections/Features.astro';
-import AIFeature from '@/components/sections/AIFeature.astro';
 import Stats from '@/components/sections/Stats.astro';
-import FAQ from '@/components/sections/FAQ.astro';
+import CTA from '@/components/sections/CTA.astro';
 
 const features = [
   {
-    title: 'For Real Websites',
+    title: 'Open Source Tools',
     description:
-      'Company sites, blogs, portfolios, landing pages — with working example pages for each. Deliberately not built for dashboards or app-heavy products.',
+      'Alle CEDA-tools zijn open source en vrij te gebruiken. Bekijk, hergebruik en draag bij via GitHub.',
     icon: 'globe',
   },
   {
-    title: 'AI Guardrails Built In',
+    title: 'Kant-en-klare Analyses',
     description:
-      'A convention guard hook blocks off-system edits — hardcoded colors, deprecated patterns — before they ever reach your code.',
-    icon: 'shield',
-  },
-  {
-    title: 'One Design System',
-    description:
-      'OKLCH color tokens, spacing, and typography defined once. Dark mode included — and your AI assistant cannot break it.',
+      'Reproduceerbare notebooks en scripts voor veelvoorkomende onderwijsvraagstukken — direct inzetbaar in jouw instelling.',
     icon: 'chart',
   },
   {
-    title: 'Docs for Humans & AI',
+    title: 'Actieve Community',
     description:
-      'Every task is documented two ways: tell your coding assistant what you want, or follow the manual steps yourself.',
+      'Verbind met data-analisten en onderzoekers uit het hele onderwijsveld. Deel ervaringen, stel vragen en leer van elkaar.',
     icon: 'users',
   },
   {
-    title: 'Quality Checks in One Command',
+    title: 'Kennisdeling',
     description:
-      'npm run check:kpis verifies colors, alt texts, meta descriptions, and deprecated imports. Lighthouse scores of 99-100 out of the box.',
+      'Workshops, documentatie en handleidingen in het Nederlands. Van beginners tot gevorderden — iedereen kan meedoen.',
     icon: 'lock',
   },
   {
-    title: 'Astro Performance',
+    title: 'Onderdeel van Npuls',
     description:
-      'Static HTML with islands architecture: fast loads, clean SEO, sitemap and RSS included — what content sites actually need.',
+      'CEDA is een initiatief van Npuls, het nationale programma voor digitale en educatieve innovatie in het hoger onderwijs.',
+    icon: 'shield',
+  },
+  {
+    title: 'Snel van start',
+    description:
+      'Installeer een tool, volg de documentatie en ga aan de slag. Van installatie naar inzicht in korte tijd.',
     icon: 'zap',
-  },
-];
-
-const faqs = [
-  {
-    question: 'Is AstroDeck free?',
-    answer:
-      'Yes. AstroDeck is MIT-licensed and completely free — for personal and commercial projects, forever.',
-  },
-  {
-    question: 'What kind of websites is it for?',
-    answer:
-      'Company and marketing sites, blogs and editorial sites, portfolios, and landing pages. It is deliberately not built for dashboards or app-heavy products.',
-  },
-  {
-    question: 'Which AI tools does it work with?',
-    answer:
-      'Any tool that supports the AGENTS.md standard: Claude Code, Cursor, GitHub Copilot, OpenAI Codex, Gemini CLI, Windsurf, Zed, Aider, and more. Claude Code gets the deepest integration — a dedicated agent, domain skills, slash commands, and the convention guard hook.',
-  },
-  {
-    question: 'Can I use it without AI?',
-    answer:
-      'Absolutely. AstroDeck is a normal, well-documented Astro starter kit. Every task in the docs is shown two ways: with AI and manually.',
-  },
-  {
-    question: 'Do I need to know Astro?',
-    answer:
-      'It helps, but it is not required. If you work with an AI assistant, it knows the conventions from AGENTS.md and does the heavy lifting. If you prefer to code yourself, the docs walk you through every task.',
-  },
-  {
-    question: 'How opinionated is it?',
-    answer:
-      'There is one design-token system (OKLCH colors, spacing, typography) and a set of conventions — that is what keeps AI output consistent. Everything is overridable: your own rules go in PROJECT.md, your own brand goes in globals.css or a DESIGN.md.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Astro Starter Kit for AI-Assisted Websites"
-  description="Open-source Astro starter kit for AI-assisted websites. Build company sites, blogs, and portfolios with Claude Code, Cursor & Co. on guarded design rails."
+  title="Center for Educational Data Analytics"
+  description="CEDA helpt onderwijsinstellingen om data begrijpelijk en bruikbaar te maken — met open tools, gedeelde kennis en een actieve community."
 >
-  <Hero
-    badge="true"
-    title="The starter kit for AI-assisted websites."
-    subtitle="Start from a complete foundation — pages, sections, and a design system — and let <mark>Claude Code, Cursor, or any coding agent</mark> build your <mark>company site, blog, or portfolio</mark>. Conventions via <mark>AGENTS.md</mark>, enforced by <mark>built-in guardrails</mark>, so AI edits never go off-system."
-    prompt="Clone https://github.com/holger1411/astrodeck as the foundation for my new website. Install the dependencies, read AGENTS.md, start the dev server, and give me a short tour of the project."
+  <HeroGradient
+    badge="Onderdeel van Npuls"
+    badgeChip="Npuls"
+    badgeHref="https://npuls.nl/"
+    title="Data-analyse voor het onderwijs."
+    subtitle="CEDA helpt onderwijsinstellingen om data <mark>begrijpelijk en bruikbaar</mark> te maken — met <mark>open source tools</mark>, gedeelde kennis en een <mark>actieve community</mark>."
     primaryCta={{
-      href: 'https://github.com/holger1411/astrodeck/releases/latest',
-      label: 'Download',
+      href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+      label: 'Word lid van de community',
     }}
-    secondaryCta={{ href: 'https://github.com/holger1411/astrodeck', label: 'GitHub' }}
+    secondaryCta={{ href: 'https://github.com/cedanl', label: 'GitHub' }}
   />
 
-  <LogoCloud />
+  <!-- Over CEDA -->
+  <section class="py-16 md:py-24">
+    <div class="container max-w-5xl mx-auto px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div class="space-y-6" data-animate="slide-left">
+          <p class="text-sm font-semibold text-primary uppercase tracking-widest">Over CEDA</p>
+          <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+            Van ruwe data naar onderwijsinzicht
+          </h2>
+          <p class="text-lg text-muted-foreground leading-relaxed">
+            CEDA — Center for Educational Data Analytics — is het kenniscentrum voor data-analyse in
+            het Nederlandse onderwijs. We ontwikkelen open tools, delen kennis en bouwen aan een
+            community van professionals die data inzetten voor beter onderwijs.
+          </p>
+          <ul class="space-y-3 pt-2">
+            {
+              [
+                'Open source tools, vrij te gebruiken en aan te passen',
+                'Reproduceerbare analyses voor concrete onderwijsvraagstukken',
+                'Community van 100+ data-professionals uit HO en MBO',
+                'Documentatie en workshops in het Nederlands',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5 text-primary mt-0.5 flex-shrink-0"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  <span class="text-muted-foreground">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="pt-2">
+            <a
+              href="https://github.com/cedanl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+            >
+              Bekijk onze tools op GitHub
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-  <AIFeature />
+        <!-- Dashboard mockup -->
+        <div
+          class="relative rounded-2xl border bg-card shadow-2xl overflow-hidden p-6"
+          data-animate="slide-right"
+        >
+          <!-- Toolbar -->
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-2">
+              <div class="h-3 w-3 rounded-full bg-muted-foreground/30"></div>
+              <div class="h-3 w-3 rounded-full bg-muted-foreground/50"></div>
+              <div class="h-3 w-3 rounded-full bg-muted-foreground/70"></div>
+            </div>
+            <span class="text-xs font-mono text-muted-foreground">ceda — analyse.ipynb</span>
+          </div>
+
+          <!-- Stat tiles -->
+          <div class="grid grid-cols-3 gap-3 mb-5">
+            <div class="rounded-lg bg-muted p-3">
+              <p class="text-xs text-muted-foreground mb-1">Instellingen</p>
+              <p class="text-xl font-bold">34</p>
+              <p class="text-xs text-primary font-medium mt-0.5">+8 dit jaar</p>
+            </div>
+            <div class="rounded-lg bg-muted p-3">
+              <p class="text-xs text-muted-foreground mb-1">Analyses</p>
+              <p class="text-xl font-bold">128</p>
+              <p class="text-xs text-primary font-medium mt-0.5">+23%</p>
+            </div>
+            <div class="rounded-lg bg-muted p-3">
+              <p class="text-xs text-muted-foreground mb-1">Community</p>
+              <p class="text-xl font-bold">100+</p>
+              <p class="text-xs text-primary font-medium mt-0.5">actief</p>
+            </div>
+          </div>
+
+          <!-- Bar chart -->
+          <div class="space-y-2.5 mb-5">
+            <p class="text-xs font-medium text-muted-foreground mb-3">Gebruik per kwartaal</p>
+            {
+              [
+                { label: 'Q1 2024', pct: 'w-[52%]' },
+                { label: 'Q2 2024', pct: 'w-[68%]' },
+                { label: 'Q3 2024', pct: 'w-[79%]' },
+                { label: 'Q4 2024', pct: 'w-[91%]' },
+              ].map(({ label, pct }) => (
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-muted-foreground w-16 shrink-0">{label}</span>
+                  <div class="flex-1 bg-muted rounded-full h-2">
+                    <div class:list={['bg-primary rounded-full h-2', pct]} />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- Code snippet -->
+          <div
+            class="rounded-lg bg-muted/60 border px-4 py-3 font-mono text-xs text-muted-foreground leading-relaxed"
+          >
+            <span class="text-primary">import</span> ceda_tools <span class="text-primary">as</span> ct<br
+            />
+            df = ct.<span class="text-foreground">load_cohort</span>(<span class="text-primary"
+              >"2024"</span
+            >)<br />
+            ct.<span class="text-foreground">analyse</span>(df).<span class="text-foreground"
+              >plot</span
+            >()
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-muted/30">
+    <Features
+      title="Wat CEDA te bieden heeft"
+      subtitle="Van open tools tot een actieve kenniscommunity — alles om data-analyse in het onderwijs toegankelijker te maken."
+      features={features}
+    />
+  </div>
 
   <div class="section-inverted py-8">
     <Stats
       stats={[
-        { value: '16', label: 'Sections', description: 'Hero, pricing, FAQ, team & more' },
-        { value: '11', label: 'UI Components', description: 'shadcn/ui + Radix' },
-        { value: '11', label: 'Example Pages', description: 'SaaS, portfolio, blog & more' },
-        { value: '100', label: 'Lighthouse', description: 'Accessibility, Best Practices & SEO' },
+        {
+          value: '50+',
+          label: 'Open Source Tools',
+          description: 'Vrij te gebruiken en aan bij te dragen',
+        },
+        {
+          value: '100+',
+          label: 'Community Leden',
+          description: 'Analisten en onderzoekers uit het onderwijs',
+        },
+        {
+          value: '30+',
+          label: 'Instellingen',
+          description: 'HO- en MBO-instellingen actief betrokken',
+        },
+        {
+          value: 'Npuls',
+          label: 'Programma',
+          description: 'Nationaal programma voor digitale innovatie',
+        },
       ]}
     />
   </div>
 
-  <Features
-    title="More than a theme, calmer than an AI builder"
-    subtitle="A complete website foundation — plus the operating layer your AI assistant needs to stay on track."
-    features={features}
+  <CTA
+    title="Doe mee met de CEDA Community"
+    description="Sluit je aan bij honderden data-professionals uit het onderwijs. Stel vragen, deel projecten en bouw samen aan de toekomst van onderwijsdata."
+    cta={{
+      href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+      label: 'Naar de community',
+    }}
   />
-
-  <div class="bg-muted/30">
-    <FAQ
-      title="Frequently asked questions"
-      subtitle="The short version of everything you might want to know."
-      faqs={faqs}
-    />
-  </div>
-
-  <div class="section-inverted">
-    <section class="py-20 md:py-32 px-6">
-      <div class="container max-w-3xl mx-auto text-center" data-animate="scale">
-        <h2 class="text-3xl font-bold leading-tight md:text-5xl">Start from a clean foundation.</h2>
-        <p class="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Download AstroDeck, open it in your coding assistant, and say what you want to build. Free
-          and open source — forever.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
-          <a
-            href="https://github.com/holger1411/astrodeck/releases/latest"
-            class="group relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 h-12 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 overflow-hidden"
-          >
-            <span
-              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
-              aria-hidden="true"></span>
-            <span
-              class="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-0.5"
-              >Download</span
-            >
-          </a>
-          <a
-            href="https://github.com/holger1411/astrodeck"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-12 px-8"
-          >
-            GitHub
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
 </BaseLayout>
