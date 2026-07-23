@@ -415,31 +415,37 @@
     user-select: none;
   }
 
-  /* Tool-kaart */
-  .tool-card {
+  /* Tier 1 — alleen de naam (kleurgecodeerd op status) */
+  .tool-name {
+    display: block;
+    width: 100%;
+    text-align: left;
     background: var(--card-bg);
     border: 1px solid var(--divider);
-    border-radius: 12px;
-    padding: 15px 16px;
+    border-radius: 9px;
+    padding: 9px 13px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
     cursor: pointer;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
     transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
   }
-  .tool-card:hover, .tool-card:focus-visible {
+  .tool-name:hover, .tool-name:focus-visible {
     border-color: var(--orange);
-    box-shadow: 0 4px 16px rgba(221, 120, 75, 0.12);
+    box-shadow: 0 3px 12px rgba(221, 120, 75, 0.12);
     transform: translateY(-1px);
     outline: none;
   }
-  .tool-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-  .tool-card.active {
+  .tool-name:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  .tool-name.active {
     border-color: var(--orange);
-    box-shadow: 0 4px 20px rgba(221, 120, 75, 0.18);
+    box-shadow: 0 4px 18px rgba(221, 120, 75, 0.18);
   }
+  .tool-name.st-beschikbaar { color: var(--title-avail); }
+  .tool-name.st-ontw        { color: var(--title-dev); }
+  .tool-name.st-idee        { color: var(--title-idea); }
+
+  /* Tier 2 — kaart-niveau content in de popover */
   .tool-title {
     font-size: 16px;
     font-weight: 700;
@@ -504,7 +510,9 @@
     transition: opacity 0.12s ease;
   }
   .popover.visible { opacity: 1; }
-  .pop-title { font-size: 15px; font-weight: 700; line-height: 20px; margin-bottom: 6px; }
+  .popover .status-badge { display: inline-block; margin-bottom: 8px; }
+  .popover .tool-tagline { margin-top: 2px; }
+  .pop-title { font-size: 15px; font-weight: 700; line-height: 20px; margin-bottom: 2px; }
   .pop-title.st-beschikbaar { color: var(--title-avail); }
   .pop-title.st-ontw        { color: var(--title-dev); }
   .pop-title.st-idee        { color: var(--title-idea); }
@@ -1401,19 +1409,16 @@ function renderPersona() {
 }
 
 // ── De waardestroom ──
+// TIER 1 — alleen de naam, kleurgecodeerd op status
 function toolCardHTML(uc) {
   return `
-    <button class="tool-card${activeCard === uc.id ? ' active' : ''}"
+    <button class="tool-name st-${uc.status}${activeCard === uc.id ? ' active' : ''}"
       onclick="openPanel('${escAttr(uc.id)}')"
       onmouseenter="showPop(event,'${escAttr(uc.id)}')" onmouseleave="hidePop()"
       onfocus="showPop(event,'${escAttr(uc.id)}')" onblur="hidePop()"
       aria-pressed="${activeCard === uc.id}"
-      aria-label="${escHtml(uc.title)} — ${escHtml(statusLabel(uc.status))}. Open details.">
-      <div class="tool-badge-row">
-        <span class="status-badge ${statusClass(uc.status)}">${statusLabel(uc.status)}</span>
-      </div>
-      <span class="tool-title st-${uc.status}">${escHtml(uc.title)}</span>
-      <span class="tool-tagline">${escHtml(uc.tagline)}</span>
+      aria-label="${escHtml(uc.title)} — ${escHtml(statusLabel(uc.status))}. Hover voor kaart, klik voor volledige details.">
+      ${escHtml(uc.title)}
     </button>`;
 }
 
@@ -1467,23 +1472,19 @@ function renderSources() {
 // ══════════════════════════════════════════════════════════════
 const pop = document.getElementById('popover');
 
+// TIER 2 — kaart-niveau: status badge + titel + tagline + korte desc + max 3 bronnen
 function popHTML(uc) {
-  const chips = uc.sources.map(s => `
+  const shortDesc = uc.desc.length > 130 ? uc.desc.slice(0, 130).trim() + '…' : uc.desc;
+  const chips = uc.sources.slice(0, 3).map(s => `
     <span class="supplier-chip ${s.avail ? 'available' : 'unavailable'}">
       <span class="chip-dot ${s.avail ? 'on' : 'off'}"></span>${escHtml(s.name)}
     </span>`).join('');
-  const meth = uc.methoden.map(m => `<span class="methode-tag">⚙︎ ${escHtml(m)}</span>`).join('');
-  const links = uc.links.map(l => `<div class="pop-link">${l.icon} ${escHtml(l.label)}</div>`).join('');
   return `
-    <div class="pop-title st-${uc.status}">${escHtml(uc.title)}</div>
     <span class="status-badge ${statusClass(uc.status)}">${statusLabel(uc.status)}</span>
-    <p class="pop-desc">${escHtml(uc.desc)}</p>
-    <div class="pop-sec-title">Databronnen</div>
+    <div class="pop-title st-${uc.status}">${escHtml(uc.title)}</div>
+    <div class="tool-tagline">${escHtml(uc.tagline)}</div>
+    <p class="pop-desc">${escHtml(shortDesc)}</p>
     <div class="supplier-chips">${chips}</div>
-    <div class="pop-sec-title">Methoden</div>
-    <div>${meth}</div>
-    <div class="pop-sec-title">Meer</div>
-    <div class="pop-links">${links}</div>
     <p class="pop-hint">Klik voor het volledige detailpaneel</p>`;
 }
 
