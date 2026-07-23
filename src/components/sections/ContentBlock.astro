@@ -10,7 +10,7 @@ interface Props {
 const { tagline, title, description, features, imageSide = 'right' } = Astro.props;
 ---
 
-<section class="py-16 md:py-24">
+<section class="py-16 md:py-24 px-6">
   <div class="container max-w-5xl mx-auto">
     <div
       class:list={[
@@ -24,7 +24,7 @@ const { tagline, title, description, features, imageSide = 'right' } = Astro.pro
             <p class="text-sm font-semibold text-primary uppercase tracking-wide">{tagline}</p>
           )
         }
-        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 class="text-3xl font-bold tracking-tight md:text-5xl">
           {title}
         </h2>
         <p class="text-lg text-muted-foreground leading-relaxed">
@@ -44,6 +44,7 @@ const { tagline, title, description, features, imageSide = 'right' } = Astro.pro
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     class="h-5 w-5 text-primary mt-0.5 flex-shrink-0"
+                    aria-hidden="true"
                   >
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
@@ -70,6 +71,7 @@ const { tagline, title, description, features, imageSide = 'right' } = Astro.pro
             stroke-linecap="round"
             stroke-linejoin="round"
             class="h-24 w-24 text-muted-foreground/30"
+            aria-hidden="true"
           >
             <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
             <circle cx="9" cy="9" r="2"></circle>

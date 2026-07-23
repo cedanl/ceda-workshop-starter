@@ -11,8 +11,8 @@
  * <Header variant="fullWidth" />
  * ```
  */
-import ThemeToggle from './ThemeToggle.astro';
-import Logo from './Logo.astro';
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import Logo from '@/components/Logo.astro';
 
 interface Props {
   /** Layout variant - boxed (default) or fullWidth */
@@ -26,8 +26,6 @@ const navItems = [
   { href: '#over', label: 'Over CEDA' },
   { href: '#meedoen', label: 'Meedoen' },
 ];
-
-const currentPath = Astro.url.pathname;
 
 const containerClass =
   variant === 'fullWidth' ? 'w-full px-4' : 'container max-w-5xl mx-auto px-4 sm:px-6';
@@ -47,18 +45,10 @@ const containerClass =
       {
         navItems.map((item) => {
           if ('children' in item && item.children) {
-            const isChildActive = item.children.some((child: { href: string }) =>
-              currentPath.startsWith(child.href)
-            );
             return (
               <div class="relative group">
                 <button
-                  class:list={[
-                    'transition-colors inline-flex items-center gap-1 py-2',
-                    isChildActive
-                      ? 'text-foreground font-medium'
-                      : 'text-foreground/60 hover:text-foreground/80',
-                  ]}
+                  class="transition-colors inline-flex items-center gap-1 py-2 text-foreground/80 hover:text-foreground"
                 >
                   {item.label}
                   <svg
@@ -74,40 +64,23 @@ const containerClass =
                 </button>
                 <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
                   <div class="rounded-xl border bg-card shadow-lg p-2 min-w-[140px]">
-                    {item.children.map((child: { href: string; label: string }) => {
-                      const isActive = currentPath.startsWith(child.href);
-                      return (
-                        <a
-                          href={child.href}
-                          class:list={[
-                            'block px-3 py-2 rounded-lg text-sm transition-colors',
-                            isActive
-                              ? 'text-foreground font-medium bg-muted'
-                              : 'text-foreground/60 hover:text-foreground hover:bg-muted',
-                          ]}
-                          aria-current={isActive ? 'page' : undefined}
-                        >
-                          {child.label}
-                        </a>
-                      );
-                    })}
+                    {item.children.map((child: { href: string; label: string }) => (
+                      <a
+                        href={child.href}
+                        class="block px-3 py-2 rounded-lg text-sm transition-colors text-foreground/80 hover:text-foreground hover:bg-muted"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
             );
           }
-          const isActive =
-            item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
           return (
             <a
               href={item.href}
-              class:list={[
-                'inline-block py-2 transition-colors',
-                isActive
-                  ? 'text-foreground font-medium'
-                  : 'text-foreground/60 hover:text-foreground/80',
-              ]}
-              aria-current={isActive ? 'page' : undefined}
+              class="inline-block py-2 transition-colors text-foreground/80 hover:text-foreground"
             >
               {item.label}
             </a>
@@ -123,7 +96,7 @@ const containerClass =
         href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
+        class="inline-flex items-center gap-2 justify-center whitespace-nowrap rounded-xl text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
       >
         GitHub
         <svg
@@ -150,6 +123,7 @@ const containerClass =
         class="inline-flex items-center justify-center rounded-md p-2 hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
         aria-expanded="false"
         aria-label="Toggle navigation menu"
+        aria-controls="mobile-menu"
       >
         <span class="w-6 h-6 relative flex flex-col justify-center items-center">
           <span
@@ -185,38 +159,21 @@ const containerClass =
                 <p class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                   {item.label}
                 </p>
-                {item.children.map((child: { href: string; label: string }) => {
-                  const isActive = currentPath.startsWith(child.href);
-                  return (
-                    <a
-                      href={child.href}
-                      class:list={[
-                        'block px-3 py-2 pl-6 rounded-md text-base font-medium transition-colors',
-                        isActive
-                          ? 'bg-accent text-accent-foreground'
-                          : 'hover:bg-accent hover:text-accent-foreground',
-                      ]}
-                      aria-current={isActive ? 'page' : undefined}
-                    >
-                      {child.label}
-                    </a>
-                  );
-                })}
+                {item.children.map((child: { href: string; label: string }) => (
+                  <a
+                    href={child.href}
+                    class="block px-3 py-2 pl-6 rounded-md text-base font-medium transition-colors text-foreground/80 hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {child.label}
+                  </a>
+                ))}
               </div>
             );
           }
-          const isActive =
-            item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
           return (
             <a
               href={item.href}
-              class:list={[
-                'block px-3 py-2 rounded-md text-base font-medium transition-colors',
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'hover:bg-accent hover:text-accent-foreground',
-              ]}
-              aria-current={isActive ? 'page' : undefined}
+              class="block px-3 py-2 rounded-md text-base font-medium transition-colors text-foreground/80 hover:bg-accent hover:text-accent-foreground"
             >
               {item.label}
             </a>
@@ -227,7 +184,7 @@ const containerClass =
         href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
-        class="block w-full text-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 py-2 px-4 mt-4"
+        class="block w-full text-center rounded-xl text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 py-2 px-4 mt-4"
       >
         GitHub
       </a>
