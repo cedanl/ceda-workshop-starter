@@ -16,3 +16,4 @@ Stateful overzicht van de workshopstappen. Wordt bijgewerkt na elke afgeronde st
 - Stap S1 (Strategy) afgerond — lokale target-audience skill niet beschikbaar, direct uitgevoerd → strategy.md.
 - Stap S2 (Content strategy) afgerond via content-seo skill → content-strategy.md (one-pager, 5 secties).
 - Stap S3 (Information Architecture) afgerond via astrodeck-agent → ia.md. Nieuw component nodig: CTAMulti (3 gelijkwaardige CTA-links).
+- Stap S4 (UI/Implementatie) afgerond via astrodeck-agent. Zelf geverifieerd: KPI PASS, HTTP 200, 3 verplichte links aanwezig (github.com/cedanl 7×, npuls.nl 8×, community 4×).
