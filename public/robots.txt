@@ -1,8 +1,5 @@
-# robots.txt for AstroDeck
-# https://astrodeck.dev
-
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://astrodeck.dev/sitemap-index.xml
+Sitemap: https://cedanl.github.io/ceda-workshop-starter/sitemap-index.xml
