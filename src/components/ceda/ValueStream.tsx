@@ -10,6 +10,10 @@ import {
   type BivLevel,
 } from '@/data/ceda';
 
+// Astro server-renders islands once before hydration; useLayoutEffect warns
+// in that context, so fall back to useEffect when there is no DOM yet.
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 /**
  * CEDA Value Stream — interactive island
  *
@@ -188,7 +192,7 @@ export default function ValueStream() {
   }
 
   // Position the tier-2 popover, clamped to the viewport.
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!hover) {
       setPopStyle(null);
       return;
