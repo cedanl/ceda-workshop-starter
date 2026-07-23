@@ -1,0 +1,133 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const doelgroepen = [
+  {
+    titel: 'Onderzoeker of data scientist',
+    omschrijving:
+      'Werk mee aan CEDA-projecten, gebruik onze datasets voor je onderzoek of draag bij aan de methodologische basis. We verwelkomen zowel ervaren onderzoekers als studenten.',
+    acties: [
+      { label: 'Projecten bekijken', href: 'https://github.com/cedanl' },
+      {
+        label: 'Community voor onderzoekers',
+        href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+      },
+    ],
+    icon: 'M18 20V10M12 20V4M6 20v-6',
+  },
+  {
+    titel: 'Developer of tech-bijdrager',
+    omschrijving:
+      'Help onze open source tools bouwen en verbeteren. Open een issue, stuur een pull request of start een discussie op GitHub. Alle niveaus zijn welkom.',
+    acties: [
+      { label: 'GitHub — cedanl', href: 'https://github.com/cedanl' },
+      {
+        label: 'Community voor developers',
+        href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+      },
+    ],
+    icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+  },
+  {
+    titel: 'Instelling of beleidsmaker',
+    omschrijving:
+      'Wil je als instelling aansluiten bij CEDA of gebruik maken van onze tools en analyses? Neem contact op via de community of verken de mogelijkheden via het Npuls-programma.',
+    acties: [
+      { label: 'Npuls.nl', href: 'https://npuls.nl/' },
+      {
+        label: 'Community platform',
+        href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+      },
+    ],
+    icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+  },
+];
+---
+
+<BaseLayout
+  title="Meedoen — CEDA"
+  description="Sluit je aan bij CEDA als onderzoeker, developer of instelling. Ontdek hoe je kunt bijdragen aan open onderwijsdata-analyse."
+>
+  <section class="py-20 px-6">
+    <div class="container max-w-5xl mx-auto">
+      <div class="text-center mb-16" data-animate="fade">
+        <h1 class="text-4xl font-bold leading-tight md:text-5xl mb-6">Meedoen</h1>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          CEDA is een open community. Of je nu onderzoeker, developer of beleidsmaker bent — er is
+          een plek voor jou.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3 mb-16">
+        {
+          doelgroepen.map((groep, index) => (
+            <div
+              class="flex flex-col rounded-xl border bg-card p-8 shadow-sm"
+              data-animate
+              data-delay={String(index + 1)}
+            >
+              <div class="inline-flex p-1.5 border border-foreground rounded-xl mb-4 self-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path d={groep.icon} />
+                </svg>
+              </div>
+              <h2 class="text-xl font-semibold mb-3">{groep.titel}</h2>
+              <p class="text-sm text-muted-foreground leading-relaxed flex-1">
+                {groep.omschrijving}
+              </p>
+              <div class="mt-6 flex flex-col gap-2">
+                {groep.acties.map((actie, i) => (
+                  <a
+                    href={actie.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class:list={[
+                      'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-9 px-4',
+                      i === 0
+                        ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                        : 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+                    ]}
+                  >
+                    {actie.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="rounded-xl border bg-muted/30 p-10 text-center" data-animate data-delay="4">
+        <h2 class="text-2xl font-semibold mb-4">Direct naar de community</h2>
+        <p class="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+          De CEDA-community op het Npuls-platform is de centrale plek voor vragen, discussies en
+          samenwerking. Meld je aan en stel je voor!
+        </p>
+        <a
+          href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 h-12 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 overflow-hidden"
+        >
+          <span
+            class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+            aria-hidden="true"></span>
+          <span
+            class="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-0.5"
+            >Naar de community</span
+          >
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

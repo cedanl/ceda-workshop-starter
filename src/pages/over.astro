@@ -1,0 +1,76 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Over CEDA — Center for Educational Data Analytics"
+  description="Leer meer over CEDA: wie we zijn, wat we doen en hoe we samenwerken binnen het Npuls-programma."
+>
+  <section class="py-20 px-6">
+    <div class="container max-w-3xl mx-auto">
+      <div data-animate="fade">
+        <h1 class="text-4xl font-bold leading-tight md:text-5xl mb-6">Over CEDA</h1>
+        <p class="text-xl text-muted-foreground leading-relaxed mb-12">
+          Het Center for Educational Data Analytics (CEDA) is een initiatief binnen het
+          Npuls-programma dat het Nederlandse onderwijs ondersteunt met data-analyse, open tools en
+          kennisdeling.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <div data-animate data-delay="1">
+          <h2 class="text-2xl font-semibold mb-4">Onze missie</h2>
+          <p class="text-muted-foreground leading-relaxed">
+            CEDA maakt onderwijsdata toegankelijk en bruikbaar voor iedereen in het onderwijs. We
+            geloven dat goede data-analyse het onderwijs concreet kan verbeteren — voor studenten,
+            docenten en instellingen. Door open source te werken en kennis te delen, verlagen we de
+            drempel voor iedereen die met onderwijsdata aan de slag wil.
+          </p>
+        </div>
+
+        <div data-animate data-delay="2">
+          <h2 class="text-2xl font-semibold mb-4">Onderdeel van Npuls</h2>
+          <p class="text-muted-foreground leading-relaxed">
+            CEDA is een project binnen <a
+              href="https://npuls.nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground underline underline-offset-4 hover:text-foreground/80">Npuls</a
+            >, het nationale programma voor digitalisering van het onderwijs. Npuls brengt
+            onderwijsinstellingen, overheden en kennispartners samen om het Nederlandse onderwijs
+            toekomstbestendig te maken.
+          </p>
+        </div>
+
+        <div data-animate data-delay="3">
+          <h2 class="text-2xl font-semibold mb-4">Hoe we werken</h2>
+          <p class="text-muted-foreground leading-relaxed">
+            We werken open: onze code staat op GitHub, onze bevindingen delen we publiekelijk en
+            onze community staat open voor iedereen. Samenwerking staat centraal — CEDA is geen
+            gesloten lab, maar een plek waar onderzoekers, docenten, developers en beleidsmakers
+            samen optrekken.
+          </p>
+        </div>
+
+        <div data-animate data-delay="4" class="flex flex-col sm:flex-row gap-4 pt-4">
+          <a
+            href="https://github.com/cedanl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://npuls.nl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-8"
+          >
+            Npuls
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

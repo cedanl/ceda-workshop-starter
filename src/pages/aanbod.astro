@@ -1,0 +1,123 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const items = [
+  {
+    title: 'Open Source Tools',
+    description:
+      'CEDA bouwt en onderhoudt open source tools voor onderwijsdata-analyse. Bekijk de repositories, draag bij of fork ze voor je eigen instelling.',
+    link: 'https://github.com/cedanl',
+    linkLabel: 'GitHub — cedanl',
+    icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+  },
+  {
+    title: 'Onderzoeksprojecten',
+    description:
+      'Lopende en afgeronde projecten gericht op datagedreven verbetering van het Nederlandse onderwijs. Van studentretentie tot curriculum-analyse.',
+    link: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+    linkLabel: 'Projecten in de Community',
+    icon: 'M18 20V10M12 20V4M6 20v-6',
+  },
+  {
+    title: 'Datasets & Analyses',
+    description:
+      'Geanonimiseerde onderwijsdatasets en publicaties beschikbaar voor onderzoek en beleid. We hanteren open standaarden voor maximale herbruikbaarheid.',
+    link: 'https://github.com/cedanl',
+    linkLabel: 'Datasets op GitHub',
+    icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z',
+  },
+  {
+    title: 'Community & Kennisdeling',
+    description:
+      'Sluit je aan bij de CEDA-community op het Npuls-platform. Deel ervaringen, stel vragen en werk samen aan oplossingen voor het onderwijs.',
+    link: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+    linkLabel: 'Community platform',
+    icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+  },
+  {
+    title: 'Npuls-programma',
+    description:
+      'CEDA werkt binnen het bredere Npuls-programma voor digitalisering van het Nederlandse onderwijs. Meer context over het programma vind je op de Npuls-website.',
+    link: 'https://npuls.nl/',
+    linkLabel: 'npuls.nl',
+    icon: 'M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zM7 11V7a5 5 0 0 1 10 0v4',
+  },
+  {
+    title: 'Documentatie & Handleidingen',
+    description:
+      'Stap-voor-stap documentatie om snel aan de slag te gaan met CEDA-tools en methoden. Voor beginners en gevorderden.',
+    link: 'https://github.com/cedanl',
+    linkLabel: 'Docs op GitHub',
+    icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+  },
+];
+---
+
+<BaseLayout
+  title="Aanbod — CEDA"
+  description="Ontdek wat CEDA te bieden heeft: open source tools, datasets, onderzoeksprojecten en een actieve community voor iedereen in het Nederlandse onderwijs."
+>
+  <section class="py-20 px-6">
+    <div class="container max-w-5xl mx-auto">
+      <div class="text-center mb-16" data-animate="fade">
+        <h1 class="text-4xl font-bold leading-tight md:text-5xl mb-6">Aanbod</h1>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Een overzicht van alles wat CEDA te bieden heeft — van tools en data tot community en
+          kennisdeling.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          items.map((item, index) => (
+            <div
+              class="flex flex-col rounded-xl border bg-card p-8 shadow-sm hover:shadow-md transition-shadow"
+              data-animate
+              data-delay={String(Math.min(index + 1, 5))}
+            >
+              <div class="inline-flex p-1.5 border border-foreground rounded-xl mb-4 self-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path d={item.icon} />
+                </svg>
+              </div>
+              <h2 class="text-xl font-semibold mb-3">{item.title}</h2>
+              <p class="text-sm text-muted-foreground leading-relaxed flex-1">{item.description}</p>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center gap-2 text-sm font-medium hover:underline underline-offset-4"
+              >
+                {item.linkLabel}
+                <svg
+                  class="h-3.5 w-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
