@@ -23,11 +23,12 @@ const { variant = 'boxed' } = Astro.props;
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/pages', label: 'Pages' },
-  { href: '/sections', label: 'Sections' },
-  { href: '/components', label: 'Components' },
-  { href: '/docs', label: 'Docs' },
-  { href: '/changelog', label: 'Changelog' },
+  { href: '/#stream', label: 'Waardestroom' },
+  { href: 'https://npuls.nl/', label: 'Npuls' },
+  {
+    href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+    label: 'Community',
+  },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -99,11 +100,13 @@ const containerClass =
               </div>
             );
           }
-          const isActive =
-            item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+          const isExternal = item.href.startsWith('http');
+          const isActive = !isExternal && (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
           return (
             <a
               href={item.href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
               class:list={[
                 'inline-block py-2 transition-colors',
                 isActive
@@ -123,7 +126,7 @@ const containerClass =
     <div class="hidden md:flex items-center space-x-2">
       <ThemeToggle />
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
@@ -208,11 +211,13 @@ const containerClass =
               </div>
             );
           }
-          const isActive =
-            item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+          const isExternal = item.href.startsWith('http');
+          const isActive = !isExternal && (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
           return (
             <a
               href={item.href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
               class:list={[
                 'block px-3 py-2 rounded-md text-base font-medium transition-colors',
                 isActive
@@ -227,7 +232,7 @@ const containerClass =
         })
       }
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
         class="block w-full text-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 py-2 px-4 mt-4"

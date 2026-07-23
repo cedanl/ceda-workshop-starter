@@ -1,161 +1,126 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Hero from '@/components/sections/Hero.astro';
-import LogoCloud from '@/components/sections/LogoCloud.astro';
-import Features from '@/components/sections/Features.astro';
-import AIFeature from '@/components/sections/AIFeature.astro';
 import Stats from '@/components/sections/Stats.astro';
-import FAQ from '@/components/sections/FAQ.astro';
+import ValueStreamSection from '@/components/sections/ValueStreamSection.astro';
+import DataSources from '@/components/sections/DataSources.astro';
+import { DOELGROEPEN, STREAMS, USE_CASES, ALLE_BRONNEN } from '@/data/ceda';
 
-const features = [
-  {
-    title: 'For Real Websites',
-    description:
-      'Company sites, blogs, portfolios, landing pages — with working example pages for each. Deliberately not built for dashboards or app-heavy products.',
-    icon: 'globe',
-  },
-  {
-    title: 'AI Guardrails Built In',
-    description:
-      'A convention guard hook blocks off-system edits — hardcoded colors, deprecated patterns — before they ever reach your code.',
-    icon: 'shield',
-  },
-  {
-    title: 'One Design System',
-    description:
-      'OKLCH color tokens, spacing, and typography defined once. Dark mode included — and your AI assistant cannot break it.',
-    icon: 'chart',
-  },
-  {
-    title: 'Docs for Humans & AI',
-    description:
-      'Every task is documented two ways: tell your coding assistant what you want, or follow the manual steps yourself.',
-    icon: 'users',
-  },
-  {
-    title: 'Quality Checks in One Command',
-    description:
-      'npm run check:kpis verifies colors, alt texts, meta descriptions, and deprecated imports. Lighthouse scores of 99-100 out of the box.',
-    icon: 'lock',
-  },
-  {
-    title: 'Astro Performance',
-    description:
-      'Static HTML with islands architecture: fast loads, clean SEO, sitemap and RSS included — what content sites actually need.',
-    icon: 'zap',
-  },
-];
+const totalSteps = Object.values(STREAMS).reduce((sum, steps) => sum + steps.length, 0);
 
-const faqs = [
+const stats = [
   {
-    question: 'Is AstroDeck free?',
-    answer:
-      'Yes. AstroDeck is MIT-licensed and completely free — for personal and commercial projects, forever.',
+    value: String(DOELGROEPEN.length),
+    label: 'Doelgroepen',
+    description: 'Elk met een eigen waardestroom',
   },
   {
-    question: 'What kind of websites is it for?',
-    answer:
-      'Company and marketing sites, blogs and editorial sites, portfolios, and landing pages. It is deliberately not built for dashboards or app-heavy products.',
+    value: String(totalSteps),
+    label: 'Stappen in kaart',
+    description: 'Van werving tot arbeidsmarkt',
   },
   {
-    question: 'Which AI tools does it work with?',
-    answer:
-      'Any tool that supports the AGENTS.md standard: Claude Code, Cursor, GitHub Copilot, OpenAI Codex, Gemini CLI, Windsurf, Zed, Aider, and more. Claude Code gets the deepest integration — a dedicated agent, domain skills, slash commands, and the convention guard hook.',
+    value: String(USE_CASES.length),
+    label: 'Use cases & tools',
+    description: 'Beschikbaar, in ontwikkeling of als idee',
   },
   {
-    question: 'Can I use it without AI?',
-    answer:
-      'Absolutely. AstroDeck is a normal, well-documented Astro starter kit. Every task in the docs is shown two ways: with AI and manually.',
-  },
-  {
-    question: 'Do I need to know Astro?',
-    answer:
-      'It helps, but it is not required. If you work with an AI assistant, it knows the conventions from AGENTS.md and does the heavy lifting. If you prefer to code yourself, the docs walk you through every task.',
-  },
-  {
-    question: 'How opinionated is it?',
-    answer:
-      'There is one design-token system (OKLCH colors, spacing, typography) and a set of conventions — that is what keeps AI output consistent. Everything is overridable: your own rules go in PROJECT.md, your own brand goes in globals.css or a DESIGN.md.',
+    value: String(ALLE_BRONNEN.length),
+    label: 'Databronnen',
+    description: 'Ontsloten en gepland',
   },
 ];
 ---
 
 <BaseLayout
-  title="Astro Starter Kit for AI-Assisted Websites"
-  description="Open-source Astro starter kit for AI-assisted websites. Build company sites, blogs, and portfolios with Claude Code, Cursor & Co. on guarded design rails."
+  title="CEDA — Center for Educational Data Analytics"
+  description="CEDA volgt de waardestroom van vijf doelgroepen door het onderwijs — van leven-lang-lerende tot bestuurder — en ontsluit de analyses, tools en databronnen die elke stap ondersteunen."
 >
-  <Hero
-    badge="true"
-    title="The starter kit for AI-assisted websites."
-    subtitle="Start from a complete foundation — pages, sections, and a design system — and let <mark>Claude Code, Cursor, or any coding agent</mark> build your <mark>company site, blog, or portfolio</mark>. Conventions via <mark>AGENTS.md</mark>, enforced by <mark>built-in guardrails</mark>, so AI edits never go off-system."
-    prompt="Clone https://github.com/holger1411/astrodeck as the foundation for my new website. Install the dependencies, read AGENTS.md, start the dev server, and give me a short tour of the project."
-    primaryCta={{
-      href: 'https://github.com/holger1411/astrodeck/releases/latest',
-      label: 'Download',
-    }}
-    secondaryCta={{ href: 'https://github.com/holger1411/astrodeck', label: 'GitHub' }}
-  />
-
-  <LogoCloud />
-
-  <AIFeature />
-
-  <div class="section-inverted py-8">
-    <Stats
-      stats={[
-        { value: '16', label: 'Sections', description: 'Hero, pricing, FAQ, team & more' },
-        { value: '11', label: 'UI Components', description: 'shadcn/ui + Radix' },
-        { value: '11', label: 'Example Pages', description: 'SaaS, portfolio, blog & more' },
-        { value: '100', label: 'Lighthouse', description: 'Accessibility, Best Practices & SEO' },
-      ]}
-    />
-  </div>
-
-  <Features
-    title="More than a theme, calmer than an AI builder"
-    subtitle="A complete website foundation — plus the operating layer your AI assistant needs to stay on track."
-    features={features}
-  />
-
-  <div class="bg-muted/30">
-    <FAQ
-      title="Frequently asked questions"
-      subtitle="The short version of everything you might want to know."
-      faqs={faqs}
-    />
-  </div>
-
-  <div class="section-inverted">
-    <section class="py-20 md:py-32 px-6">
-      <div class="container max-w-3xl mx-auto text-center" data-animate="scale">
-        <h2 class="text-3xl font-bold leading-tight md:text-5xl">Start from a clean foundation.</h2>
-        <p class="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Download AstroDeck, open it in your coding assistant, and say what you want to build. Free
-          and open source — forever.
+  <!-- HERO -->
+  <section class="bg-ceda-hero px-4 py-20 md:px-8 md:py-28">
+    <div class="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-2">
+      <div data-animate="fade">
+        <p class="mb-5 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
+          Center for Educational Data Analytics
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
+        <h1
+          class="mb-6 text-balance font-serif text-4xl font-light leading-tight text-foreground md:text-5xl lg:text-6xl"
+        >
+          Datagedreven onderwijs begint hier
+        </h1>
+        <p class="mb-10 max-w-[480px] text-lg leading-relaxed text-muted-foreground">
+          CEDA volgt de reis van vijf doelgroepen door het onderwijs — van leven-lang-lerende tot
+          bestuurder. Kies een rol en zie welke analyses, tools en use cases elke stap ondersteunen,
+          en waar nog kansen liggen.
+        </p>
+        <div class="flex flex-wrap gap-3">
           <a
-            href="https://github.com/holger1411/astrodeck/releases/latest"
-            class="group relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 h-12 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 overflow-hidden"
+            href="#stream"
+            class="inline-flex items-center gap-2 rounded-full bg-ceda-primary px-7 py-3 text-sm font-medium text-ceda-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
           >
-            <span
-              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
-              aria-hidden="true"></span>
-            <span
-              class="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-0.5"
-              >Download</span
+            Bekijk de waardestroom
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              aria-hidden="true"
+              class="flex-none"
             >
+              <path
+                d="M1 7h12M7 1l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
           </a>
           <a
-            href="https://github.com/holger1411/astrodeck"
+            href="https://github.com/cedanl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-12 px-8"
+            class="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
           >
             GitHub
           </a>
+          <a
+            href="https://npuls.nl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
+          >
+            Npuls
+          </a>
+          <a
+            href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
+          >
+            Community
+          </a>
         </div>
       </div>
-    </section>
-  </div>
+      <div class="hidden lg:grid lg:grid-cols-2 lg:gap-3" aria-hidden="true" data-animate="fade">
+        {
+          stats.map((stat) => (
+            <div class="rounded-xl bg-background/80 p-5">
+              <div class="font-serif text-4xl font-light leading-none text-ceda-primary">
+                {stat.value}
+              </div>
+              <div class="mt-1.5 text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY NUMBERS -->
+  <Stats stats={stats} />
+
+  <!-- THE VALUE STREAM — centerpiece -->
+  <ValueStreamSection />
+
+  <!-- ALL DATA SOURCES -->
+  <DataSources />
 </BaseLayout>
