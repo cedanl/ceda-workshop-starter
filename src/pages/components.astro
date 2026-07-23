@@ -591,7 +591,7 @@ import { Button } from "@/components/ui/button";
       // Copy code toggle
       document.querySelectorAll('.copy-btn').forEach((button) => {
         button.addEventListener('click', async () => {
-          const codeId = `code-${(button as HTMLElement).dataset.code}`;
+          const codeId = `code-${button.dataset.code}`;
           const codeBlock = document.getElementById(codeId);
           if (!codeBlock) return;
 

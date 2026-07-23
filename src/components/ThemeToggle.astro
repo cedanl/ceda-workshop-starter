@@ -61,7 +61,7 @@
 <script>
   function updateAriaStates() {
     const isDark = document.documentElement.classList.contains('dark');
-    document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((toggle) => {
+    document.querySelectorAll('.theme-toggle').forEach((toggle) => {
       toggle.setAttribute('aria-checked', String(isDark));
     });
   }
@@ -70,7 +70,7 @@
     updateAriaStates();
 
     document.querySelectorAll('.theme-toggle').forEach((toggle) => {
-      const newToggle = toggle.cloneNode(true) as Element;
+      const newToggle = toggle.cloneNode(true);
       toggle.replaceWith(newToggle);
 
       newToggle.addEventListener('click', () => {
