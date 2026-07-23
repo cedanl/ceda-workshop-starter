@@ -21,16 +21,17 @@ interface Props {
 const { variant = 'boxed' } = Astro.props;
 
 const footerLinks = {
-  astrodeck: [
+  ceda: [
     { href: '/', label: 'Home' },
-    { href: '/docs', label: 'Docs' },
-    { href: '/sections', label: 'Sections' },
-    { href: '/changelog', label: 'Changelog' },
+    { href: '/#stream', label: 'Waardestroom' },
+    { href: 'https://github.com/cedanl', label: 'GitHub' },
   ],
-  pages: [
-    { href: '/blog', label: 'Blog' },
-    { href: '/content', label: 'Content' },
-    { href: '/login', label: 'Login' },
+  community: [
+    { href: 'https://npuls.nl/', label: 'Npuls' },
+    {
+      href: 'https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda',
+      label: 'Community',
+    },
   ],
 };
 
@@ -45,19 +46,22 @@ const containerClass =
       <div class="col-span-2 md:col-span-1">
         <Logo />
         <p class="mt-4 text-sm text-muted-foreground">
-          Open-source Astro.js starter kit with ready-to-use components. Start building faster.
+          Center for Educational Data Analytics — een initiatief van Npuls voor datagedreven
+          onderwijs.
         </p>
       </div>
 
-      <!-- AstroDeck -->
+      <!-- CEDA -->
       <div>
-        <h3 class="font-semibold mb-4">AstroDeck</h3>
+        <h3 class="font-semibold mb-4">CEDA</h3>
         <ul class="space-y-0">
           {
-            footerLinks.astrodeck.map((link) => (
+            footerLinks.ceda.map((link) => (
               <li>
                 <a
                   href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   class="inline-block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
@@ -68,15 +72,17 @@ const containerClass =
         </ul>
       </div>
 
-      <!-- Pages -->
+      <!-- Community -->
       <div>
-        <h3 class="font-semibold mb-4">Pages</h3>
+        <h3 class="font-semibold mb-4">Community</h3>
         <ul class="space-y-0">
           {
-            footerLinks.pages.map((link) => (
+            footerLinks.community.map((link) => (
               <li>
                 <a
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="inline-block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
@@ -85,42 +91,12 @@ const containerClass =
             ))
           }
         </ul>
-      </div>
-
-      <!-- Creator -->
-      <div>
-        <h3 class="font-semibold mb-4">Creator</h3>
-        <p class="text-sm text-muted-foreground">Created by Holger Könemann</p>
-        <p class="text-sm text-muted-foreground mt-1">
-          for <a
-            href="https://templatedeck.com"
-            class="font-medium text-foreground hover:text-primary transition-colors inline-flex items-center gap-1 py-1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            templatedeck.com
-            <svg
-              class="h-3 w-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              ></path>
-            </svg>
-          </a>
-        </p>
       </div>
     </div>
 
     <!-- Copyright -->
     <div class="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-      <p>&copy; {new Date().getFullYear()} AstroDeck. MIT License. Open Source.</p>
+      <p>&copy; {new Date().getFullYear()} CEDA / Npuls. MIT License. Open Source.</p>
     </div>
   </div>
 </footer>
