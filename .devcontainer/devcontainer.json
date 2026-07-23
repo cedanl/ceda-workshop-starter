@@ -8,8 +8,9 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "postCreateCommand": "bash .devcontainer/post-create.sh",
-  "forwardedPorts": [3000, 5500, 8000, 8080],
+  "forwardedPorts": [4321, 3000, 5500, 8000, 8080],
   "portsAttributes": {
+    "4321": { "label": "Astro Dev Server" },
     "3000": { "label": "Dev Server" },
     "5500": { "label": "Live Server" },
     "8000": { "label": "HTTP Server" },

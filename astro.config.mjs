@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://astrodeck.dev',
+  server: {
+    host: true,
+  },
   integrations: [
     react(),
     sitemap({

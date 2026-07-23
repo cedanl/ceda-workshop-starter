@@ -1,11 +1,23 @@
 {
   "version": 1,
   "skills": {
+    "content-strategy": {
+      "source": "boraoztunc/skills",
+      "sourceType": "github",
+      "skillPath": "content-strategy/SKILL.md",
+      "computedHash": "8cbfec6d6425cfb09d6299feb09d06e5c5966e93cfe7c7685eb5ff8a4942317c"
+    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "781bd6d3f9b19f8c9af6b53d8d0e4876d0183841b565db34ca7092ffa412d111"
+    },
+    "information-architecture": {
+      "source": "owl-listener/designer-skills",
+      "sourceType": "github",
+      "skillPath": "ux-strategy/skills/information-architecture/SKILL.md",
+      "computedHash": "29e4d0ec56d72da002e6864f99a8eda919921839f8685a61418143fb98ddb978"
     }
   }
 }
