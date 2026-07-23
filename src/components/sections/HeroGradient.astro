@@ -30,9 +30,19 @@ interface Props {
   primaryCta?: { href: string; label: string };
   secondaryCta?: { href: string; label: string };
   badge?: string;
+  badgeHref?: string;
+  badgeChip?: string;
 }
 
-const { title, subtitle, primaryCta, secondaryCta, badge } = Astro.props;
+const {
+  title,
+  subtitle,
+  primaryCta,
+  secondaryCta,
+  badge,
+  badgeHref = '/changelog',
+  badgeChip = 'New',
+} = Astro.props;
 ---
 
 <section
@@ -58,11 +68,11 @@ const { title, subtitle, primaryCta, secondaryCta, badge } = Astro.props;
     {
       badge && (
         <a
-          href="/changelog"
+          href={badgeHref}
           class="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium hover:bg-muted transition-colors"
         >
           <span class="bg-foreground text-background px-2 py-0.5 rounded-md font-semibold text-xs">
-            New
+            {badgeChip}
           </span>
           <span>{badge}</span>
         </a>
@@ -136,8 +146,8 @@ const { title, subtitle, primaryCta, secondaryCta, badge } = Astro.props;
     transform: translate(-50%, -55%);
     background: radial-gradient(
       ellipse at center,
-      oklch(60% 0.18 280) 0%,
-      oklch(55% 0.14 260) 40%,
+      oklch(62% 0.22 215) 0%,
+      oklch(58% 0.18 230) 40%,
       transparent 70%
     );
     filter: blur(100px);
@@ -156,8 +166,8 @@ const { title, subtitle, primaryCta, secondaryCta, badge } = Astro.props;
     transform: translate(-40%, -45%);
     background: radial-gradient(
       ellipse at center,
-      oklch(65% 0.16 220) 0%,
-      oklch(60% 0.12 240) 40%,
+      oklch(58% 0.18 240) 0%,
+      oklch(52% 0.14 255) 40%,
       transparent 70%
     );
     filter: blur(120px);
@@ -174,7 +184,12 @@ const { title, subtitle, primaryCta, secondaryCta, badge } = Astro.props;
     top: 20%;
     left: 70%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(ellipse at center, oklch(75% 0.14 300) 0%, transparent 65%);
+    background: radial-gradient(
+      ellipse at center,
+      oklch(68% 0.22 195) 0%,
+      oklch(62% 0.18 210) 40%,
+      transparent 65%
+    );
     filter: blur(80px);
     animation: float-3 7s ease-in-out infinite;
     opacity: 0.1;

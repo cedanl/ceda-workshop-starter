@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Hero from '@/components/sections/Hero.astro';
+import HeroGradient from '@/components/sections/HeroGradient.astro';
 import Features from '@/components/sections/Features.astro';
 import Stats from '@/components/sections/Stats.astro';
 import CTA from '@/components/sections/CTA.astro';
@@ -49,7 +49,10 @@ const features = [
   title="Center for Educational Data Analytics"
   description="CEDA helpt onderwijsinstellingen om data begrijpelijk en bruikbaar te maken — met open tools, gedeelde kennis en een actieve community."
 >
-  <Hero
+  <HeroGradient
+    badge="Onderdeel van Npuls"
+    badgeChip="Npuls"
+    badgeHref="https://npuls.nl/"
     title="Data-analyse voor het onderwijs."
     subtitle="CEDA helpt onderwijsinstellingen om data <mark>begrijpelijk en bruikbaar</mark> te maken — met <mark>open source tools</mark>, gedeelde kennis en een <mark>actieve community</mark>."
     primaryCta={{
@@ -59,11 +62,151 @@ const features = [
     secondaryCta={{ href: 'https://github.com/cedanl', label: 'GitHub' }}
   />
 
-  <Features
-    title="Wat CEDA te bieden heeft"
-    subtitle="Van open tools tot een actieve kenniscommunity — alles om data-analyse in het onderwijs toegankelijker te maken."
-    features={features}
-  />
+  <!-- Over CEDA -->
+  <section class="py-16 md:py-24">
+    <div class="container max-w-5xl mx-auto px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div class="space-y-6" data-animate="slide-left">
+          <p class="text-sm font-semibold text-primary uppercase tracking-widest">Over CEDA</p>
+          <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+            Van ruwe data naar onderwijsinzicht
+          </h2>
+          <p class="text-lg text-muted-foreground leading-relaxed">
+            CEDA — Center for Educational Data Analytics — is het kenniscentrum voor data-analyse in
+            het Nederlandse onderwijs. We ontwikkelen open tools, delen kennis en bouwen aan een
+            community van professionals die data inzetten voor beter onderwijs.
+          </p>
+          <ul class="space-y-3 pt-2">
+            {
+              [
+                'Open source tools, vrij te gebruiken en aan te passen',
+                'Reproduceerbare analyses voor concrete onderwijsvraagstukken',
+                'Community van 100+ data-professionals uit HO en MBO',
+                'Documentatie en workshops in het Nederlands',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5 text-primary mt-0.5 flex-shrink-0"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  <span class="text-muted-foreground">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="pt-2">
+            <a
+              href="https://github.com/cedanl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+            >
+              Bekijk onze tools op GitHub
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dashboard mockup -->
+        <div
+          class="relative rounded-2xl border bg-card shadow-2xl overflow-hidden p-6"
+          data-animate="slide-right"
+        >
+          <!-- Toolbar -->
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-2">
+              <div class="h-3 w-3 rounded-full bg-muted-foreground/30"></div>
+              <div class="h-3 w-3 rounded-full bg-muted-foreground/50"></div>
+              <div class="h-3 w-3 rounded-full bg-muted-foreground/70"></div>
+            </div>
+            <span class="text-xs font-mono text-muted-foreground">ceda — analyse.ipynb</span>
+          </div>
+
+          <!-- Stat tiles -->
+          <div class="grid grid-cols-3 gap-3 mb-5">
+            <div class="rounded-lg bg-muted p-3">
+              <p class="text-xs text-muted-foreground mb-1">Instellingen</p>
+              <p class="text-xl font-bold">34</p>
+              <p class="text-xs text-primary font-medium mt-0.5">+8 dit jaar</p>
+            </div>
+            <div class="rounded-lg bg-muted p-3">
+              <p class="text-xs text-muted-foreground mb-1">Analyses</p>
+              <p class="text-xl font-bold">128</p>
+              <p class="text-xs text-primary font-medium mt-0.5">+23%</p>
+            </div>
+            <div class="rounded-lg bg-muted p-3">
+              <p class="text-xs text-muted-foreground mb-1">Community</p>
+              <p class="text-xl font-bold">100+</p>
+              <p class="text-xs text-primary font-medium mt-0.5">actief</p>
+            </div>
+          </div>
+
+          <!-- Bar chart -->
+          <div class="space-y-2.5 mb-5">
+            <p class="text-xs font-medium text-muted-foreground mb-3">Gebruik per kwartaal</p>
+            {
+              [
+                { label: 'Q1 2024', pct: 'w-[52%]' },
+                { label: 'Q2 2024', pct: 'w-[68%]' },
+                { label: 'Q3 2024', pct: 'w-[79%]' },
+                { label: 'Q4 2024', pct: 'w-[91%]' },
+              ].map(({ label, pct }) => (
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-muted-foreground w-16 shrink-0">{label}</span>
+                  <div class="flex-1 bg-muted rounded-full h-2">
+                    <div class:list={['bg-primary rounded-full h-2', pct]} />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- Code snippet -->
+          <div
+            class="rounded-lg bg-muted/60 border px-4 py-3 font-mono text-xs text-muted-foreground leading-relaxed"
+          >
+            <span class="text-primary">import</span> ceda_tools <span class="text-primary">as</span> ct<br
+            />
+            df = ct.<span class="text-foreground">load_cohort</span>(<span class="text-primary"
+              >"2024"</span
+            >)<br />
+            ct.<span class="text-foreground">analyse</span>(df).<span class="text-foreground"
+              >plot</span
+            >()
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-muted/30">
+    <Features
+      title="Wat CEDA te bieden heeft"
+      subtitle="Van open tools tot een actieve kenniscommunity — alles om data-analyse in het onderwijs toegankelijker te maken."
+      features={features}
+    />
+  </div>
 
   <div class="section-inverted py-8">
     <Stats

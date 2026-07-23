@@ -36,8 +36,8 @@
   --color-card-foreground: oklch(9.8% 0.0016 286.75);
   --color-popover: oklch(100% 0 0);
   --color-popover-foreground: oklch(9.8% 0.0016 286.75);
-  --color-primary: oklch(11.2% 0.0079 286.75);
-  --color-primary-foreground: oklch(98% 0.0011 286.75);
+  --color-primary: oklch(52% 0.24 230);
+  --color-primary-foreground: oklch(99% 0 0);
   --color-secondary: oklch(96.1% 0.0011 286.75);
   --color-secondary-foreground: oklch(11.2% 0.0079 286.75);
   --color-muted: oklch(96.1% 0.0011 286.75);
@@ -48,7 +48,7 @@
   --color-destructive-foreground: oklch(98% 0.0011 286.75);
   --color-border: oklch(91.4% 0.009 286.75);
   --color-input: oklch(91.4% 0.009 286.75);
-  --color-ring: oklch(9.8% 0.0016 286.75);
+  --color-ring: oklch(52% 0.24 230);
 
   --radius: 0.5rem;
 
@@ -82,8 +82,8 @@
   --color-card-foreground: oklch(98% 0 0);
   --color-popover: oklch(4% 0 0);
   --color-popover-foreground: oklch(98% 0 0);
-  --color-primary: oklch(98% 0 0);
-  --color-primary-foreground: oklch(1.5% 0 0);
+  --color-primary: oklch(65% 0.2 230);
+  --color-primary-foreground: oklch(10% 0 0);
   --color-secondary: oklch(10% 0 0);
   --color-secondary-foreground: oklch(98% 0 0);
   --color-muted: oklch(10% 0 0);
@@ -107,16 +107,16 @@ body {
 }
 
 mark {
-  background-color: oklch(92% 0.05 150);
-  color: oklch(25% 0.02 150);
+  background-color: oklch(93% 0.06 230);
+  color: oklch(28% 0.15 230);
   font-weight: 600;
   padding: 0.1em 0.2em;
   border-radius: 0.2em;
 }
 
 .dark mark {
-  background-color: oklch(35% 0.05 150);
-  color: oklch(95% 0.02 150);
+  background-color: oklch(32% 0.12 230);
+  color: oklch(94% 0.04 230);
 }
 
 /* ===== Section Background Variants ===== */
