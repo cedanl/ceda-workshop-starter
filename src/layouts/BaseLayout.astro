@@ -84,7 +84,14 @@ const enableAnalytics = !!process.env.VERCEL;
     <ClientRouter />
     <ThemeScript />
   </head>
-  <body class="min-h-screen flex flex-col antialiased">
+  <body class="min-h-screen flex flex-col antialiased bg-transparent">
+    {/* Full-page profile-picture background, grayscale to match the comic theme */}
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 -z-20 bg-[url('/ceda-workshop-starter/profile.png')] bg-cover bg-center bg-no-repeat grayscale"
+    >
+    </div>
+    <div aria-hidden="true" class="fixed inset-0 -z-10 bg-background/55"></div>
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium"
