@@ -11,6 +11,9 @@ Stateful overzicht van de workshopstappen. Wordt bijgewerkt na elke afgeronde st
 | S5 | Testing/QA — mobiel, links, spelling | taak | actief | S4 | — | — |
 | S6 | Launch/Deploy | taak | open | S5 | — | — |
 
+## Model log
+- 2026-07-23: gewisseld naar **claude-sonnet-4-6** (ingesteld via `/model`, opgeslagen als default in `.claude/settings.json`)
+
 ## Log
 - Onboarding (blok 1–3) doorlopen. Dev server draait op http://localhost:4321.
 - Stap S1 (Strategy) afgerond — lokale target-audience skill niet beschikbaar, direct uitgevoerd → strategy.md.
