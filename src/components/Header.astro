@@ -22,12 +22,9 @@ interface Props {
 const { variant = 'boxed' } = Astro.props;
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/pages', label: 'Pages' },
-  { href: '/sections', label: 'Sections' },
-  { href: '/components', label: 'Components' },
-  { href: '/docs', label: 'Docs' },
-  { href: '/changelog', label: 'Changelog' },
+  { href: '#menukaart', label: 'Aanbod' },
+  { href: '#over', label: 'Over CEDA' },
+  { href: '#meedoen', label: 'Meedoen' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -123,7 +120,7 @@ const containerClass =
     <div class="hidden md:flex items-center space-x-2">
       <ThemeToggle />
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
@@ -227,7 +224,7 @@ const containerClass =
         })
       }
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
         class="block w-full text-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 py-2 px-4 mt-4"

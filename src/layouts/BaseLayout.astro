@@ -50,14 +50,14 @@ interface Props {
 
 const {
   title,
-  description = 'AstroDeck - Modern Astro.js Component Library',
+  description = 'CEDA bundelt open data-analyse-tools, standaarden en een community voor het Nederlandse hoger onderwijs.',
   image,
   type = 'website',
   publishedTime,
   author,
 } = Astro.props;
 
-const fullTitle = `${title} | AstroDeck`;
+const fullTitle = `${title} | CEDA`;
 
 // Vercel Analytics only works on Vercel deployments; rendering it elsewhere
 // (local preview, other hosts) produces a 404 on /_vercel/insights/script.js
@@ -65,7 +65,7 @@ const enableAnalytics = !!process.env.VERCEL;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

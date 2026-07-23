@@ -7,8 +7,8 @@ Stateful overzicht van de workshopstappen. Wordt bijgewerkt na elke afgeronde st
 | S1 | Strategy — doel & doelgroep site | taak | done | — | direct (target-audience n/a) | strategy.md — doelgroep: data-professionals HO (+ beleid); doel: menukaart CEDA-aanbod met 3 CTA-links |
 | S2 | Content strategy — pagina's/content-typen | taak | done | S1 | content-seo | content-strategy.md — one-pager met 5 secties (hero, menukaart, over, meedoen, footer) + SEO/meta |
 | S3 | Information Architecture — sitemap + componenten | taak | done | S2 | astrodeck agent | ia.md — sectie→component mapping. Hergebruik: Hero, ContentBlock, Header/Footer/Logo/Features (aanpassen). Nieuw: CTAMulti |
-| S4 | UI/Implementatie — content in template/shadcn | taak | actief | S3 | — | — |
-| S5 | Testing/QA — mobiel, links, spelling | taak | open | S4 | — | — |
+| S4 | UI/Implementatie — content in template/shadcn | taak | done | S3 | astrodeck agent | index.astro one-pager + nieuw CTAMulti; rebrand Header/Footer/Logo/SEO naar CEDA (lang=nl). KPI PASS, HTTP 200, 3 links (7/8/4×) |
+| S5 | Testing/QA — mobiel, links, spelling | taak | actief | S4 | — | — |
 | S6 | Launch/Deploy | taak | open | S5 | — | — |
 
 ## Log

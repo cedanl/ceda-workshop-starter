@@ -34,15 +34,31 @@ interface Feature {
   title: string;
   description: string;
   icon: string;
+  /** Optional URL — wraps the card in an anchor when provided */
+  href?: string;
 }
 
 interface Props {
   title: string;
   subtitle?: string;
   features: Feature[];
+  /**
+   * Number of grid columns on desktop.
+   * - 2: sm:grid-cols-2
+   * - 3: sm:grid-cols-2 md:grid-cols-3 (default)
+   * - 4: sm:grid-cols-2 lg:grid-cols-4
+   */
+  columns?: 2 | 3 | 4;
 }
 
-const { title, subtitle, features } = Astro.props;
+const { title, subtitle, features, columns = 3 } = Astro.props;
+
+const gridColsClass =
+  columns === 2
+    ? 'sm:grid-cols-2'
+    : columns === 4
+      ? 'sm:grid-cols-2 lg:grid-cols-4'
+      : 'sm:grid-cols-2 md:grid-cols-3';
 
 const iconPaths: Record<string, string> = {
   zap: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
@@ -71,33 +87,58 @@ const iconPaths: Record<string, string> = {
       }
     </div>
     <div
-      class="grid gap-px sm:grid-cols-2 md:grid-cols-3 mt-12 bg-border overflow-hidden rounded-xl border shadow-lg"
+      class:list={[
+        'grid gap-px mt-12 bg-border overflow-hidden rounded-xl border shadow-lg',
+        gridColsClass,
+      ]}
     >
       {
-        features.map((feature, index) => (
-          <div
-            class="relative overflow-hidden bg-card px-10 py-12"
-            data-animate
-            data-delay={String(Math.min(index + 1, 5))}
-          >
-            <div class="inline-flex p-1.5 border border-foreground rounded-xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-5 w-5"
-              >
-                <path d={iconPaths[feature.icon] || iconPaths.zap} />
-              </svg>
+        features.map((feature, index) => {
+          const cardClass =
+            'relative overflow-hidden bg-card px-10 py-12' +
+            (feature.href ? ' hover:bg-muted/50 transition-colors' : '');
+          const inner = (
+            <>
+              <div class="inline-flex p-1.5 border border-foreground rounded-xl mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path d={iconPaths[feature.icon] || iconPaths.zap} />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p class="text-sm text-muted-foreground">{feature.description}</p>
+            </>
+          );
+          return feature.href ? (
+            <a
+              href={feature.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={cardClass}
+              data-animate
+              data-delay={String(Math.min(index + 1, 5))}
+            >
+              {inner}
+            </a>
+          ) : (
+            <div
+              class={cardClass}
+              data-animate
+              data-delay={String(Math.min(index + 1, 5))}
+            >
+              {inner}
             </div>
-            <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p class="text-sm text-muted-foreground">{feature.description}</p>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </div>
