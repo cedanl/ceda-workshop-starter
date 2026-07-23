@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Shell scripts altijd LF — anders falen ze in Linux containers
+*.sh text eol=lf
