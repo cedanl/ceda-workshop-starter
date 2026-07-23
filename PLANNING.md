@@ -6,8 +6,8 @@
 | S2 | Content strategy | taak | done | S1 | — | Homepage met Hero, Features (6), Stats, CTA + links naar GitHub/Npuls/Community. |
 | S3 | Information Architecture | taak | done | S2 | — | Eén pagina (index.astro): Hero → Features → Stats → CTA. Header + Footer aangepast voor CEDA. |
 | S4 | UI/Implementatie | taak | done | S3 | astrodeck | index.astro, Header.astro, Logo.astro, Footer.astro — CEDA content geïmplementeerd |
-| S5 | Testing/QA | taak | actief | S4 | qa | — |
-| S6 | Launch/Deploy | taak | open | S5 | — | — |
+| S5 | Testing/QA | taak | done | S4 | qa | KPIs groen, lint/format/build clean, AstroDeck-refs verwijderd uit Header |
+| S6 | Launch/Deploy | taak | actief | S5 | — | — |
 
 ## Model log
 - 2026-07-23: claude-sonnet-4-6 (standaard)
