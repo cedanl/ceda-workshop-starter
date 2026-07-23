@@ -1,0 +1,1 @@
+import{t as e}from"./label.DcUhxnIz.js";export{e as Label};
