@@ -3,3 +3,4 @@
 
 # Shell scripts altijd LF — anders falen ze in Linux containers
 *.sh text eol=lf
+.claude/hooks/* text eol=lf
