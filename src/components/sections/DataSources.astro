@@ -1,0 +1,69 @@
+---
+/**
+ * Data Sources Section ("Alle databronnen")
+ *
+ * Static grid of every data source CEDA connects to, driven by ALLE_BRONNEN.
+ * Status dots: beschikbaar (available), dev (in development), niet (not yet
+ * unlocked) — colors map to the CEDA brand tokens in globals.css.
+ *
+ * @example
+ * ```astro
+ * <DataSources />
+ * ```
+ */
+import { ALLE_BRONNEN, type BronStatus } from '@/data/ceda';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = 'Alle databronnen',
+  subtitle = 'Overzicht van ontsloten en geplande databronnen',
+} = Astro.props;
+
+const dotClass: Record<BronStatus, string> = {
+  beschikbaar: 'bg-ceda-success',
+  dev: 'bg-ceda-warn',
+  niet: 'bg-border',
+};
+
+const legend: { status: BronStatus; label: string }[] = [
+  { status: 'beschikbaar', label: 'Beschikbaar' },
+  { status: 'dev', label: 'In ontwikkeling' },
+  { status: 'niet', label: 'Nog niet ontsloten' },
+];
+---
+
+<section class="section-muted border-t border-border px-4 py-16 md:px-8 md:py-20">
+  <div class="mx-auto max-w-[1200px]">
+    <div data-animate>
+      <h2 class="font-serif text-2xl font-light text-foreground md:text-3xl">{title}</h2>
+      <p class="mt-1.5 mb-8 text-sm text-muted-foreground">{subtitle}</p>
+    </div>
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3" data-animate>
+      {
+        ALLE_BRONNEN.map((bron) => (
+          <div class="flex items-center gap-3 rounded-lg border border-border bg-card px-4.5 py-4">
+            <span class={`h-2.5 w-2.5 flex-none rounded-full ${dotClass[bron.status]}`} aria-hidden="true" />
+            <div>
+              <p class="text-sm font-semibold text-foreground">{bron.name}</p>
+              <p class="text-xs text-muted-foreground">{bron.type}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="mt-6 flex flex-wrap gap-5">
+      {
+        legend.map((item) => (
+          <span class="flex items-center gap-2 text-xs text-muted-foreground">
+            <span class={`h-2.5 w-2.5 rounded-full ${dotClass[item.status]}`} aria-hidden="true" />
+            {item.label}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>

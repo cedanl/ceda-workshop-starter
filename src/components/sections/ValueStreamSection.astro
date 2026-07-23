@@ -1,0 +1,36 @@
+---
+/**
+ * Value Stream Section
+ *
+ * Static Astro shell (heading + intro copy) around the interactive
+ * ValueStream React island. Kept as a Section component so the page
+ * composition stays declarative — the island itself lives in
+ * src/components/ceda/ValueStream.tsx.
+ *
+ * @example
+ * ```astro
+ * <ValueStreamSection />
+ * ```
+ */
+import ValueStream from '@/components/ceda/ValueStream';
+
+interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  id = 'stream',
+  title = 'Kies je rol, volg de waardestroom',
+  subtitle = 'Elke doelgroep doorloopt een eigen stroom van links naar rechts. Onder elke stap staan de tools die die stap ondersteunen — een gestippelde tegel betekent: hier ligt nog een kans.',
+} = Astro.props;
+---
+
+<section id={id} class="pb-2 pt-12">
+  <div class="mx-auto max-w-[1200px] px-4 md:px-8" data-animate>
+    <h2 class="font-serif text-2xl font-light text-foreground md:text-3xl">{title}</h2>
+    <p class="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{subtitle}</p>
+  </div>
+  <ValueStream client:visible />
+</section>
