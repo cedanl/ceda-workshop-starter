@@ -8,7 +8,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   {
-    ignores: ['dist/**', 'node_modules/**', '.astro/**'],
+    ignores: ['dist/**', 'node_modules/**', '.astro/**', 'system/**'],
   },
   {
     // Node.js tooling scripts (hooks, KPI checks) run outside the browser

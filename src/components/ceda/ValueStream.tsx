@@ -80,7 +80,10 @@ function SupplierChip({ source }: { source: UseCaseSource }) {
       )}
     >
       <span
-        className={cn('h-1.5 w-1.5 flex-none rounded-full', source.avail ? 'bg-ceda-success' : 'bg-border')}
+        className={cn(
+          'h-1.5 w-1.5 flex-none rounded-full',
+          source.avail ? 'bg-ceda-success' : 'bg-border'
+        )}
         aria-hidden="true"
       />
       {source.name}
@@ -352,7 +355,9 @@ export default function ValueStream() {
           if (!hoveredUc) return null;
           const meta = STATUS_META[hoveredUc.status];
           const shortDesc =
-            hoveredUc.desc.length > 130 ? `${hoveredUc.desc.slice(0, 130).trim()}…` : hoveredUc.desc;
+            hoveredUc.desc.length > 130
+              ? `${hoveredUc.desc.slice(0, 130).trim()}…`
+              : hoveredUc.desc;
           return (
             <div
               ref={popRef}
@@ -362,7 +367,9 @@ export default function ValueStream() {
                 'pointer-events-none fixed z-[180] w-[300px] max-w-[calc(100vw-24px)] rounded-xl border border-border bg-popover p-4 shadow-xl transition-opacity duration-150',
                 popStyle ? 'opacity-100' : 'opacity-0'
               )}
-              style={popStyle ? { left: popStyle.left, top: popStyle.top } : { left: -9999, top: -9999 }}
+              style={
+                popStyle ? { left: popStyle.left, top: popStyle.top } : { left: -9999, top: -9999 }
+              }
             >
               <span
                 className={cn(
@@ -442,7 +449,11 @@ export default function ValueStream() {
               {STATUS_META[uc.status].label}
             </span>
 
-            <div role="tablist" aria-label="Detail-tabs" className="mb-7 flex border-b border-border">
+            <div
+              role="tablist"
+              aria-label="Detail-tabs"
+              className="mb-7 flex border-b border-border"
+            >
               <button
                 type="button"
                 role="tab"
@@ -518,7 +529,10 @@ export default function ValueStream() {
                       const open = openCats.has(i);
                       const biv = BIV_META[c.biv];
                       return (
-                        <div key={c.name} className="overflow-hidden rounded-lg border border-border">
+                        <div
+                          key={c.name}
+                          className="overflow-hidden rounded-lg border border-border"
+                        >
                           <button
                             type="button"
                             tabIndex={panelOpen ? 0 : -1}
@@ -550,7 +564,10 @@ export default function ValueStream() {
                             </span>
                           </button>
                           {open && (
-                            <div id={`ceda-cat-body-${i}`} className="flex flex-col gap-1 px-3.5 py-3">
+                            <div
+                              id={`ceda-cat-body-${i}`}
+                              className="flex flex-col gap-1 px-3.5 py-3"
+                            >
                               {c.fields.map((f) => (
                                 <span
                                   key={f}

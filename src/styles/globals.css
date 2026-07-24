@@ -55,7 +55,9 @@
   /* CEDA brand tokens — ported from system/ceda-waardestroom.html (OKLCH).
      Used by the value-stream island and the "Alle databronnen" section.
      Light-mode values live here; dark-mode overrides are in the .dark block below. */
-  --color-ceda-primary: oklch(67.76% 0.1393 43.8); /* CEDA orange — CTAs, active states, connectors */
+  --color-ceda-primary: oklch(
+    67.76% 0.1393 43.8
+  ); /* CEDA orange — CTAs, active states, connectors */
   --color-ceda-primary-foreground: oklch(100% 0 0);
   --color-ceda-success: oklch(66.86% 0.1387 166.05); /* CEDA teal — status "beschikbaar" */
   --color-ceda-warn: oklch(67.76% 0.1393 43.8); /* same orange family — status "ontw" (MVP) */

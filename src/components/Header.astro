@@ -105,7 +105,9 @@ const containerClass =
             );
           }
           const isExternal = item.href.startsWith('http');
-          const isActive = !isExternal && (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
+          const isActive =
+            !isExternal &&
+            (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
           return (
             <a
               href={item.href}
@@ -216,7 +218,9 @@ const containerClass =
             );
           }
           const isExternal = item.href.startsWith('http');
-          const isActive = !isExternal && (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
+          const isActive =
+            !isExternal &&
+            (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
           return (
             <a
               href={item.href}

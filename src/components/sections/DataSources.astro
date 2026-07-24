@@ -18,10 +18,8 @@ interface Props {
   subtitle?: string;
 }
 
-const {
-  title = 'Alle databronnen',
-  subtitle = 'Overzicht van ontsloten en geplande databronnen',
-} = Astro.props;
+const { title = 'Alle databronnen', subtitle = 'Overzicht van ontsloten en geplande databronnen' } =
+  Astro.props;
 
 const dotClass: Record<BronStatus, string> = {
   beschikbaar: 'bg-ceda-success',
@@ -46,7 +44,10 @@ const legend: { status: BronStatus; label: string }[] = [
       {
         ALLE_BRONNEN.map((bron) => (
           <div class="flex items-center gap-3 rounded-lg border border-border bg-card px-4.5 py-4">
-            <span class={`h-2.5 w-2.5 flex-none rounded-full ${dotClass[bron.status]}`} aria-hidden="true" />
+            <span
+              class={`h-2.5 w-2.5 flex-none rounded-full ${dotClass[bron.status]}`}
+              aria-hidden="true"
+            />
             <div>
               <p class="text-sm font-semibold text-foreground">{bron.name}</p>
               <p class="text-xs text-muted-foreground">{bron.type}</p>

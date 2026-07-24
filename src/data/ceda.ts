@@ -480,7 +480,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Staat van de onderwijsinstelling',
     status: 'beschikbaar',
     tagline: 'Studiesucces-indicatoren per cohort',
-    desc: "Berekent per cohort instroom, rendement (3/5/8 jr), uitval en switch op basis van gedecodeerde DUO 1CHO-bestanden — uniform, herhaalbaar en (informeel) te benchmarken tussen instellingen. Snel aanpasbaar als er landelijk nieuwe vragen opkomen.",
+    desc: 'Berekent per cohort instroom, rendement (3/5/8 jr), uitval en switch op basis van gedecodeerde DUO 1CHO-bestanden — uniform, herhaalbaar en (informeel) te benchmarken tussen instellingen. Snel aanpasbaar als er landelijk nieuwe vragen opkomen.',
     sources: [
       { name: 'DUO 1CHO', avail: true },
       { name: 'DUO bekostiging', avail: true },
@@ -490,7 +490,7 @@ export const USE_CASES: UseCase[] = [
       {
         name: 'Onderwijs data',
         biv: 'midden',
-        fields: ["Inschrijvingen per student", "Diploma's", 'Rendement', 'Uitval & switch'],
+        fields: ['Inschrijvingen per student', "Diploma's", 'Rendement', 'Uitval & switch'],
       },
       {
         name: 'Metadata',

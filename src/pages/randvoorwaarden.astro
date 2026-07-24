@@ -39,19 +39,67 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           role="img"
         >
           <!-- Laag 3 — Richten (top) -->
-          <polygon points="300,20 170,140 430,140" fill="hsl(var(--ceda-primary))" opacity="0.85" />
-          <text x="300" y="92" text-anchor="middle" fill="hsl(var(--ceda-primary-foreground))" font-size="15" font-weight="600" font-family="serif">Richten</text>
-          <text x="300" y="112" text-anchor="middle" fill="hsl(var(--ceda-primary-foreground))" font-size="11" font-family="sans-serif">Strategisch</text>
+          <polygon points="300,20 170,140 430,140" fill="hsl(var(--ceda-primary))" opacity="0.85"
+          ></polygon>
+          <text
+            x="300"
+            y="92"
+            text-anchor="middle"
+            fill="hsl(var(--ceda-primary-foreground))"
+            font-size="15"
+            font-weight="600"
+            font-family="serif">Richten</text
+          >
+          <text
+            x="300"
+            y="112"
+            text-anchor="middle"
+            fill="hsl(var(--ceda-primary-foreground))"
+            font-size="11"
+            font-family="sans-serif">Strategisch</text
+          >
 
           <!-- Laag 2 — Inrichten (midden) -->
-          <polygon points="170,148 80,248 520,248" fill="hsl(var(--ceda-primary))" opacity="0.55" />
-          <text x="300" y="207" text-anchor="middle" fill="hsl(var(--foreground))" font-size="15" font-weight="600" font-family="serif">Inrichten</text>
-          <text x="300" y="227" text-anchor="middle" fill="hsl(var(--muted-foreground))" font-size="11" font-family="sans-serif">Tactisch</text>
+          <polygon points="170,148 80,248 520,248" fill="hsl(var(--ceda-primary))" opacity="0.55"
+          ></polygon>
+          <text
+            x="300"
+            y="207"
+            text-anchor="middle"
+            fill="hsl(var(--foreground))"
+            font-size="15"
+            font-weight="600"
+            font-family="serif">Inrichten</text
+          >
+          <text
+            x="300"
+            y="227"
+            text-anchor="middle"
+            fill="hsl(var(--muted-foreground))"
+            font-size="11"
+            font-family="sans-serif">Tactisch</text
+          >
 
           <!-- Laag 1 — Verrichten (basis) -->
-          <polygon points="80,256 20,320 580,320" fill="hsl(var(--ceda-primary))" opacity="0.25" />
-          <text x="300" y="298" text-anchor="middle" fill="hsl(var(--foreground))" font-size="15" font-weight="600" font-family="serif">Verrichten</text>
-          <text x="300" y="315" text-anchor="middle" fill="hsl(var(--muted-foreground))" font-size="11" font-family="sans-serif">Operationeel</text>
+          <polygon points="80,256 20,320 580,320" fill="hsl(var(--ceda-primary))" opacity="0.25"
+          ></polygon>
+          <text
+            x="300"
+            y="298"
+            text-anchor="middle"
+            fill="hsl(var(--foreground))"
+            font-size="15"
+            font-weight="600"
+            font-family="serif">Verrichten</text
+          >
+          <text
+            x="300"
+            y="315"
+            text-anchor="middle"
+            fill="hsl(var(--muted-foreground))"
+            font-size="11"
+            font-family="sans-serif">Operationeel</text
+          >
         </svg>
       </div>
 
@@ -59,7 +107,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <div class="flex flex-col gap-5">
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="mb-3 flex items-center gap-3">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">1</span>
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground"
+              >1</span
+            >
             <h3 class="text-base font-semibold text-foreground">Richten — strategisch</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
@@ -69,7 +120,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         </div>
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="mb-3 flex items-center gap-3">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">2</span>
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground"
+              >2</span
+            >
             <h3 class="text-base font-semibold text-foreground">Inrichten — tactisch</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
@@ -80,7 +134,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         </div>
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="mb-3 flex items-center gap-3">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">3</span>
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground"
+              >3</span
+            >
             <h3 class="text-base font-semibold text-foreground">Verrichten — operationeel</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
@@ -117,20 +174,24 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         een of twee jaar later zijn er andere prioriteiten:
       </p>
       <ul class="flex flex-col gap-2 mb-6">
-        {[
-          'Het nieuwe management zag het nut er niet meer van in',
-          'Collega\'s gingen er niet voor lopen',
-          'De projectorganisatie viel weg',
-          'Aansturing en privacy waren onvoldoende uitgekristalliseerd',
-          'De software bleek niet goed op te schalen',
-        ].map((reden) => (
-          <li class="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
-            <span class="mt-0.5 h-2 w-2 flex-none rounded-full bg-ceda-warn" aria-hidden="true" />
-            {reden}
-          </li>
-        ))}
+        {
+          [
+            'Het nieuwe management zag het nut er niet meer van in',
+            "Collega's gingen er niet voor lopen",
+            'De projectorganisatie viel weg',
+            'Aansturing en privacy waren onvoldoende uitgekristalliseerd',
+            'De software bleek niet goed op te schalen',
+          ].map((reden) => (
+            <li class="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+              <span class="mt-0.5 h-2 w-2 flex-none rounded-full bg-ceda-warn" aria-hidden="true" />
+              {reden}
+            </li>
+          ))
+        }
       </ul>
-      <p class="rounded-xl border border-ceda-primary/30 bg-ceda-primary/5 px-5 py-4 text-sm font-medium text-foreground">
+      <p
+        class="rounded-xl border border-ceda-primary/30 bg-ceda-primary/5 px-5 py-4 text-sm font-medium text-foreground"
+      >
         Alle randvoorwaarden zijn van even groot belang en moeten op hetzelfde niveau komen om
         studiedata effectief in te zetten.
       </p>
@@ -147,22 +208,22 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <div class="rounded-xl border border-border bg-card p-5">
           <h3 class="mb-2 text-sm font-semibold text-foreground">Identiteit van de instelling</h3>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            De inzet van studiedata moet passen bij de ambities, dromen en idealen van de
-            instelling én haar medewerkers en studenten.
+            De inzet van studiedata moet passen bij de ambities, dromen en idealen van de instelling
+            én haar medewerkers en studenten.
           </p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
           <h3 class="mb-2 text-sm font-semibold text-foreground">Privacy eerst</h3>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Zo min mogelijk data verzamelen als nodig. De voordelen moeten zo groot mogelijk zijn
-            en de risico's op nadelige effecten geminimaliseerd.
+            Zo min mogelijk data verzamelen als nodig. De voordelen moeten zo groot mogelijk zijn en
+            de risico's op nadelige effecten geminimaliseerd.
           </p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
           <h3 class="mb-2 text-sm font-semibold text-foreground">Ethiek vroeg verankeren</h3>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Hoe eerder ethische principes worden vastgelegd en helder is wat er kan met
-            inachtneming van de privacy, hoe sneller initiatieven kunnen doorgroeien.
+            Hoe eerder ethische principes worden vastgelegd en helder is wat er kan met inachtneming
+            van de privacy, hoe sneller initiatieven kunnen doorgroeien.
           </p>
         </div>
       </div>
@@ -178,16 +239,21 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         aangeboord, neemt de complexiteit verder toe:
       </p>
       <ul class="flex flex-col gap-2 mb-6">
-        {[
-          'Bronnen combineren met heldere kaders',
-          'Verwerking automatiseren zonder de menselijke toets te verliezen',
-          'De privacy officer intensiever betrekken — zij borgt de AVG-richtlijnen',
-        ].map((punt) => (
-          <li class="flex items-start gap-3 text-sm text-muted-foreground">
-            <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-ceda-success" aria-hidden="true" />
-            {punt}
-          </li>
-        ))}
+        {
+          [
+            'Bronnen combineren met heldere kaders',
+            'Verwerking automatiseren zonder de menselijke toets te verliezen',
+            'De privacy officer intensiever betrekken — zij borgt de AVG-richtlijnen',
+          ].map((punt) => (
+            <li class="flex items-start gap-3 text-sm text-muted-foreground">
+              <span
+                class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-ceda-success"
+                aria-hidden="true"
+              />
+              {punt}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>

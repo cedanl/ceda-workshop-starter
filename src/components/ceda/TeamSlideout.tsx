@@ -10,15 +10,51 @@ interface TeamMember {
 }
 
 const TEAM: TeamMember[] = [
-  { naam: 'Corneel den Hartogh', rol: 'Projectleider', instelling: 'SURF', email: 'corneel.denhartogh@surf.nl', linkedin: '#' },
+  {
+    naam: 'Corneel den Hartogh',
+    rol: 'Projectleider',
+    instelling: 'SURF',
+    email: 'corneel.denhartogh@surf.nl',
+    linkedin: '#',
+  },
   { naam: 'Theo Bakker', rol: 'Kansengelijkheid', instelling: 'Haagse Hogeschool', linkedin: '#' },
-  { naam: 'Shirley Kalkers-Van de Ven', rol: 'Schooluitval dashboard', instelling: 'Graafschap College', linkedin: '#' },
+  {
+    naam: 'Shirley Kalkers-Van de Ven',
+    rol: 'Schooluitval dashboard',
+    instelling: 'Graafschap College',
+    linkedin: '#',
+  },
   { naam: 'Steven Ramondt', rol: 'Uitnodigingsregel', instelling: 'ROC Mondriaan', linkedin: '#' },
-  { naam: 'Amir Khodaie', rol: 'Studenttevredenheid / Instroomprognose', instelling: 'Radboud Universiteit', linkedin: '#' },
-  { naam: 'Tomer Iwan', rol: '1CijferHO Package / Data Engineering', instelling: 'Vrije Universiteit', linkedin: '#' },
-  { naam: 'Ash Sewnandan', rol: 'Data Engineering', instelling: 'Haagse Hogeschool', linkedin: '#' },
-  { naam: 'Martine Jansen', rol: 'Wisselstroom package', instelling: 'Fontys Hogeschool', linkedin: '#' },
-  { naam: 'Tony Ritzen', rol: 'Inschrijvingen dashboard', instelling: 'Universiteit Maastricht', linkedin: '#' },
+  {
+    naam: 'Amir Khodaie',
+    rol: 'Studenttevredenheid / Instroomprognose',
+    instelling: 'Radboud Universiteit',
+    linkedin: '#',
+  },
+  {
+    naam: 'Tomer Iwan',
+    rol: '1CijferHO Package / Data Engineering',
+    instelling: 'Vrije Universiteit',
+    linkedin: '#',
+  },
+  {
+    naam: 'Ash Sewnandan',
+    rol: 'Data Engineering',
+    instelling: 'Haagse Hogeschool',
+    linkedin: '#',
+  },
+  {
+    naam: 'Martine Jansen',
+    rol: 'Wisselstroom package',
+    instelling: 'Fontys Hogeschool',
+    linkedin: '#',
+  },
+  {
+    naam: 'Tony Ritzen',
+    rol: 'Inschrijvingen dashboard',
+    instelling: 'Universiteit Maastricht',
+    linkedin: '#',
+  },
   { naam: 'Bram Enning', rol: 'kernteam hub Studiedata & AI', instelling: '', linkedin: '#' },
 ];
 
@@ -101,11 +137,15 @@ export default function TeamSlideout() {
       {/* Team grid */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {TEAM.map((m, i) => {
-          const hue = avatarHue(m.naam);
           return (
-            <div key={m.naam} className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-4 text-center">
+            <div
+              key={m.naam}
+              className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-4 text-center"
+            >
               <button
-                ref={(el) => { triggerRefs.current[i] = el; }}
+                ref={(el) => {
+                  triggerRefs.current[i] = el;
+                }}
                 type="button"
                 onClick={() => openPanel(i)}
                 aria-label={`Bio van ${m.naam} bekijken`}
@@ -114,7 +154,9 @@ export default function TeamSlideout() {
                 <Avatar naam={m.naam} size={72} />
               </button>
               <div className="flex flex-col gap-0.5">
-                <span className="text-sm font-semibold text-foreground leading-tight">{m.naam}</span>
+                <span className="text-sm font-semibold text-foreground leading-tight">
+                  {m.naam}
+                </span>
                 <span className="text-xs text-muted-foreground">{m.instelling}</span>
               </div>
               <div className="flex items-center gap-2">
@@ -124,8 +166,14 @@ export default function TeamSlideout() {
                     aria-label={`LinkedIn van ${m.naam}`}
                     className="text-muted-foreground hover:text-ceda-link transition-colors"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                   </a>
                 )}
@@ -135,9 +183,19 @@ export default function TeamSlideout() {
                     aria-label={`E-mail ${m.naam}`}
                     className="text-muted-foreground hover:text-ceda-link transition-colors"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <rect width="20" height="16" x="2" y="4" rx="2"/>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                   </a>
                 )}
@@ -195,7 +253,8 @@ export default function TeamSlideout() {
             </div>
 
             <p className="mb-6 text-[15px] leading-relaxed text-muted-foreground">
-              {member.naam} draagt bij aan CEDA vanuit {member.instelling || 'het netwerk'}. Binnen het project richt {member.naam.split(' ')[0]} zich op {member.rol.toLowerCase()}.
+              {member.naam} draagt bij aan CEDA vanuit {member.instelling || 'het netwerk'}. Binnen
+              het project richt {member.naam.split(' ')[0]} zich op {member.rol.toLowerCase()}.
             </p>
 
             <div className="flex flex-col gap-2">
@@ -207,8 +266,14 @@ export default function TeamSlideout() {
                   tabIndex={panelOpen ? 0 : -1}
                   className="flex items-center gap-2.5 rounded-lg border border-border px-3.5 py-2.5 text-sm text-ceda-link transition-colors hover:bg-muted"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   LinkedIn
                 </a>
@@ -219,9 +284,19 @@ export default function TeamSlideout() {
                   tabIndex={panelOpen ? 0 : -1}
                   className="flex items-center gap-2.5 rounded-lg border border-border px-3.5 py-2.5 text-sm text-ceda-link transition-colors hover:bg-muted"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect width="20" height="16" x="2" y="4" rx="2"/>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
                   {member.email}
                 </a>

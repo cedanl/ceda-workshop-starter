@@ -132,14 +132,11 @@ function InzichtCard({ inzicht }: { inzicht: Inzicht }) {
   return (
     <div className="rounded-lg border border-border bg-card px-4 py-3.5">
       <p className="text-[13px] leading-relaxed text-muted-foreground">
-        <span className="font-semibold text-foreground">{inzicht.wie}</span>
-        {' '}wil{' '}
+        <span className="font-semibold text-foreground">{inzicht.wie}</span> wil{' '}
         <span className="text-foreground">{inzicht.wil}</span>
         {', '}
-        <span className="italic">want</span>
-        {' '}{inzicht.want},{' '}
-        <span className="font-medium text-foreground">maar</span>
-        {' '}{inzicht.maar}.
+        <span className="italic">want</span> {inzicht.want},{' '}
+        <span className="font-medium text-foreground">maar</span> {inzicht.maar}.
       </p>
     </div>
   );
@@ -153,10 +150,7 @@ export default function DoelgroepenAccordion() {
   }
 
   return (
-    <div
-      id="doelgroepen"
-      className="mx-auto max-w-[1200px] px-4 pb-8 md:px-8 flex flex-col gap-3"
-    >
+    <div id="doelgroepen" className="mx-auto max-w-[1200px] px-4 pb-8 md:px-8 flex flex-col gap-3">
       {DOELGROEPEN.map((d) => {
         const isOpen = d.id === activeDg;
         const inzichten = CENTRALE_INZICHTEN[d.id] ?? [];
@@ -180,9 +174,7 @@ export default function DoelgroepenAccordion() {
               />
               <div className="flex flex-1 min-w-0 flex-col gap-0.5">
                 <span className="text-sm font-semibold text-foreground">{d.label}</span>
-                {d.sub && (
-                  <span className="text-xs text-muted-foreground">{d.sub}</span>
-                )}
+                {d.sub && <span className="text-xs text-muted-foreground">{d.sub}</span>}
               </div>
               <span
                 className={cn(

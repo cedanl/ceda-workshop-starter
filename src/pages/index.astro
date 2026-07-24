@@ -7,9 +7,21 @@ import { DOELGROEPEN, STREAMS, USE_CASES, ALLE_BRONNEN } from '@/data/ceda';
 const totalSteps = Object.values(STREAMS).reduce((sum, steps) => sum + steps.length, 0);
 
 const stats = [
-  { value: String(DOELGROEPEN.length), label: 'Doelgroepen', description: 'Elk met een eigen waardestroom' },
-  { value: String(totalSteps), label: 'Stappen in kaart', description: 'Van werving tot arbeidsmarkt' },
-  { value: String(USE_CASES.length), label: 'Use cases & tools', description: 'Beschikbaar, in ontwikkeling of als idee' },
+  {
+    value: String(DOELGROEPEN.length),
+    label: 'Doelgroepen',
+    description: 'Elk met een eigen waardestroom',
+  },
+  {
+    value: String(totalSteps),
+    label: 'Stappen in kaart',
+    description: 'Van werving tot arbeidsmarkt',
+  },
+  {
+    value: String(USE_CASES.length),
+    label: 'Use cases & tools',
+    description: 'Beschikbaar, in ontwikkeling of als idee',
+  },
   { value: String(ALLE_BRONNEN.length), label: 'Databronnen', description: 'Ontsloten en gepland' },
 ];
 ---
@@ -25,7 +37,9 @@ const stats = [
         <p class="mb-5 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
           Center for Educational Data Analytics
         </p>
-        <h1 class="mb-6 text-balance font-serif text-4xl font-light leading-tight text-foreground md:text-5xl lg:text-6xl">
+        <h1
+          class="mb-6 text-balance font-serif text-4xl font-light leading-tight text-foreground md:text-5xl lg:text-6xl"
+        >
           Datagedreven onderwijs begint hier
         </h1>
         <p class="mb-10 max-w-[480px] text-lg leading-relaxed text-muted-foreground">
@@ -38,19 +52,35 @@ const stats = [
             class="inline-flex items-center gap-2 rounded-full bg-ceda-primary px-7 py-3 text-sm font-medium text-ceda-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
           >
             Bekijk de waardestroom
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" class="flex-none">
-              <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              aria-hidden="true"
+              class="flex-none"
+            >
+              <path
+                d="M1 7h12M7 1l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </a>
         </div>
       </div>
       <div class="hidden lg:grid lg:grid-cols-2 lg:gap-3" aria-hidden="true" data-animate="fade">
-        {stats.map((stat) => (
-          <div class="rounded-xl bg-background/80 p-5">
-            <div class="font-serif text-4xl font-light leading-none text-ceda-primary">{stat.value}</div>
-            <div class="mt-1.5 text-sm text-muted-foreground">{stat.label}</div>
-          </div>
-        ))}
+        {
+          stats.map((stat) => (
+            <div class="rounded-xl bg-background/80 p-5">
+              <div class="font-serif text-4xl font-light leading-none text-ceda-primary">
+                {stat.value}
+              </div>
+              <div class="mt-1.5 text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -61,9 +91,12 @@ const stats = [
   <!-- WAARDESTROOM ACCORDION -->
   <section id="waardestroom" class="pb-2 pt-12">
     <div class="mx-auto max-w-[1200px] px-4 md:px-8 mb-6" data-animate>
-      <h2 class="font-serif text-2xl font-light text-foreground md:text-3xl">Kies je rol, volg de waardestroom</h2>
+      <h2 class="font-serif text-2xl font-light text-foreground md:text-3xl">
+        Kies je rol, volg de waardestroom
+      </h2>
       <p class="mt-1.5 max-w-[720px] text-sm text-muted-foreground">
-        Klik op een doelgroep om de stappen te zien. Hover over een tool voor een preview, klik voor het volledige detailpaneel.
+        Klik op een doelgroep om de stappen te zien. Hover over een tool voor een preview, klik voor
+        het volledige detailpaneel.
       </p>
     </div>
     <WaardestroomAccordion client:visible />
