@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Randvoorwaarden voor studiedata"
-  description="Waarom sneuvelen data-initiatieven? Welke randvoorwaarden zijn nodig voor duurzaam gebruik van studiedata? Een overzicht van de drie organisatieniveaus en ethische principes."
+  description="Waarom sneuvelen data-initiatieven? Welke randvoorwaarden zijn nodig voor duurzaam gebruik van studiedata? De drie organisatieniveaus en ethische principes."
 >
   <!-- Hero -->
   <section class="bg-ceda-hero px-4 py-16 md:px-8 md:py-24">
@@ -16,80 +16,46 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         Randvoorwaarden voor studiedata
       </h1>
       <p class="max-w-[640px] text-lg leading-relaxed text-muted-foreground">
-        Een succesvolle pilot is geen garantie voor duurzame inzet van studiedata. Wat maakt het
-        verschil tussen een eenmalig experiment en een instellingsbrede beweging?
+        Een succesvolle pilot is geen garantie voor duurzame inzet van studiedata. Alle
+        randvoorwaarden moeten tegelijk op niveau zijn — niet één voor één.
       </p>
     </div>
   </section>
 
-  <!-- Waarom -->
-  <section class="px-4 py-14 md:px-8">
+  <!-- Strategische tekening — drie organisatieniveaus als piramide -->
+  <section class="border-b border-border px-4 py-14 md:px-8">
     <div class="mx-auto max-w-[900px]">
-      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Waarom</h2>
-      <p class="text-[15px] leading-relaxed text-muted-foreground">
-        Wie zou het niet willen? Onderwijs verbeteren op basis van feiten in plaats van N=1. Zeker
-        weten dat ambitieuze beleidsplannen effect hebben gehad. De kwaliteit van het onderwijs
-        aantoonbaar verbeteren. Voor bestuurder, directeur, beleidsmedewerker, docent, student en
-        onderzoeker liggen de voordelen voor het oprapen.
-      </p>
-    </div>
-  </section>
-
-  <!-- Waarmee -->
-  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
-    <div class="mx-auto max-w-[900px]">
-      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
-        Waarom sneuvelen initiatieven?
-      </h2>
-      <p class="mb-4 text-[15px] leading-relaxed text-muted-foreground">
-        Een welwillende medewerker is snel gevonden, een pilot snel opgezet. Het heeft succes. Maar
-        een of twee jaar later zijn er andere prioriteiten:
-      </p>
-      <ul class="flex flex-col gap-2">
-        {[
-          'Het nieuwe management zag het nut er niet meer van in',
-          'Collega\'s gingen er niet voor lopen',
-          'De projectorganisatie viel weg',
-          'Aansturing en privacy waren onvoldoende uitgekristalliseerd',
-          'De software bleek niet goed op te schalen',
-        ].map((reden) => (
-          <li class="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
-            <span class="mt-0.5 h-2 w-2 flex-none rounded-full bg-ceda-warn" aria-hidden="true" />
-            {reden}
-          </li>
-        ))}
-      </ul>
-      <p class="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-        Voor duurzame ontwikkeling is er meer nodig. Maar wat?
-      </p>
-    </div>
-  </section>
-
-  <!-- Randvoorwaarden -->
-  <section class="px-4 py-14 md:px-8">
-    <div class="mx-auto max-w-[900px]">
-      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
-        Alle randvoorwaarden tegelijk
-      </h2>
-      <p class="mb-6 text-[15px] leading-relaxed text-muted-foreground">
-        Om de inzet van studiedata tot volle bloei te laten komen, moet er op verschillende plekken
-        tegelijk beweging plaatsvinden. Een instelling die een strategische visie heeft en de
-        datahuishouding op orde, maar te weinig investeert in cultuur of geen breed gedragen
-        procedures heeft, komt niet ver.
-      </p>
-      <p class="rounded-xl border border-ceda-primary/30 bg-ceda-primary/5 px-5 py-4 text-sm font-medium text-foreground">
-        Alle randvoorwaarden zijn van even groot belang en moeten op hetzelfde niveau komen om
-        studiedata effectief in te zetten.
-      </p>
-    </div>
-  </section>
-
-  <!-- Organisatieniveaus -->
-  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
-    <div class="mx-auto max-w-[900px]">
-      <h2 class="mb-6 font-serif text-2xl font-light text-foreground md:text-3xl">
+      <h2 class="mb-8 font-serif text-2xl font-light text-foreground md:text-3xl">
         Drie organisatieniveaus
       </h2>
+
+      <!-- SVG piramide -->
+      <div class="flex justify-center mb-10">
+        <svg
+          viewBox="0 0 600 340"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full max-w-[560px]"
+          aria-label="Piramide met drie organisatieniveaus: Richten (strategisch), Inrichten (tactisch), Verrichten (operationeel)"
+          role="img"
+        >
+          <!-- Laag 3 — Richten (top) -->
+          <polygon points="300,20 170,140 430,140" fill="hsl(var(--ceda-primary))" opacity="0.85" />
+          <text x="300" y="92" text-anchor="middle" fill="hsl(var(--ceda-primary-foreground))" font-size="15" font-weight="600" font-family="serif">Richten</text>
+          <text x="300" y="112" text-anchor="middle" fill="hsl(var(--ceda-primary-foreground))" font-size="11" font-family="sans-serif">Strategisch</text>
+
+          <!-- Laag 2 — Inrichten (midden) -->
+          <polygon points="170,148 80,248 520,248" fill="hsl(var(--ceda-primary))" opacity="0.55" />
+          <text x="300" y="207" text-anchor="middle" fill="hsl(var(--foreground))" font-size="15" font-weight="600" font-family="serif">Inrichten</text>
+          <text x="300" y="227" text-anchor="middle" fill="hsl(var(--muted-foreground))" font-size="11" font-family="sans-serif">Tactisch</text>
+
+          <!-- Laag 1 — Verrichten (basis) -->
+          <polygon points="80,256 20,320 580,320" fill="hsl(var(--ceda-primary))" opacity="0.25" />
+          <text x="300" y="298" text-anchor="middle" fill="hsl(var(--foreground))" font-size="15" font-weight="600" font-family="serif">Verrichten</text>
+          <text x="300" y="315" text-anchor="middle" fill="hsl(var(--muted-foreground))" font-size="11" font-family="sans-serif">Operationeel</text>
+        </svg>
+      </div>
+
+      <!-- Toelichting per laag -->
       <div class="flex flex-col gap-5">
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="mb-3 flex items-center gap-3">
@@ -127,6 +93,50 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Waarom -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Waarom</h2>
+      <p class="text-[15px] leading-relaxed text-muted-foreground">
+        Wie zou het niet willen? Onderwijs verbeteren op basis van feiten in plaats van N=1. Zeker
+        weten dat ambitieuze beleidsplannen effect hebben gehad. De kwaliteit van het onderwijs
+        aantoonbaar verbeteren. Voor bestuurder, directeur, beleidsmedewerker, docent, student en
+        onderzoeker liggen de voordelen voor het oprapen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Waarom sneuvelen initiatieven? -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Waarom sneuvelen initiatieven?
+      </h2>
+      <p class="mb-4 text-[15px] leading-relaxed text-muted-foreground">
+        Een welwillende medewerker is snel gevonden, een pilot snel opgezet. Het heeft succes. Maar
+        een of twee jaar later zijn er andere prioriteiten:
+      </p>
+      <ul class="flex flex-col gap-2 mb-6">
+        {[
+          'Het nieuwe management zag het nut er niet meer van in',
+          'Collega\'s gingen er niet voor lopen',
+          'De projectorganisatie viel weg',
+          'Aansturing en privacy waren onvoldoende uitgekristalliseerd',
+          'De software bleek niet goed op te schalen',
+        ].map((reden) => (
+          <li class="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+            <span class="mt-0.5 h-2 w-2 flex-none rounded-full bg-ceda-warn" aria-hidden="true" />
+            {reden}
+          </li>
+        ))}
+      </ul>
+      <p class="rounded-xl border border-ceda-primary/30 bg-ceda-primary/5 px-5 py-4 text-sm font-medium text-foreground">
+        Alle randvoorwaarden zijn van even groot belang en moeten op hetzelfde niveau komen om
+        studiedata effectief in te zetten.
+      </p>
+    </div>
+  </section>
+
   <!-- Ethische principes -->
   <section class="px-4 py-14 md:px-8">
     <div class="mx-auto max-w-[900px]">
@@ -151,8 +161,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <div class="rounded-xl border border-border bg-card p-5">
           <h3 class="mb-2 text-sm font-semibold text-foreground">Ethiek vroeg verankeren</h3>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Hoe eerder ethische principes worden vastgelegd en helder is wat er kan met inachtneming
-            van de privacy, hoe sneller initiatieven kunnen doorgroeien.
+            Hoe eerder ethische principes worden vastgelegd en helder is wat er kan met
+            inachtneming van de privacy, hoe sneller initiatieven kunnen doorgroeien.
           </p>
         </div>
       </div>
@@ -162,19 +172,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <!-- Opschaling -->
   <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
     <div class="mx-auto max-w-[900px]">
-      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
-        Opschaling
-      </h2>
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Opschaling</h2>
       <p class="mb-4 text-[15px] leading-relaxed text-muted-foreground">
-        Veel instellingen beginnen met kleine experimenten die van lieverlee worden opgeschaald.
-        Naarmate meer databronnen worden aangeboord, neemt de complexiteit verder toe. Dan wordt het
-        belangrijk om:
+        Veel instellingen beginnen met kleine experimenten. Naarmate meer databronnen worden
+        aangeboord, neemt de complexiteit verder toe:
       </p>
       <ul class="flex flex-col gap-2 mb-6">
         {[
-          'Bronnen te combineren met heldere kaders',
-          'De verwerking verder te automatiseren zonder de menselijke toets te verliezen',
-          'De privacy officer intensiever te betrekken — zij borgt de AVG-richtlijnen',
+          'Bronnen combineren met heldere kaders',
+          'Verwerking automatiseren zonder de menselijke toets te verliezen',
+          'De privacy officer intensiever betrekken — zij borgt de AVG-richtlijnen',
         ].map((punt) => (
           <li class="flex items-start gap-3 text-sm text-muted-foreground">
             <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-ceda-success" aria-hidden="true" />
@@ -189,10 +196,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <section class="px-4 py-14 md:px-8">
     <div class="mx-auto max-w-[900px] flex flex-col gap-4 sm:flex-row">
       <a
-        href="/data-ondersteund"
+        href="/praktijk"
         class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
       >
-        ← Data-ondersteund werken
+        ← Praktijk & databronnen
       </a>
       <a
         href="/meedoen"

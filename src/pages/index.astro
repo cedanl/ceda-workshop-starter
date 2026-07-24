@@ -2,7 +2,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Stats from '@/components/sections/Stats.astro';
 import ValueStreamSection from '@/components/sections/ValueStreamSection.astro';
-import DataSources from '@/components/sections/DataSources.astro';
 import { DOELGROEPEN, STREAMS, USE_CASES, ALLE_BRONNEN } from '@/data/ceda';
 
 const totalSteps = Object.values(STREAMS).reduce((sum, steps) => sum + steps.length, 0);
@@ -54,10 +53,10 @@ const stats = [
         </p>
         <div class="flex flex-wrap gap-3">
           <a
-            href="#stream"
+            href="#doelgroepen"
             class="inline-flex items-center gap-2 rounded-full bg-ceda-primary px-7 py-3 text-sm font-medium text-ceda-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
           >
-            Bekijk de waardestroom
+            Bekijk de doelgroepen
             <svg
               width="14"
               height="14"
@@ -75,28 +74,10 @@ const stats = [
             </svg>
           </a>
           <a
-            href="https://github.com/cedanl"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/praktijk"
             class="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
           >
-            GitHub
-          </a>
-          <a
-            href="https://npuls.nl/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
-          >
-            Npuls
-          </a>
-          <a
-            href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
-          >
-            Community
+            Tools & databronnen
           </a>
         </div>
       </div>
@@ -118,9 +99,6 @@ const stats = [
   <!-- KEY NUMBERS -->
   <Stats stats={stats} />
 
-  <!-- THE VALUE STREAM — centerpiece -->
+  <!-- DOELGROEPEN ACCORDION -->
   <ValueStreamSection />
-
-  <!-- ALL DATA SOURCES -->
-  <DataSources />
 </BaseLayout>

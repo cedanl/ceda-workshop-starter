@@ -24,8 +24,19 @@ import TeamSlideout from '@/components/ceda/TeamSlideout';
     </div>
   </section>
 
+  <!-- Team -->
+  <section class="px-4 pb-16 pt-10 md:px-8">
+    <div class="mx-auto max-w-[1100px]">
+      <h2 class="mb-2 font-serif text-2xl font-light text-foreground md:text-3xl">Het team</h2>
+      <p class="mb-8 text-sm text-muted-foreground">
+        Klik op een foto voor meer informatie.
+      </p>
+      <TeamSlideout client:load />
+    </div>
+  </section>
+
   <!-- Mission -->
-  <section class="px-4 py-14 md:px-8">
+  <section class="border-t border-border px-4 py-14 md:px-8">
     <div class="mx-auto max-w-[900px]">
       <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Onze missie</h2>
       <div class="grid gap-6 md:grid-cols-3">
@@ -54,17 +65,6 @@ import TeamSlideout from '@/components/ceda/TeamSlideout';
           </p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section class="px-4 pb-16 pt-4 md:px-8">
-    <div class="mx-auto max-w-[1100px]">
-      <h2 class="mb-2 font-serif text-2xl font-light text-foreground md:text-3xl">Het team</h2>
-      <p class="mb-8 text-sm text-muted-foreground">
-        Klik op een foto voor meer informatie.
-      </p>
-      <TeamSlideout client:load />
     </div>
   </section>
 
