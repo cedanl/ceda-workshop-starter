@@ -1,0 +1,87 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TeamSlideout from '@/components/ceda/TeamSlideout';
+---
+
+<BaseLayout
+  title="Over CEDA"
+  description="CEDA is een co-creatie van mbo, hbo en wo — van data naar inzichten die het onderwijs verbeteren."
+>
+  <!-- Hero -->
+  <section class="bg-ceda-hero px-4 py-16 md:px-8 md:py-24">
+    <div class="mx-auto max-w-[900px]">
+      <p class="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
+        Over CEDA
+      </p>
+      <h1 class="mb-6 font-serif text-4xl font-light leading-tight text-foreground md:text-5xl">
+        Van data naar inzichten — samen
+      </h1>
+      <p class="max-w-[640px] text-lg leading-relaxed text-muted-foreground">
+        CEDA is een samenwerking van mbo, hbo en wo instellingen die gezamenlijk de stap maken van
+        ruwe studiedata naar bruikbare inzichten. We bouwen tools, pakken gedeelde vraagstukken op
+        en zorgen dat kennis breed beschikbaar komt.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Onze missie</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-xl border border-border bg-card p-5">
+          <div class="mb-3 text-2xl" aria-hidden="true">🎓</div>
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Co-creatie</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Instellingen brengen hun eigen vraagstukken mee — samen werken we aan gedeelde oplossingen
+            die voor het hele stelsel bruikbaar zijn.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <div class="mb-3 text-2xl" aria-hidden="true">🔓</div>
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Open & herbruikbaar</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Alle tools en packages zijn open source. Wat één instelling bouwt, kunnen anderen direct
+            inzetten — geen dubbel werk, wel schaalvoordeel.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <div class="mb-3 text-2xl" aria-hidden="true">🔒</div>
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Privacy & ethiek</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Data-inzichten mogen nooit ten koste gaan van studenten. Privacy-by-design en ethische
+            kaders staan centraal in alles wat we bouwen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="px-4 pb-16 pt-4 md:px-8">
+    <div class="mx-auto max-w-[1100px]">
+      <h2 class="mb-2 font-serif text-2xl font-light text-foreground md:text-3xl">Het team</h2>
+      <p class="mb-8 text-sm text-muted-foreground">
+        Klik op een foto voor meer informatie.
+      </p>
+      <TeamSlideout client:load />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="border-t border-border px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px] text-center">
+      <h2 class="mb-3 font-serif text-2xl font-light text-foreground">Wil je meedoen?</h2>
+      <p class="mb-6 text-muted-foreground">
+        CEDA groeit door mensen die hun kennis en data-vraagstukken inbrengen. Sluit je aan bij een
+        werkgroep of kom naar een regionale sessie.
+      </p>
+      <a
+        href="/meedoen"
+        class="inline-flex items-center gap-2 rounded-full bg-ceda-primary px-7 py-3 text-sm font-medium text-ceda-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2"
+      >
+        Bekijk hoe je kunt meedoen →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

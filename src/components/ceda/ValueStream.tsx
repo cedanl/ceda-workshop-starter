@@ -14,12 +14,19 @@ import {
 // in that context, so fall back to useEffect when there is no DOM yet.
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
+const PERSONA_IMAGES: Record<string, string> = {
+  lll: 'https://doe-meer-met-studiedata.nl/wp-content/uploads/2020/11/Student-1.png',
+  docent: 'https://doe-meer-met-studiedata.nl/wp-content/uploads/2020/11/Docent-1.png',
+  manager: 'https://doe-meer-met-studiedata.nl/wp-content/uploads/2020/11/Opleidind.png',
+  bestuurder: 'https://doe-meer-met-studiedata.nl/wp-content/uploads/2020/11/Bestuurder-1.png',
+  onderzoeker: 'https://doe-meer-met-studiedata.nl/wp-content/uploads/2020/11/Onderzoeker-1.png',
+};
+
 /**
  * CEDA Value Stream — interactive island
  *
- * Ported from system/ceda-waardestroom.html. Implements the doelgroep
- * switcher, the horizontal (mobile: vertical) waardestroom, and the
- * 3-tier progressive reveal per tool:
+ * Implements the doelgroep accordion, the horizontal (mobile: vertical)
+ * waardestroom, and the 3-tier progressive reveal per tool:
  *   Tier 1 — tool name only, color-coded by status
  *   Tier 2 — hover/focus popover (quick preview, never traps the pointer)
  *   Tier 3 — click/Enter opens a slide-out detail panel with two tabs
@@ -147,14 +154,11 @@ export default function ValueStream() {
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
 
-  const dg = DOELGROEPEN.find((d) => d.id === activeDg) ?? DOELGROEPEN[0];
-  const steps = STREAMS[activeDg] ?? [];
   const panelOpen = panelId !== null;
   const uc = USE_CASES.find((u) => u.id === (panelId ?? lastPanelId)) ?? null;
   const panelDg = uc ? DOELGROEPEN.find((d) => d.id === uc.doelgroep) : undefined;
 
   function selectDg(id: string) {
-    if (id === activeDg) return;
     setActiveDg(id);
     setHover(null);
   }
@@ -238,28 +242,9 @@ export default function ValueStream() {
 
   return (
     <div className="relative">
-      {/* Switcher + legend */}
-      <div className="mx-auto max-w-[1200px] px-4 md:px-8">
-        <div role="tablist" aria-label="Kies doelgroep" className="mb-4 mt-5 flex flex-wrap gap-2">
-          {DOELGROEPEN.map((d) => (
-            <button
-              key={d.id}
-              type="button"
-              role="tab"
-              aria-selected={d.id === activeDg}
-              onClick={() => selectDg(d.id)}
-              className={cn(
-                'whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link focus-visible:ring-offset-2',
-                d.id === activeDg
-                  ? 'border-ceda-primary bg-ceda-primary text-ceda-primary-foreground'
-                  : 'border-border bg-card text-muted-foreground hover:border-ceda-primary hover:text-foreground'
-              )}
-            >
-              {d.label}
-            </button>
-          ))}
-        </div>
-        <div className="mb-2 flex flex-wrap gap-5 text-xs text-muted-foreground">
+      {/* Legend */}
+      <div className="mx-auto max-w-[1200px] px-4 pt-5 md:px-8">
+        <div className="mb-4 flex flex-wrap gap-5 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-ceda-success" aria-hidden="true" />
             Beschikbaar
@@ -275,74 +260,125 @@ export default function ValueStream() {
         </div>
       </div>
 
-      {/* Persona header */}
-      <div className="mx-auto max-w-[1200px] px-4 pt-6 md:px-8">
-        <div className="mb-2 flex flex-wrap items-baseline gap-2.5">
-          <h3 className="font-serif text-2xl font-light text-foreground">{dg.label}</h3>
-          {dg.sub && <span className="text-base text-muted-foreground">{dg.sub}</span>}
-        </div>
-        <p className="mb-3 max-w-[860px] text-[15px] leading-relaxed text-muted-foreground">
-          {dg.inzicht}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {dg.themas.map((t) => (
-            <span
-              key={t}
-              className="whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Doelgroepen accordion */}
+      <div
+        id="doelgroepen"
+        className="mx-auto max-w-[1200px] px-4 pb-8 md:px-8 flex flex-col gap-3"
+      >
+        {DOELGROEPEN.map((d) => {
+          const isOpen = d.id === activeDg;
+          const steps = STREAMS[d.id] ?? [];
+          return (
+            <div key={d.id} className="rounded-xl border border-border overflow-hidden">
+              {/* Accordion header */}
+              <button
+                type="button"
+                onClick={() => selectDg(d.id)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center gap-4 px-4 py-3 bg-card hover:bg-muted/60 transition-colors text-left"
+              >
+                <img
+                  src={PERSONA_IMAGES[d.id]}
+                  alt=""
+                  aria-hidden="true"
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 rounded-full object-cover flex-none border border-border"
+                />
+                <div className="flex flex-1 min-w-0 flex-col gap-0.5">
+                  <span className="text-sm font-semibold text-foreground">{d.label}</span>
+                  {d.sub && (
+                    <span className="text-xs text-muted-foreground">{d.sub}</span>
+                  )}
+                </div>
+                <span
+                  className={cn(
+                    'flex-none text-xs text-muted-foreground transition-transform duration-200',
+                    isOpen && 'rotate-180'
+                  )}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
+              </button>
 
-      {/* The value stream itself — horizontal, scrollable, stacks below ~900px */}
-      <div className="overflow-x-auto overflow-y-visible px-4 pb-8 pt-6 md:px-8">
-        <div className="flex min-w-min flex-col items-stretch gap-6 min-[900px]:flex-row min-[900px]:gap-0">
-          {steps.map((step, i) => {
-            const tools = step.tools
-              .map((id) => USE_CASES.find((u) => u.id === id))
-              .filter((u): u is UseCase => Boolean(u));
-            return (
-              <div key={`${step.label}-${i}`} className="contents">
-                <div className="flex w-full flex-col min-[900px]:w-[260px] min-[900px]:flex-none">
-                  <div className="mb-3.5 flex items-center gap-2.5 min-[900px]:min-h-[46px]">
-                    <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-ceda-primary text-[13px] font-semibold tabular-nums text-ceda-primary-foreground">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm font-semibold leading-tight text-foreground">
-                      {step.label}
-                    </span>
+              {/* Accordion body */}
+              {isOpen && (
+                <div className="border-t border-border">
+                  {/* Persona info */}
+                  <div className="px-4 pt-5 md:px-8">
+                    <div className="mb-2 flex flex-wrap items-baseline gap-2.5">
+                      <h3 className="font-serif text-2xl font-light text-foreground">{d.label}</h3>
+                      {d.sub && <span className="text-base text-muted-foreground">{d.sub}</span>}
+                    </div>
+                    <p className="mb-3 max-w-[860px] text-[15px] leading-relaxed text-muted-foreground">
+                      {d.inzicht}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {d.themas.map((t) => (
+                        <span
+                          key={t}
+                          className="whitespace-nowrap rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-3">
-                    {tools.length ? (
-                      tools.map((tool) => (
-                        <ToolNameButton
-                          key={tool.id}
-                          uc={tool}
-                          isActive={panelId === tool.id}
-                          onOpen={openPanel}
-                          onShow={showPop}
-                          onHide={hidePop}
-                        />
-                      ))
-                    ) : (
-                      <EmptyTile />
-                    )}
+
+                  {/* The value stream — horizontal, scrollable, stacks below ~900px */}
+                  <div className="overflow-x-auto overflow-y-visible px-4 pb-8 pt-6 md:px-8">
+                    <div className="flex min-w-min flex-col items-stretch gap-6 min-[900px]:flex-row min-[900px]:gap-0">
+                      {steps.map((step, i) => {
+                        const tools = step.tools
+                          .map((id) => USE_CASES.find((u) => u.id === id))
+                          .filter((u): u is UseCase => Boolean(u));
+                        return (
+                          <div key={`${step.label}-${i}`} className="contents">
+                            <div className="flex w-full flex-col min-[900px]:w-[260px] min-[900px]:flex-none">
+                              <div className="mb-3.5 flex items-center gap-2.5 min-[900px]:min-h-[46px]">
+                                <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-ceda-primary text-[13px] font-semibold tabular-nums text-ceda-primary-foreground">
+                                  {i + 1}
+                                </span>
+                                <span className="text-sm font-semibold leading-tight text-foreground">
+                                  {step.label}
+                                </span>
+                              </div>
+                              <div className="flex flex-col gap-3">
+                                {tools.length ? (
+                                  tools.map((tool) => (
+                                    <ToolNameButton
+                                      key={tool.id}
+                                      uc={tool}
+                                      isActive={panelId === tool.id}
+                                      onOpen={openPanel}
+                                      onShow={showPop}
+                                      onHide={hidePop}
+                                    />
+                                  ))
+                                ) : (
+                                  <EmptyTile />
+                                )}
+                              </div>
+                            </div>
+                            {i < steps.length - 1 && (
+                              <div
+                                className="flex h-8 w-full flex-none items-center justify-center text-border select-none min-[900px]:h-auto min-[900px]:w-10 min-[900px]:items-start min-[900px]:justify-center min-[900px]:pt-2"
+                                aria-hidden="true"
+                              >
+                                <span className="rotate-90 text-2xl leading-none min-[900px]:rotate-0">→</span>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-                {i < steps.length - 1 && (
-                  <div
-                    className="flex h-8 w-full flex-none items-center justify-center text-border select-none min-[900px]:h-auto min-[900px]:w-10 min-[900px]:items-start min-[900px]:justify-center min-[900px]:pt-2"
-                    aria-hidden="true"
-                  >
-                    <span className="rotate-90 text-2xl leading-none min-[900px]:rotate-0">→</span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Tier 2 — hover/focus popover (quick preview, never traps the pointer) */}
@@ -432,6 +468,20 @@ export default function ValueStream() {
             >
               {uc.title}
             </h3>
+
+            {/* Tool → doelgroep link */}
+            <a
+              href="/#doelgroepen"
+              tabIndex={panelOpen ? 0 : -1}
+              onClick={() => {
+                if (uc.doelgroep !== activeDg) selectDg(uc.doelgroep);
+                closePanel();
+              }}
+              className="mb-4 inline-flex items-center gap-1 text-sm text-ceda-link hover:underline"
+            >
+              Bekijk alle tools voor {panelDg?.label} →
+            </a>
+
             <span
               className={cn(
                 'mb-6 inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold',

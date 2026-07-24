@@ -1,0 +1,190 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Data-ondersteund werken"
+  description="Wat zijn studiedata, hoe kom je van data naar acties, en op welke niveaus kun je analyseren? Een introductie voor onderwijsprofessionals."
+>
+  <!-- Hero -->
+  <section class="bg-ceda-hero px-4 py-16 md:px-8 md:py-24">
+    <div class="mx-auto max-w-[900px]">
+      <p class="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
+        Achtergrond
+      </p>
+      <h1 class="mb-6 font-serif text-4xl font-light leading-tight text-foreground md:text-5xl">
+        Data-ondersteund werken
+      </h1>
+      <p class="max-w-[640px] text-lg leading-relaxed text-muted-foreground">
+        Studiedata biedt kansen om onderwijs te verbeteren, effectiever te maken én efficiënter te
+        organiseren — maar dat vereist begrip van wat studiedata is, hoe je ermee werkt, en waar de
+        ethische grenzen liggen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Wat zijn studiedata? -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Wat zijn studiedata?
+      </h2>
+      <p class="mb-6 text-[15px] leading-relaxed text-muted-foreground">
+        Studiedata — niet te verwarren met data <em>over</em> studies — is een verzamelnaam voor
+        gestructureerde gegevens die binnen onderwijsinstellingen benut kunnen worden voor het
+        verbeteren van onderwijs. We onderscheiden twee hoofdtypen:
+      </p>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Learning Analytics</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Data uit onderwijssystemen over het <strong>primaire proces</strong>: LMS-gedrag,
+            toetsresultaten, plagiaatdetectie, feedbacksystemen. Groot volume, hoge variëteit,
+            real-time bruikbaar. Voegt waarde toe voor docenten en studenten.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Student Analytics</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Data uit administratieve systemen over het <strong>secundaire proces</strong>: SIS,
+            Studielink, CRM, NSE. Goed gestructureerd, bescheiden volume, historisch. Waarde voor
+            beleidsmakers, directeuren en bestuurders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Van data naar inzicht -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-2 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Van data naar inzicht
+      </h2>
+      <p class="mb-8 text-sm text-muted-foreground">
+        De weg van ruwe data naar bruikbare inzichten verloopt via drie lagen.
+      </p>
+      <div class="flex flex-col gap-4">
+        <div class="flex gap-4 rounded-xl border border-border bg-card p-5">
+          <div class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">1</div>
+          <div>
+            <h3 class="mb-1 text-sm font-semibold text-foreground">Ruwe data</h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Iedere instelling heeft databronnen die sporen bevatten van activiteiten in het onderwijs.
+              Administraties en leersystemen maken studiedata die steeds beter ontgonnen kan worden.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl border border-border bg-card p-5">
+          <div class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">2</div>
+          <div>
+            <h3 class="mb-1 text-sm font-semibold text-foreground">Ethische principes</h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Een willekeurige duik in data is moreel onverantwoord. De inzet van studiedata moet
+              passen bij de identiteit van de instelling en de privacy van studenten. Hoe eerder
+              ethische kaders worden vastgelegd, hoe sneller initiatieven kunnen doorgroeien.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl border border-border bg-card p-5">
+          <div class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">3</div>
+          <div>
+            <h3 class="mb-1 text-sm font-semibold text-foreground">Opschaling</h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Veel instellingen beginnen met kleine experimenten. Naarmate meer databronnen worden
+              aangeboord neemt de complexiteit toe — en wordt de rol van de privacy officer
+              intensiever. Automatisering en heldere kaders zijn dan onmisbaar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Van data naar acties -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-2 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Van data naar acties
+      </h2>
+      <p class="mb-8 text-sm text-muted-foreground">
+        Het "cijfer 6" als voorbeeld: hoe worden ruwe gegevens stap voor stap bruikbare acties?
+      </p>
+      <div class="flex flex-col gap-0">
+        {[
+          { stap: 'Data', omschrijving: 'Het gegeven zelf: een 6. Betekenisloos zonder context.' },
+          { stap: 'Informatie', omschrijving: 'Met context wordt het informatie: een 6 als studiepunt is iets anders dan een 6 als cijfer.' },
+          { stap: 'Kennis', omschrijving: 'Patronen ontdekken: studenten die beter scoorden in wiskunde op de middelbare school halen vaker een 6.' },
+          { stap: 'Inzicht', omschrijving: 'Kennis omzetten in oplossingsrichtingen: bijspijkercursus, betere voorlichting, of selectie aan de poort?' },
+          { stap: 'Acties', omschrijving: 'De daadwerkelijk gekozen en uitgevoerde interventie.' },
+        ].map((item, i) => (
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-ceda-primary text-xs font-semibold text-ceda-primary-foreground">
+                {i + 1}
+              </div>
+              {i < 4 && <div class="mt-1 h-full w-0.5 bg-border" />}
+            </div>
+            <div class="pb-5">
+              <p class="text-sm font-semibold text-foreground">{item.stap}</p>
+              <p class="text-sm leading-relaxed text-muted-foreground">{item.omschrijving}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Niveaus van aggregatie -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Niveaus van aggregatie
+      </h2>
+      <p class="mb-6 text-sm text-muted-foreground">
+        Dezelfde data over studievoortgang kan op drie niveaus waarde leveren:
+      </p>
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Opleidingsniveau</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Welke vakken scoren naar verhouding het minst? Speelt dit voor alle studenten of zit er
+            een verband met achtergrond? Ondersteunt studeerbaarheids­analyse en programmaoptimalisatie.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Landelijk niveau</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            In combinatie met data van andere instellingen: benchmarks op succes van afgestudeerden,
+            regionale verschillen, meerjarige trends.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Persoonlijk niveau</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Hoe scoort een student vergeleken met peers? Gerichte adviezen voor docent of
+            studieadviseur — met strikte privacywaarborgen (AVG).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px] flex flex-col gap-4 sm:flex-row">
+      <a
+        href="/randvoorwaarden"
+        class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+      >
+        Randvoorwaarden →
+      </a>
+      <a
+        href="/#doelgroepen"
+        class="inline-flex items-center gap-2 rounded-full bg-ceda-primary px-7 py-3 text-sm font-medium text-ceda-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+      >
+        Bekijk de waardestroom →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

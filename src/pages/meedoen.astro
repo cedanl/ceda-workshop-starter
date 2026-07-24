@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Doe mee met CEDA"
+  description="Word lid van een CEDA werkgroep, organiseer een workshop of ga zelf aan de slag met onze open source tools."
+>
+  <!-- Hero -->
+  <section class="bg-ceda-hero px-4 py-16 md:px-8 md:py-24">
+    <div class="mx-auto max-w-[900px]">
+      <p class="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
+        Meedoen
+      </p>
+      <h1 class="mb-6 font-serif text-4xl font-light leading-tight text-foreground md:text-5xl">
+        Doe mee met CEDA
+      </h1>
+      <p class="max-w-[640px] text-lg leading-relaxed text-muted-foreground">
+        CEDA is een levende community. Of je nu een data-vraagstuk hebt dat je wil aanpakken, kennis
+        wil delen of gewoon wil zien wat er al is — er is een plek voor jou.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 manieren -->
+  <section class="px-4 py-16 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-10 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Drie manieren om bij te dragen
+      </h2>
+      <div class="flex flex-col gap-8">
+
+        <!-- Werkgroep -->
+        <div class="rounded-xl border border-border bg-card p-7">
+          <div class="mb-4 flex items-center gap-4">
+            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-ceda-primary text-xl text-ceda-primary-foreground" aria-hidden="true">
+              👥
+            </div>
+            <h3 class="text-lg font-semibold text-foreground">Word lid van een werkgroep</h3>
+          </div>
+          <p class="mb-5 text-[15px] leading-relaxed text-muted-foreground">
+            CEDA werkgroepen werken aan concrete data-vraagstukken die breed spelen in het onderwijs.
+            Samen met collega's van andere instellingen bouw je aan herbruikbare oplossingen.
+          </p>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Actieve werkgroepen
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['Instroomprognose', 'Tekstanalyse Studenttevredenheid', 'PowerBI Dashboarding'].map((wg) => (
+              <span class="rounded-full border border-border bg-muted px-3 py-1.5 text-sm font-medium text-foreground">
+                {wg}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Workshop -->
+        <div class="rounded-xl border border-border bg-card p-7">
+          <div class="mb-4 flex items-center gap-4">
+            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-ceda-primary text-xl text-ceda-primary-foreground" aria-hidden="true">
+              🎓
+            </div>
+            <h3 class="text-lg font-semibold text-foreground">Organiseer een workshop of regionale sessie</h3>
+          </div>
+          <p class="text-[15px] leading-relaxed text-muted-foreground">
+            Wil je collega's van andere instellingen in de regio samenbrengen rondom een specifiek
+            thema? CEDA ondersteunt het opzetten van workshops en regionale sessies — van
+            programmering tot uitnodigingen.
+          </p>
+        </div>
+
+        <!-- Zelf aan de slag -->
+        <div class="rounded-xl border border-border bg-card p-7">
+          <div class="mb-4 flex items-center gap-4">
+            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-ceda-primary text-xl text-ceda-primary-foreground" aria-hidden="true">
+              💻
+            </div>
+            <h3 class="text-lg font-semibold text-foreground">Ga zelf aan de slag</h3>
+          </div>
+          <p class="mb-5 text-[15px] leading-relaxed text-muted-foreground">
+            Alle CEDA tools en packages zijn open source en staan op GitHub. Download, pas aan en
+            draai ze op je eigen data — zonder dat je eerst lid hoeft te worden van een werkgroep.
+          </p>
+          <a
+            href="https://github.com/cedanl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-ceda-link transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            github.com/cedanl
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Contact</h2>
+      <p class="mb-6 text-[15px] leading-relaxed text-muted-foreground">
+        Vragen over CEDA, een werkgroep of een samenwerking? Stuur een e-mail of meld je aan via de
+        community pagina.
+      </p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href="mailto:ceda@surf.nl"
+          class="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-medium text-ceda-link transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          ceda@surf.nl
+        </a>
+        <a
+          href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-medium text-ceda-link transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+        >
+          Community pagina →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Naar community -->
+  <section class="px-4 py-12 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <p class="text-sm text-muted-foreground">
+        Voor de volledige informatie over werkgroepen, agenda en bijeenkomsten, zie de{' '}
+        <a
+          href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-ceda-link hover:underline"
+        >
+          CEDA community pagina op Npuls
+        </a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

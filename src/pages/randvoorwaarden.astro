@@ -1,0 +1,205 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Randvoorwaarden voor studiedata"
+  description="Waarom sneuvelen data-initiatieven? Welke randvoorwaarden zijn nodig voor duurzaam gebruik van studiedata? Een overzicht van de drie organisatieniveaus en ethische principes."
+>
+  <!-- Hero -->
+  <section class="bg-ceda-hero px-4 py-16 md:px-8 md:py-24">
+    <div class="mx-auto max-w-[900px]">
+      <p class="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
+        Achtergrond
+      </p>
+      <h1 class="mb-6 font-serif text-4xl font-light leading-tight text-foreground md:text-5xl">
+        Randvoorwaarden voor studiedata
+      </h1>
+      <p class="max-w-[640px] text-lg leading-relaxed text-muted-foreground">
+        Een succesvolle pilot is geen garantie voor duurzame inzet van studiedata. Wat maakt het
+        verschil tussen een eenmalig experiment en een instellingsbrede beweging?
+      </p>
+    </div>
+  </section>
+
+  <!-- Waarom -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">Waarom</h2>
+      <p class="text-[15px] leading-relaxed text-muted-foreground">
+        Wie zou het niet willen? Onderwijs verbeteren op basis van feiten in plaats van N=1. Zeker
+        weten dat ambitieuze beleidsplannen effect hebben gehad. De kwaliteit van het onderwijs
+        aantoonbaar verbeteren. Voor bestuurder, directeur, beleidsmedewerker, docent, student en
+        onderzoeker liggen de voordelen voor het oprapen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Waarmee -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Waarom sneuvelen initiatieven?
+      </h2>
+      <p class="mb-4 text-[15px] leading-relaxed text-muted-foreground">
+        Een welwillende medewerker is snel gevonden, een pilot snel opgezet. Het heeft succes. Maar
+        een of twee jaar later zijn er andere prioriteiten:
+      </p>
+      <ul class="flex flex-col gap-2">
+        {[
+          'Het nieuwe management zag het nut er niet meer van in',
+          'Collega\'s gingen er niet voor lopen',
+          'De projectorganisatie viel weg',
+          'Aansturing en privacy waren onvoldoende uitgekristalliseerd',
+          'De software bleek niet goed op te schalen',
+        ].map((reden) => (
+          <li class="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+            <span class="mt-0.5 h-2 w-2 flex-none rounded-full bg-ceda-warn" aria-hidden="true" />
+            {reden}
+          </li>
+        ))}
+      </ul>
+      <p class="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+        Voor duurzame ontwikkeling is er meer nodig. Maar wat?
+      </p>
+    </div>
+  </section>
+
+  <!-- Randvoorwaarden -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Alle randvoorwaarden tegelijk
+      </h2>
+      <p class="mb-6 text-[15px] leading-relaxed text-muted-foreground">
+        Om de inzet van studiedata tot volle bloei te laten komen, moet er op verschillende plekken
+        tegelijk beweging plaatsvinden. Een instelling die een strategische visie heeft en de
+        datahuishouding op orde, maar te weinig investeert in cultuur of geen breed gedragen
+        procedures heeft, komt niet ver.
+      </p>
+      <p class="rounded-xl border border-ceda-primary/30 bg-ceda-primary/5 px-5 py-4 text-sm font-medium text-foreground">
+        Alle randvoorwaarden zijn van even groot belang en moeten op hetzelfde niveau komen om
+        studiedata effectief in te zetten.
+      </p>
+    </div>
+  </section>
+
+  <!-- Organisatieniveaus -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-6 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Drie organisatieniveaus
+      </h2>
+      <div class="flex flex-col gap-5">
+        <div class="rounded-xl border border-border bg-card p-6">
+          <div class="mb-3 flex items-center gap-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">1</span>
+            <h3 class="text-base font-semibold text-foreground">Richten — strategisch</h3>
+          </div>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            De koers wordt bepaald. Wat willen we met ons onderwijs bereiken, waarom, hoe en hoe
+            meten we succes? Kernbegrippen: visie, missie, doelen, prestatie-indicatoren.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-6">
+          <div class="mb-3 flex items-center gap-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">2</span>
+            <h3 class="text-base font-semibold text-foreground">Inrichten — tactisch</h3>
+          </div>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            De koers wordt vertaald naar randvoorwaarden voor uitvoering en getoetst aan de
+            haalbaarheid van de werkpraktijk. Kernbegrippen: processen, procedures, taakverdeling,
+            middelen, competenties.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-6">
+          <div class="mb-3 flex items-center gap-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ceda-primary text-sm font-semibold text-ceda-primary-foreground">3</span>
+            <h3 class="text-base font-semibold text-foreground">Verrichten — operationeel</h3>
+          </div>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Daar waar het onderwijs plaatsvindt. Monitoring geeft antwoord op: Wat zijn de
+            deelnamecijfers? Wat zijn de studieresultaten? Wat is de tevredenheid? In welke mate
+            zijn de gestelde doelen bereikt?
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethische principes -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-6 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Ethische principes
+      </h2>
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Identiteit van de instelling</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            De inzet van studiedata moet passen bij de ambities, dromen en idealen van de
+            instelling én haar medewerkers en studenten.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Privacy eerst</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Zo min mogelijk data verzamelen als nodig. De voordelen moeten zo groot mogelijk zijn
+            en de risico's op nadelige effecten geminimaliseerd.
+          </p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h3 class="mb-2 text-sm font-semibold text-foreground">Ethiek vroeg verankeren</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Hoe eerder ethische principes worden vastgelegd en helder is wat er kan met inachtneming
+            van de privacy, hoe sneller initiatieven kunnen doorgroeien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opschaling -->
+  <section class="border-t border-border bg-muted/30 px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px]">
+      <h2 class="mb-4 font-serif text-2xl font-light text-foreground md:text-3xl">
+        Opschaling
+      </h2>
+      <p class="mb-4 text-[15px] leading-relaxed text-muted-foreground">
+        Veel instellingen beginnen met kleine experimenten die van lieverlee worden opgeschaald.
+        Naarmate meer databronnen worden aangeboord, neemt de complexiteit verder toe. Dan wordt het
+        belangrijk om:
+      </p>
+      <ul class="flex flex-col gap-2 mb-6">
+        {[
+          'Bronnen te combineren met heldere kaders',
+          'De verwerking verder te automatiseren zonder de menselijke toets te verliezen',
+          'De privacy officer intensiever te betrekken — zij borgt de AVG-richtlijnen',
+        ].map((punt) => (
+          <li class="flex items-start gap-3 text-sm text-muted-foreground">
+            <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-ceda-success" aria-hidden="true" />
+            {punt}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-4 py-14 md:px-8">
+    <div class="mx-auto max-w-[900px] flex flex-col gap-4 sm:flex-row">
+      <a
+        href="/data-ondersteund"
+        class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+      >
+        ← Data-ondersteund werken
+      </a>
+      <a
+        href="/meedoen"
+        class="inline-flex items-center gap-2 rounded-full bg-ceda-primary px-7 py-3 text-sm font-medium text-ceda-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ceda-link"
+      >
+        Doe mee met CEDA →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
