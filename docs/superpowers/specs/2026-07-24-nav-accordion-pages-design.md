@@ -92,30 +92,45 @@ Bekijk alle tools voor [Doelgroepnaam] →
 ## 4. Nieuwe pagina's
 
 ### 4a. `/over-ons`
-**Bron:** Community page content (geselecteerd)
+**Bron:** Community page content
+
+**Concept:** Mensen-pagina — team directory met slide-out bio.
 
 Secties:
 1. **Hero** — "Over CEDA" + missie-alinea (co-creatie mbo/hbo/wo, van data naar inzichten)
-2. **Wat CEDA doet** — tools ophalen, praktisch toegankelijk maken, documentatie + best practices (ML, visualisatie, data-analyse). Tech: Python, R, Power BI, Azure.
-3. **Doelgroep** — data-analisten, Institutional Researchers, BI-specialisten, informatiemanagers
-4. **Actieve projecten** — kaarten of lijst met naam, onderwerp, instelling
-5. **Afgeronde projecten** — compactere lijst
-6. **CTA** → link naar `/meedoen`
+2. **Team grid** — alle personen als kaarten (zie patroon hieronder)
+3. **CTA** → link naar `/meedoen`
 
-**Actieve projecten:**
-- Theo Bakker — Kansengelijkheid — Haagse Hogeschool
-- Shirley Kalkers-Van de Ven — Schooluitval dashboard — Graafschap College
-- Steven Ramondt — Uitnodigingsregel obv uitvalprognose — ROC Mondriaan
-- Amir Khodaie — Studenttevredenheid analyse — Radboud Universiteit
-- Tomer Iwan — 1CijferHO Package — Vrije Universiteit
-- Ash Sewnandan — Data Engineering — Haagse Hogeschool
+**Kaartpatroon (per persoon):**
+```
+[avatar / placeholder foto — klikbaar]
+Naam
+Instelling
+[LinkedIn icon]  [email icon]
+```
+- Klik op foto → slide-out paneel rechts (zelfde patroon als ValueStream tier-3)
+- Slide-out inhoud: naam, rol/project, instelling, beschrijving (placeholder tekst), LinkedIn + email links
 
-**Afgeronde projecten:**
-- Amir Khodaie — Instroomprognose — Radboud Universiteit
-- Martine Jansen — Wisselstroom package — Fontys Hogeschool
-- Tony Ritzen — Inschrijvingen dashboard — Universiteit Maastricht
-- Tomer Iwan — Data Engineering — Vrije Universiteit
-- Bram Enning — kernteam hub Studiedata & AI
+**Avatar:** initialen-gebaseerd placeholder via CSS (gekleurd cirkel met initialen) — geen externe service nodig.
+
+**Personen (placeholder data):**
+
+| Naam | Rol | Instelling | Email |
+|------|-----|-----------|-------|
+| Corneel den Hartogh | Projectleider | SURF | corneel.denhartogh@surf.nl |
+| Theo Bakker | Kansengelijkheid | Haagse Hogeschool | — |
+| Shirley Kalkers-Van de Ven | Schooluitval dashboard | Graafschap College | — |
+| Steven Ramondt | Uitnodigingsregel | ROC Mondriaan | — |
+| Amir Khodaie | Studenttevredenheid / Instroomprognose | Radboud Universiteit | — |
+| Tomer Iwan | 1CijferHO Package / Data Engineering | Vrije Universiteit | — |
+| Ash Sewnandan | Data Engineering | Haagse Hogeschool | — |
+| Martine Jansen | Wisselstroom package | Fontys Hogeschool | — |
+| Tony Ritzen | Inschrijvingen dashboard | Universiteit Maastricht | — |
+| Bram Enning | kernteam hub Studiedata & AI | — | — |
+
+**Slide-out implementatie:** hergebruik zelfde aside/overlay patroon als ValueStream (niet opnieuw bouwen). Aparte React component `TeamPanel.tsx` of inline in `over-ons.astro` als Astro island.
+
+**LinkedIn-velden:** placeholder `#` — echte URLs later invullen.
 
 ---
 
