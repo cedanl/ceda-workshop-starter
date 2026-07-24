@@ -41,6 +41,6 @@ Werving → Selectie & Matching (GAP) → Inschrijving → Onderwijs → Evaluat
 | S1 | Strategy | besluit | done | — | — | CEDA = voorzieningenwijzer voor educatieve data analytics |
 | S2 | Content strategy | besluit | done | S1 | — | 6 stadia, 12 use cases, databronnen overzicht |
 | S3 | Information Architecture | besluit | done | S2 | — | Tabs + cards + detail panel + totaaloverzicht |
-| S4 | UI/Implementatie | taak | actief | S3 | astrodeck | Design in `system/ceda-design-concept.html`, bouwen in src/ |
-| S5 | Testing/QA | taak | open | S4 | qa | — |
+| S4 | UI/Implementatie | taak | done | S3 | astrodeck | WaardestroomTool + WaardestroomSection + DataSources op index; ValueStreamSection (doelgroepen accordion) behouden |
+| S5 | Testing/QA | taak | actief | S4 | qa | — |
 | S6 | Launch/Deploy | taak | open | S5 | — | — |

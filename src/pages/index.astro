@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Stats from '@/components/sections/Stats.astro';
 import ValueStreamSection from '@/components/sections/ValueStreamSection.astro';
+import WaardestroomSection from '@/components/sections/WaardestroomSection.astro';
+import DataSources from '@/components/sections/DataSources.astro';
 import { DOELGROEPEN, STREAMS, USE_CASES, ALLE_BRONNEN } from '@/data/ceda';
 
 const totalSteps = Object.values(STREAMS).reduce((sum, steps) => sum + steps.length, 0);
@@ -101,4 +103,10 @@ const stats = [
 
   <!-- DOELGROEPEN ACCORDION -->
   <ValueStreamSection />
+
+  <!-- WAARDESTROOM TOOL: stappen + use cases + detail panel -->
+  <WaardestroomSection />
+
+  <!-- DATABRONNEN OVERZICHT -->
+  <DataSources />
 </BaseLayout>
