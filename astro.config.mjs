@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://astrodeck.dev',
+  server: { host: '0.0.0.0' },
   integrations: [
     react(),
     sitemap({
@@ -15,6 +16,6 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
-    server: { allowedHosts: ['localhost', '127.0.0.1', '.localhost'] },
+    server: { host: '0.0.0.0', allowedHosts: ['localhost', '127.0.0.1', '.localhost'] },
   },
 });
