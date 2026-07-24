@@ -1,0 +1,23 @@
+---
+import DoelgroepenAccordion from '@/components/ceda/DoelgroepenAccordion';
+
+interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  id = 'doelgroepen',
+  title = 'Kies je rol, zie de centrale inzichten',
+  subtitle = 'Elke doelgroep heeft eigen behoeften, spanning en kansen. Klik op een kaart om de centrale inzichten te zien.',
+} = Astro.props;
+---
+
+<section id={id} class="pb-2 pt-12">
+  <div class="mx-auto max-w-[1200px] px-4 md:px-8" data-animate>
+    <h2 class="font-serif text-2xl font-light text-foreground md:text-3xl">{title}</h2>
+    <p class="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{subtitle}</p>
+  </div>
+  <DoelgroepenAccordion client:visible />
+</section>
