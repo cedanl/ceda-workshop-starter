@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DoelgroepenSection from '@/components/sections/DoelgroepenSection.astro';
+---
+
+<BaseLayout
+  title="Doelgroepen & inzichten — CEDA"
+  description="Vijf doelgroepen, elk met centrale inzichten over behoeften, spanning en kansen rondom studiedata."
+>
+  <section class="bg-ceda-hero px-4 py-16 md:px-8 md:py-24">
+    <div class="mx-auto max-w-[900px]">
+      <p class="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-ceda-primary">
+        Doelgroepen
+      </p>
+      <h1 class="mb-6 font-serif text-4xl font-light leading-tight text-foreground md:text-5xl">
+        Wie werkt met studiedata?
+      </h1>
+      <p class="max-w-[640px] text-lg leading-relaxed text-muted-foreground">
+        Van leven-lang-lerende tot onderzoeker — vijf doelgroepen met eigen behoeften, spanning en
+        kansen. Klik op een kaart om de centrale inzichten te zien.
+      </p>
+    </div>
+  </section>
+
+  <DoelgroepenSection />
+</BaseLayout>

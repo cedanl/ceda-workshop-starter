@@ -206,7 +206,7 @@ const svgHeight = gridSize * (squareSize + gap);
 <script>
   // Event delegation so the handler survives ClientRouter view transitions
   document.addEventListener('click', async (event) => {
-    const button = (event.target as HTMLElement).closest('[data-copy-prompt]');
+    const button = event.target.closest('[data-copy-prompt]');
     if (!button) return;
 
     const promptEl = document.getElementById('hero-prompt-text');

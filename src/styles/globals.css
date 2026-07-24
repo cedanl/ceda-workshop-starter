@@ -52,6 +52,38 @@
 
   --radius: 0.5rem;
 
+  /* CEDA brand tokens — ported from system/ceda-waardestroom.html (OKLCH).
+     Used by the value-stream island and the "Alle databronnen" section.
+     Light-mode values live here; dark-mode overrides are in the .dark block below. */
+  --color-ceda-primary: oklch(
+    67.76% 0.1393 43.8
+  ); /* CEDA orange — CTAs, active states, connectors */
+  --color-ceda-primary-foreground: oklch(100% 0 0);
+  --color-ceda-success: oklch(66.86% 0.1387 166.05); /* CEDA teal — status "beschikbaar" */
+  --color-ceda-warn: oklch(67.76% 0.1393 43.8); /* same orange family — status "ontw" (MVP) */
+  --color-ceda-idea: oklch(47.12% 0 89.88); /* muted grey — status "idee" */
+  --color-ceda-idea-foreground: oklch(63.34% 0 89.88);
+  --color-ceda-hero: oklch(90.83% 0.0302 10.07); /* salmon hero background */
+  --color-ceda-link: oklch(50.78% 0.2266 264.86); /* CEDA blue — inline links */
+
+  --color-ceda-status-available-bg: oklch(96.22% 0.0191 176.44);
+  --color-ceda-status-available-fg: oklch(53.21% 0.1098 166.41);
+  --color-ceda-status-dev-bg: oklch(95.93% 0.0182 43.23);
+  --color-ceda-status-dev-fg: oklch(56.98% 0.1328 45.94);
+  --color-ceda-status-idea-bg: oklch(94.01% 0 89.88);
+
+  --color-ceda-chip-on-bg: oklch(96.22% 0.0191 176.44);
+  --color-ceda-chip-on-foreground: oklch(53.21% 0.1098 166.41);
+  --color-ceda-chip-off-bg: oklch(95.51% 0 89.88);
+  --color-ceda-chip-off-foreground: oklch(63.34% 0 89.88);
+
+  --color-ceda-biv-low-bg: oklch(96.25% 0.0198 159.76);
+  --color-ceda-biv-low-fg: oklch(51.06% 0.1306 149.51);
+  --color-ceda-biv-mid-bg: oklch(96.85% 0.0282 79.48);
+  --color-ceda-biv-mid-fg: oklch(52.01% 0.1297 54.4);
+  --color-ceda-biv-high-bg: oklch(94.78% 0.023 17.56);
+  --color-ceda-biv-high-fg: oklch(48.13% 0.1892 28.32);
+
   /* Accordion animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -95,6 +127,28 @@
   --color-border: oklch(25% 0 0);
   --color-input: oklch(25% 0 0);
   --color-ring: oklch(80% 0 0);
+
+  /* CEDA brand tokens — dark-mode overrides (orange/teal/link stay constant) */
+  --color-ceda-idea-foreground: oklch(68.65% 0.0094 17.39);
+  --color-ceda-hero: oklch(26.76% 0.0297 19.2);
+
+  --color-ceda-status-available-bg: oklch(31.9% 0.0669 165.17);
+  --color-ceda-status-available-fg: oklch(78.46% 0.1345 167.25);
+  --color-ceda-status-dev-bg: oklch(27.37% 0.0572 50.89);
+  --color-ceda-status-dev-fg: oklch(77.63% 0.1088 46.09);
+  --color-ceda-status-idea-bg: oklch(27.9% 0.0029 17.33);
+
+  --color-ceda-chip-on-bg: oklch(31.9% 0.0669 165.17);
+  --color-ceda-chip-on-foreground: oklch(78.46% 0.1345 167.25);
+  --color-ceda-chip-off-bg: oklch(27.9% 0.0029 17.33);
+  --color-ceda-chip-off-foreground: oklch(45.43% 0.0065 17.4);
+
+  --color-ceda-biv-low-bg: oklch(31.08% 0.0675 152.41);
+  --color-ceda-biv-low-fg: oklch(78.05% 0.1636 149.86);
+  --color-ceda-biv-mid-bg: oklch(27.64% 0.0596 70.85);
+  --color-ceda-biv-mid-fg: oklch(80.51% 0.1369 72.46);
+  --color-ceda-biv-high-bg: oklch(23.4% 0.0752 25.14);
+  --color-ceda-biv-high-fg: oklch(69.78% 0.1584 22.02);
 }
 
 * {

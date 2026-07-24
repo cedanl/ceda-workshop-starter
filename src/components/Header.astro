@@ -23,11 +23,11 @@ const { variant = 'boxed' } = Astro.props;
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/pages', label: 'Pages' },
-  { href: '/sections', label: 'Sections' },
-  { href: '/components', label: 'Components' },
-  { href: '/docs', label: 'Docs' },
-  { href: '/changelog', label: 'Changelog' },
+  { href: '/doelgroepen', label: 'Doelgroepen' },
+  { href: '/praktijk', label: 'Praktijk' },
+  { href: '/over-ons', label: 'Over ons' },
+  { href: '/randvoorwaarden', label: 'Randvoorwaarden' },
+  { href: '/meedoen', label: 'Meedoen' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -99,11 +99,15 @@ const containerClass =
               </div>
             );
           }
+          const isExternal = item.href.startsWith('http');
           const isActive =
-            item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+            !isExternal &&
+            (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
           return (
             <a
               href={item.href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
               class:list={[
                 'inline-block py-2 transition-colors',
                 isActive
@@ -122,27 +126,6 @@ const containerClass =
     <!-- Desktop Actions (hidden on mobile) -->
     <div class="hidden md:flex items-center space-x-2">
       <ThemeToggle />
-      <a
-        href="https://github.com/holger1411/astrodeck"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
-      >
-        GitHub
-        <svg
-          class="h-3 w-3"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-        </svg>
-      </a>
     </div>
 
     <!-- Mobile Actions (visible on mobile) -->
@@ -208,11 +191,15 @@ const containerClass =
               </div>
             );
           }
+          const isExternal = item.href.startsWith('http');
           const isActive =
-            item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+            !isExternal &&
+            (item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href));
           return (
             <a
               href={item.href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
               class:list={[
                 'block px-3 py-2 rounded-md text-base font-medium transition-colors',
                 isActive
@@ -227,7 +214,7 @@ const containerClass =
         })
       }
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://github.com/cedanl"
         target="_blank"
         rel="noopener noreferrer"
         class="block w-full text-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 py-2 px-4 mt-4"
@@ -246,7 +233,7 @@ const containerClass =
     const hamburgerMiddle = document.getElementById('hamburger-middle');
     const hamburgerBottom = document.getElementById('hamburger-bottom');
 
-    function toggleHamburger(isOpen: boolean) {
+    function toggleHamburger(isOpen) {
       if (isOpen) {
         hamburgerTop?.classList.add('rotate-45', 'translate-y-0');
         hamburgerTop?.classList.remove('-translate-y-1.5');
