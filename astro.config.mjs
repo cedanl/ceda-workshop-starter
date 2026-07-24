@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://astrodeck.dev',
+  site: 'https://cedanl.github.io',
+  base: '/ceda-workshop-starter',
   server: { host: '0.0.0.0' },
   integrations: [
     react(),
